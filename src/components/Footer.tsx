@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
             <div className="qr-image-container">
               <img src={qrImage} alt="WhatsApp QR Kodu" className="qr-image" />
             </div>
-            <p className="qr-description">QR kodu okutarak WhatsApp'tan ulaşın</p>
+            <p className="qr-description">QR kodu okutarak bize Google'dan yorum yapabilirsiniz.</p>
           </div>
         </div>
 
