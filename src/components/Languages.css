@@ -1,0 +1,210 @@
+.languages {
+  padding: 6rem 0;
+  background: var(--light-gray);
+}
+
+.languages-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.language-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border-left: 4px solid var(--primary-blue);
+}
+
+.language-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.language-flag {
+  font-size: 2rem;
+}
+
+.language-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.language-content {
+  margin-bottom: 2rem;
+}
+
+.language-description {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.language-description.turkish {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.language-description.foreign {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.language-divider {
+  height: 1px;
+  background: var(--medium-gray);
+  margin: 1.5rem 0;
+}
+
+.services-section {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.services-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.service-item:last-child {
+  margin-bottom: 0;
+}
+
+.service-bullet {
+  color: var(--primary-blue);
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.other-languages {
+  text-align: center;
+}
+
+.other-languages .card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: var(--gradient-blue);
+  color: var(--white);
+}
+
+.other-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.other-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.other-description-en {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .languages {
+    padding: 4rem 0;
+  }
+
+  .languages-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .language-card {
+    padding: 2rem;
+  }
+
+  .language-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .language-name {
+    font-size: 1.3rem;
+  }
+
+  .services-section {
+    padding: 1.25rem;
+  }
+
+  .other-languages .card {
+    padding: 2rem;
+  }
+
+  .other-title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-card {
+    padding: 1.5rem;
+  }
+
+  .language-flag {
+    font-size: 1.5rem;
+  }
+
+  .language-name {
+    font-size: 1.2rem;
+  }
+
+  .language-description {
+    font-size: 0.9rem;
+  }
+
+  .service-item {
+    font-size: 0.85rem;
+  }
+
+  .other-languages .card {
+    padding: 1.5rem;
+  }
+
+  .other-title {
+    font-size: 1.4rem;
+  }
+
+  .other-description {
+    font-size: 1rem;
+  }
+}
