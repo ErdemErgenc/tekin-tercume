@@ -6,7 +6,7 @@ interface HeroProps {
   onQuickQuote?: (fromLang: string, toLang: string) => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onQuoteRequest, onQuickQuote }) => {
+const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
   const [fromLanguage, setFromLanguage] = useState('turkce');
   const [toLanguage, setToLanguage] = useState('english');
 

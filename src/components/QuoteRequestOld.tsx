@@ -9,6 +9,8 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     document: null as File | null,
+    fromLanguage: '',
+    toLanguage: '',
     notaryApproval: '',
     notaryByOffice: '',
     multipleCopies: '',

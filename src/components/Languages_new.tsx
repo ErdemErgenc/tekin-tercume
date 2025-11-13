@@ -5,7 +5,7 @@ interface LanguagePageProps {
   language?: string;
 }
 
-const Languages: React.FC<LanguagePageProps> = ({ language }) => {
+const Languages: React.FC<LanguagePageProps> = () => {
   const languages = [
     {
       name: 'İngilizce',
