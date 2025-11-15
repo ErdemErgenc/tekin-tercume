@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({
   currentLanguage = 'tr',
   onLanguageChange
 }) => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -38,7 +38,29 @@ const Header: React.FC<HeaderProps> = ({
         { name: 'Tercüme Hizmeti', id: 'translation-service' },
         { name: 'Vize Hizmetleri', id: 'visa-services' },
         { name: 'Göçmenlik Hizmetleri', id: 'immigration-services' },
-        { name: 'Mesleki Bilgilendirme', id: 'professional-info' }
+        { name: 'Mesleki Belgelendirme', id: 'professional-info' }
+      ]
+    },
+    {
+      name: 'Diller',
+      id: 'languages',
+      hasDropdown: true,
+      subItems: [
+        { name: 'İngilizce', id: 'language-ingilizce', flag: '🇬🇧' },
+        { name: 'Almanca', id: 'language-almanca', flag: '🇩🇪' },
+        { name: 'Fransızca', id: 'language-fransizca', flag: '🇫🇷' },
+        { name: 'İtalyanca', id: 'language-italyanca', flag: '🇮🇹' },
+        { name: 'Rusça', id: 'language-rusca', flag: '🇷🇺' },
+        { name: 'Arapça', id: 'language-arapca', flag: '🇸🇦' },
+        { name: 'Farsça', id: 'language-farsca', flag: '🇮🇷' },
+        { name: 'Çince', id: 'language-cince', flag: '🇨🇳' },
+        { name: 'Japonca', id: 'language-japonca', flag: '🇯🇵' },
+        { name: 'Yunanca', id: 'language-yunanca', flag: '🇬🇷' },
+        { name: 'Felemenkçe', id: 'language-felemenkce', flag: '🇳🇱' },
+        { name: 'Bulgarca', id: 'language-bulgarca', flag: '🇧🇬' },
+        { name: 'Romence', id: 'language-romence', flag: '🇷🇴' },
+        { name: 'Ukraynaca', id: 'language-ukraynaca', flag: '🇺🇦' },
+        { name: 'Diğer Diller', id: 'language-diger', flag: '🌐' }
       ]
     },
     { name: 'Hakkımızda', id: 'about' },
@@ -63,8 +85,8 @@ const Header: React.FC<HeaderProps> = ({
                 <li
                   key={item.id}
                   className={`nav-item ${item.hasDropdown ? 'has-dropdown' : ''}`}
-                  onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
-                  onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
+                  onMouseEnter={() => item.hasDropdown && setOpenDropdown(item.id)}
+                  onMouseLeave={() => item.hasDropdown && setOpenDropdown(null)}
                 >
                   <button
                     className="nav-link"
@@ -78,17 +100,18 @@ const Header: React.FC<HeaderProps> = ({
                     )}
                   </button>
 
-                  {item.hasDropdown && isServicesOpen && (
+                  {item.hasDropdown && openDropdown === item.id && (
                     <div className="dropdown-menu">
-                      {item.subItems?.map((subItem) => (
+                      {item.subItems?.map((subItem: any) => (
                         <button
                           key={subItem.id}
                           className="dropdown-item"
                           onClick={() => {
                             onNavigate(subItem.id);
-                            setIsServicesOpen(false);
+                            setOpenDropdown(null);
                           }}
                         >
+                          {subItem.flag && <span className="item-flag">{subItem.flag}</span>}
                           {subItem.name}
                         </button>
                       ))}

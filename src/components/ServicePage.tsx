@@ -11,9 +11,9 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
     switch (serviceType) {
       case 'translation-service':
         return {
-          title: 'Tercüme Hizmeti',
-          subtitle: 'Profesyonel ve Güvenilir Çeviri Hizmetleri',
-          description: 'Yeminli tercümanlarımız ile 25+ dilde resmi belgelerinizin çevirisini yapıyoruz.',
+          title: 'Noter Onaylı Yeminli Tercüme Hizmeti',
+          subtitle: 'Adalet Bakanlığı Onaylı Profesyonel Çeviri Hizmetleri',
+          description: 'Tekin Tercüme olarak, Adalet Bakanlığı tarafından yetkilendirilmiş yeminli tercümanlarımız aracılığıyla 25+ dilde resmi belge çevirisi sunuyoruz. Tüm çevirilerimiz noter onaylı olup, ulusal ve uluslararası resmi kurumlarda geçerlidir. Diploma, pasaport, mahkeme kararları, ticari sözleşmeler ve daha birçok belgede güvenilir ve hızlı çözümler üretiyoruz.',
           features: [
             {
               icon: '📄',
@@ -46,9 +46,9 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
 
       case 'visa-services':
         return {
-          title: 'Vize Hizmetleri',
-          subtitle: 'Profesyonel Vize Danışmanlığı ve Başvuru Desteği',
-          description: 'Yurt dışı seyahatleriniz için vize başvuru süreçlerinizde uzman kadromuzla yanınızdayız. Turistik, iş, öğrenci ve aile birleşimi vizesi için kapsamlı destek sunuyoruz.',
+          title: 'Vize Danışmanlık ve Başvuru Hizmetleri',
+          subtitle: 'Turistik, Çalışma ve Aile Birleşimi Vizelerinde Profesyonel Destek',
+          description: 'Yurt dışına çıkmak isteyenler için her türlü vize başvurusunda A\'dan Z\'ye danışmanlık ve evrak hazırlama hizmeti sunuyoruz. Schengen ülkeleri, ABD, Kanada, İngiltere, Avustralya başta olmak üzere tüm ülkelere turistik, iş, öğrenci ve aile birleşimi vizelerinde uzman kadromuzla yanınızdayız. Vize başvurunuz için gerekli tüm belgelerin çevirisi, noter tasdiki, randevu yönetimi ve başvuru sonrası takip hizmetleri ile vize alma sürecinizi kolaylaştırıyoruz.',
           features: [
             {
               icon: '✈️',
@@ -86,29 +86,39 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
 
       case 'immigration-services':
         return {
-          title: 'Göçmenlik Hizmetleri',
-          subtitle: 'Yurt Dışı Yerleşim Süreçlerinizde Uzman Desteği',
-          description: 'Kalıcı ikamet ve vatandaşlık süreçlerinizde profesyonel rehberlik.',
+          title: 'Göçmenlik ve İkamet Danışmanlık Hizmetleri',
+          subtitle: 'Türkiye, Kanada ve Diğer Ülkelere Kalıcı İkamet Süreçleri',
+          description: 'Yurt dışına yerleşmek veya Türkiye\'de ikamet izni almak isteyenler için kapsamlı göçmenlik danışmanlığı sunuyoruz. Türkiye\'ye gelen yabancılar için kısa/uzun dönem ikamet izni, çalışma izni ve vatandaşlık başvurularında; yurt dışına yerleşmek isteyenler için ise Kanada Express Entry, Provincial Nominee Program (PNP), Avustralya, ABD ve Avrupa ülkelerinin göçmenlik programlarında A\'dan Z\'ye destek sağlıyoruz. Evrak hazırlama, denklik işlemleri, dil sınavı bilgilendirmesi ve başvuru sonrası takip hizmetleri ile göçmenlik sürecinizi sorunsuz tamamlamanıza yardımcı oluyoruz.',
           features: [
             {
               icon: '🇹🇷',
               title: 'Türkiye İkamet İzni',
-              description: 'Kısa/uzun dönem ikamet izni başvuruları'
+              description: 'Yabancılar için kısa/uzun dönem ikamet, çalışma izni ve vatandaşlık başvuruları'
             },
             {
               icon: '🇨🇦',
-              title: 'Kanada İkamet',
-              description: 'Express Entry ve Provincial Nominee programları'
+              title: 'Kanada Express Entry',
+              description: 'Federal Skilled Worker, Canadian Experience Class ve Federal Skilled Trades programları'
             },
             {
-              icon: '🏠',
-              title: 'Yatırım Yoluyla İkamet',
-              description: 'Yatırım programları ile ikamet hakkı'
+              icon: '🏛️',
+              title: 'Provincial Nominee Program',
+              description: 'Kanada eyalet bazlı göçmenlik programları (Ontario, British Columbia, Alberta vb.)'
+            },
+            {
+              icon: '�',
+              title: 'Diğer Ülkeler',
+              description: 'ABD Green Card, Avustralya Skilled Migration, Avrupa Golden Visa programları'
             },
             {
               icon: '📋',
-              title: 'Evrak Hazırlama',
-              description: 'Tüm başvuru evraklarının eksiksiz hazırlanması'
+              title: 'Evrak Yönetimi',
+              description: 'Tüm belgelerin çevirisi, tasdiki, apostil ve konsolosluk onayı işlemleri'
+            },
+            {
+              icon: '🎯',
+              title: 'Puan Hesaplama',
+              description: 'Express Entry CRS puanı ve eyalet programları uygunluk değerlendirmesi'
             }
           ],
           pricing: [
@@ -121,29 +131,39 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
 
       case 'professional-info':
         return {
-          title: 'Mesleki Bilgilendirme',
-          subtitle: 'Sertifika ve Diploma Denklik İşlemleri',
-          description: 'Yurt dışında çalışmak için gerekli belge onayları ve denklik işlemleri.',
+          title: 'Mesleki Belgelendirme ve Denklik Hizmetleri',
+          subtitle: 'WES, ICAS, CES ve Uluslararası Diploma Denklik İşlemleri',
+          description: 'Yurt dışında çalışmak, eğitim görmek veya göçmenlik başvurusu yapmak isteyenler için diploma ve sertifikaların uluslararası kuruluşlarca değerlendirilmesi gereklidir. Kanada için WES (World Education Services), ICAS (International Credential Assessment Service), CES (Comparative Education Service); ABD, İngiltere, Avustralya ve diğer ülkeler için diploma denklik başvurularınızı profesyonelce yönetiyoruz. E-Devlet üzerinden barkodlu belge çıkarma, YÖK onaylı diploma sureti alma, noter tasdiki, apostil işlemleri ve konsolosluk onayı gibi tüm adımlarda size rehberlik ediyoruz.',
           features: [
             {
+              icon: '🇨🇦',
+              title: 'WES (World Education Services)',
+              description: 'Kanada için en yaygın diploma denklik kuruluşu - transkript ve diploma değerlendirmesi'
+            },
+            {
+              icon: '📋',
+              title: 'ICAS (International Credential Assessment)',
+              description: 'Kanada için diploma denklik değerlendirmesi - akademik ve mesleki sertifikalar'
+            },
+            {
+              icon: '�',
+              title: 'CES (Comparative Education Service)',
+              description: 'Toronto Üniversitesi destekli denklik hizmeti - lisans ve lisansüstü değerlendirme'
+            },
+            {
               icon: '📜',
-              title: 'E-Devlet Sertifikaları',
-              description: 'Barkodlu e-devlet sertifikalarının çıkarılması'
-            },
-            {
-              icon: '🌐',
-              title: 'Uluslararası Sertifikalar',
-              description: 'YÖK, ÖSYM ve diğer kurumlardan sertifikalar'
-            },
-            {
-              icon: '🎯',
-              title: 'Diploma Denkliği',
-              description: 'Yurt dışı diplomalarının Türkiye\'de denkliği'
+              title: 'E-Devlet ve YÖK Belgeleri',
+              description: 'Barkodlu transkript, diploma tasdik belgesi, YÖK onaylı tercüme ve apostil işlemleri'
             },
             {
               icon: '✅',
-              title: 'Belge Onayı',
-              description: 'Apostil, konsolosluk onayı işlemleri'
+              title: 'Apostil ve Konsolosluk Onayı',
+              description: 'Belgelerin uluslararası geçerliliği için Dışişleri Bakanlığı apostil ve konsolosluk tasdiki'
+            },
+            {
+              icon: '🌍',
+              title: 'Diğer Ülkeler',
+              description: 'ABD, İngiltere, Avustralya, Almanya için diploma denklik başvuru danışmanlığı'
             }
           ],
           pricing: [

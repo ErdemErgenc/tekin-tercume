@@ -7,6 +7,8 @@ interface QuoteRequestProps {
 
 const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     document: null as File | null,
     description: '',
@@ -15,7 +17,8 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
     multipleCopies: '',
     name: '',
     phone: '',
-    email: ''
+    email: '',
+    contactPreference: ''
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -39,10 +42,46 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
     }
   };
 
-  const handleSubmit = () => {
-    // Form submission logic
-    console.log('Form submitted:', formData);
-    onClose();
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Send email via our backend API (Gmail SMTP)
+      const response = await fetch('http://localhost:3001/api/send-quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          description: formData.description,
+          notaryApproval: formData.notaryApproval,
+          notaryByOffice: formData.notaryByOffice,
+          multipleCopies: formData.multipleCopies,
+          contactPreference: formData.contactPreference,
+          documentName: formData.document?.name || null
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setTimeout(() => {
+          onClose();
+        }, 3000);
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error('Email send error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -98,32 +137,81 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
                 />
               </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <label>Noter Onayı</label>
-                  <select
-                    value={formData.notaryApproval}
-                    onChange={(e) => handleInputChange('notaryApproval', e.target.value)}
-                  >
-                    <option value="">Seçiniz</option>
-                    <option value="yes">Evet, gerekli</option>
-                    <option value="no">Hayır, gerekli değil</option>
-                    <option value="unsure">Emin değilim</option>
-                  </select>
+              <div className="form-group radio-group">
+                <label className="radio-group-label">Tercümelerimi noterden tasdik edeceğim</label>
+                <div className="radio-options">
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="notaryApproval"
+                      value="yes"
+                      checked={formData.notaryApproval === 'yes'}
+                      onChange={(e) => handleInputChange('notaryApproval', e.target.value)}
+                    />
+                    <span className="radio-text">Evet</span>
+                  </label>
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="notaryApproval"
+                      value="no"
+                      checked={formData.notaryApproval === 'no'}
+                      onChange={(e) => handleInputChange('notaryApproval', e.target.value)}
+                    />
+                    <span className="radio-text">Hayır</span>
+                  </label>
                 </div>
+              </div>
 
-                <div className="form-group">
-                  <label>Kopya Sayısı</label>
-                  <select
-                    value={formData.multipleCopies}
-                    onChange={(e) => handleInputChange('multipleCopies', e.target.value)}
-                  >
-                    <option value="">Seçiniz</option>
-                    <option value="1">1 kopya</option>
-                    <option value="2">2 kopya</option>
-                    <option value="3">3 kopya</option>
-                    <option value="more">Daha fazla</option>
-                  </select>
+              <div className="form-group radio-group">
+                <label className="radio-group-label">Noter tasdiki çeviri bürosu tarafından yapılsın</label>
+                <div className="radio-options">
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="notaryByOffice"
+                      value="yes"
+                      checked={formData.notaryByOffice === 'yes'}
+                      onChange={(e) => handleInputChange('notaryByOffice', e.target.value)}
+                    />
+                    <span className="radio-text">Evet</span>
+                  </label>
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="notaryByOffice"
+                      value="no"
+                      checked={formData.notaryByOffice === 'no'}
+                      onChange={(e) => handleInputChange('notaryByOffice', e.target.value)}
+                    />
+                    <span className="radio-text">Hayır</span>
+                  </label>
+                </div>
+              </div>
+
+              <div className="form-group radio-group">
+                <label className="radio-group-label">Birden fazla nüsha istiyorum</label>
+                <div className="radio-options">
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="multipleCopies"
+                      value="yes"
+                      checked={formData.multipleCopies === 'yes'}
+                      onChange={(e) => handleInputChange('multipleCopies', e.target.value)}
+                    />
+                    <span className="radio-text">Evet</span>
+                  </label>
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="multipleCopies"
+                      value="no"
+                      checked={formData.multipleCopies === 'no'}
+                      onChange={(e) => handleInputChange('multipleCopies', e.target.value)}
+                    />
+                    <span className="radio-text">Hayır</span>
+                  </label>
                 </div>
               </div>
             </div>
@@ -173,18 +261,56 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
                 <h4>Nasıl iletişim kurmamızı tercih edersiniz?</h4>
                 <div className="contact-options">
                   <label className="contact-option">
-                    <input type="radio" name="contact" value="phone" />
+                    <input
+                      type="radio"
+                      name="contact"
+                      value="phone"
+                      checked={formData.contactPreference === 'phone'}
+                      onChange={(e) => handleInputChange('contactPreference', e.target.value)}
+                    />
                     <span className="option-text">📞 Telefon</span>
                   </label>
                   <label className="contact-option">
-                    <input type="radio" name="contact" value="whatsapp" />
+                    <input
+                      type="radio"
+                      name="contact"
+                      value="whatsapp"
+                      checked={formData.contactPreference === 'whatsapp'}
+                      onChange={(e) => handleInputChange('contactPreference', e.target.value)}
+                    />
                     <span className="option-text">💬 WhatsApp</span>
                   </label>
                   <label className="contact-option">
-                    <input type="radio" name="contact" value="email" />
+                    <input
+                      type="radio"
+                      name="contact"
+                      value="email"
+                      checked={formData.contactPreference === 'email'}
+                      onChange={(e) => handleInputChange('contactPreference', e.target.value)}
+                    />
                     <span className="option-text">📧 E-posta</span>
                   </label>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {submitStatus === 'error' && (
+            <div className="status-message error">
+              <div className="status-icon">❌</div>
+              <div className="status-content">
+                <h4>Gönderim Başarısız</h4>
+                <p>Bir hata oluştu. Lütfen tekrar deneyin veya bizi arayın.</p>
+              </div>
+            </div>
+          )}
+
+          {submitStatus === 'success' && (
+            <div className="status-message success">
+              <div className="status-icon">✅</div>
+              <div className="status-content">
+                <h4>Talebiniz Alındı!</h4>
+                <p>En kısa sürede sizinle iletişime geçeceğiz.</p>
               </div>
             </div>
           )}
@@ -205,9 +331,9 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
             <button
               className="btn-primary submit-btn"
               onClick={handleSubmit}
-              disabled={!formData.name || !formData.phone || !formData.email}
+              disabled={!formData.name || !formData.phone || !formData.email || isSubmitting}
             >
-              🚀 Teklif Talep Et
+              {isSubmitting ? '� Gönderiliyor...' : submitStatus === 'success' ? '✅ Gönderildi!' : '�🚀 Teklif Talep Et'}
             </button>
           )}
         </div>

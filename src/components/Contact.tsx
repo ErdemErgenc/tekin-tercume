@@ -36,27 +36,23 @@ const Contact: React.FC = () => {
               <h3>İletişim Bilgileri</h3>
 
               <div className="contact-item">
-                <strong>Telefon:</strong>
+                <strong>WhatsApp / Mobil:</strong>
                 <a href="tel:+905447215315">+90 544 721 53 15</a>
               </div>
 
               <div className="contact-item">
-                <strong>WhatsApp:</strong>
-                <a href="https://wa.me/905447215315" target="_blank" rel="noopener noreferrer">
-                  +90 544 721 53 15
-                </a>
+                <strong>Ofis Telefonu:</strong>
+                <a href="tel:+904242387254">+90 424 238 72 54</a>
               </div>
 
               <div className="contact-item">
                 <strong>E-posta:</strong>
-                <a href="mailto:info@tekintercume.com.tr">info@tekintercume.com.tr</a>
+                <a href="mailto:infotekintercume@gmail.com">infotekintercume@gmail.com</a>
               </div>
 
               <div className="contact-item">
-                <strong>Web:</strong>
-                <a href="https://www.tekintercume.com.tr" target="_blank" rel="noopener noreferrer">
-                  www.tekintercume.com.tr
-                </a>
+                <strong>Adres:</strong>
+                <span>Diyarbakır, Türkiye</span>
               </div>
 
               <div className="contact-item">
@@ -127,12 +123,11 @@ const Contact: React.FC = () => {
                     onChange={handleInputChange}
                   >
                     <option value="">Seçiniz</option>
-                    <option value="document">Belge Çevirisi</option>
-                    <option value="notary">Noter Onaylı Çeviri</option>
-                    <option value="interpretation">Sözlü Tercüme</option>
-                    <option value="visa">Vize Başvuru Çevirisi</option>
-                    <option value="technical">Teknik Çeviri</option>
-                    <option value="urgent">Acil Çeviri</option>
+                    <option value="translation">Noter Onaylı Yeminli Tercüme</option>
+                    <option value="visa">Vize Danışmanlığı</option>
+                    <option value="immigration">Göçmenlik Hizmetleri</option>
+                    <option value="certification">Mesleki Belgelendirme (WES/ICAS)</option>
+                    <option value="urgent">Acil Çeviri (24 Saat)</option>
                     <option value="other">Diğer</option>
                   </select>
                 </div>
