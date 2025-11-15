@@ -1,7 +1,24 @@
+import React from 'react';
+import GB from 'country-flag-icons/react/3x2/GB';
+import DE from 'country-flag-icons/react/3x2/DE';
+import FR from 'country-flag-icons/react/3x2/FR';
+import IT from 'country-flag-icons/react/3x2/IT';
+import RU from 'country-flag-icons/react/3x2/RU';
+import SA from 'country-flag-icons/react/3x2/SA';
+import IR from 'country-flag-icons/react/3x2/IR';
+import CN from 'country-flag-icons/react/3x2/CN';
+import JP from 'country-flag-icons/react/3x2/JP';
+import GR from 'country-flag-icons/react/3x2/GR';
+import NL from 'country-flag-icons/react/3x2/NL';
+import BG from 'country-flag-icons/react/3x2/BG';
+import RO from 'country-flag-icons/react/3x2/RO';
+import UA from 'country-flag-icons/react/3x2/UA';
+
 // Tüm dil verileri
 export interface LanguageData {
   name: string;
-  flag: string;
+  flag?: string;
+  flagComponent?: React.ComponentType<{ className?: string }>;
   turkish: string;
   foreign: string;
   turkishServices: string[];
@@ -21,7 +38,7 @@ const turkishServices = [
 export const languagesData: Record<string, LanguageData> = {
   ingilizce: {
     name: 'İngilizce',
-    flag: '🇬🇧',
+    flagComponent: GB,
     turkish: 'İngilizce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.',
     turkishServices: turkishServices,
@@ -37,7 +54,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   almanca: {
     name: 'Almanca',
-    flag: '🇩🇪',
+    flagComponent: DE,
     turkish: 'Almanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Ihre deutschen Dokumente werden von unseren vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.',
     turkishServices: turkishServices,
@@ -53,7 +70,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   fransizca: {
     name: 'Fransızca',
-    flag: '🇫🇷',
+    flagComponent: FR,
     turkish: 'Fransızca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés et validés officiellement par une certification notariale.',
     turkishServices: turkishServices,
@@ -69,7 +86,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   italyanca: {
     name: 'İtalyanca',
-    flag: '🇮🇹',
+    flagComponent: IT,
     turkish: 'İtalyanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati e certificati con approvazione notarile.',
     turkishServices: turkishServices,
@@ -85,7 +102,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   rusca: {
     name: 'Rusça',
-    flag: '🇷🇺',
+    flagComponent: RU,
     turkish: 'Rusça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Ваши русские документы переводятся нашими присяжными переводчиками и заверяются нотариально.',
     turkishServices: turkishServices,
@@ -101,7 +118,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   arapca: {
     name: 'Arapça',
-    flag: '🇸🇦',
+    flagComponent: SA,
     turkish: 'Arapça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين ويتم اعتمادها رسمياً بواسطة كاتب العدل.',
     turkishServices: turkishServices,
@@ -117,7 +134,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   farsca: {
     name: 'Farsça',
-    flag: '🇮🇷',
+    flagComponent: IR,
     turkish: 'Farsça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'اسناد فارسی شما توسط مترجمان رسمی ما ترجمه شده و با تأیید رسمی دفتر اسناد رسمی معتبر می‌شود.',
     turkishServices: turkishServices,
@@ -133,7 +150,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   cince: {
     name: 'Çince',
-    flag: '🇨🇳',
+    flagComponent: CN,
     turkish: 'Çince belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: '您的中文文件由我们的宣誓翻译员翻译，并经过公证认证以获得官方效力。',
     turkishServices: turkishServices,
@@ -149,7 +166,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   japonca: {
     name: 'Japonca',
-    flag: '🇯🇵',
+    flagComponent: JP,
     turkish: 'Japonca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: '日本語の書類は、当社の公証翻訳者によって翻訳され、公証人による認証付きで正式な効力を持ちます。',
     turkishServices: turkishServices,
@@ -165,7 +182,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   yunanca: {
     name: 'Yunanca',
-    flag: '🇬🇷',
+    flagComponent: GR,
     turkish: 'Yunanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Τα ελληνικά σας έγγραφα μεταφράζονται από τους επίσημους μεταφραστές μας και επικυρώνονται με συμβολαιογραφική βεβαίωση.',
     turkishServices: turkishServices,
@@ -180,9 +197,9 @@ export const languagesData: Record<string, LanguageData> = {
     ]
   },
   felemenkce: {
-    name: 'Felemenkçe',
-    flag: '🇳🇱',
-    turkish: 'Felemenkçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    name: 'Felemenkce',
+    flagComponent: NL,
+    turkish: 'Felemenkce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Uw Nederlandse documenten worden vertaald door onze beëdigde vertalers en officieel gelegaliseerd met notariële goedkeuring.',
     turkishServices: turkishServices,
     foreignServices: [
@@ -197,7 +214,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   bulgarca: {
     name: 'Bulgarca',
-    flag: '🇧🇬',
+    flagComponent: BG,
     turkish: 'Bulgarca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Вашите български документи се превеждат от нашите заклети преводачи и се удостоверяват нотариално за официална валидност.',
     turkishServices: turkishServices,
@@ -213,7 +230,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   romence: {
     name: 'Romence',
-    flag: '🇷🇴',
+    flagComponent: RO,
     turkish: 'Romence belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Documentele dvs. românești sunt traduse de traducătorii noștri autorizați și certificate prin notar pentru valabilitate oficială.',
     turkishServices: turkishServices,
@@ -229,7 +246,7 @@ export const languagesData: Record<string, LanguageData> = {
   },
   ukraynaca: {
     name: 'Ukraynaca',
-    flag: '🇺🇦',
+    flagComponent: UA,
     turkish: 'Ukraynaca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
     foreign: 'Ваші українські документи перекладаються нашими присяжними перекладачами та нотаріально завіряються для офіційної дійсності.',
     turkishServices: turkishServices,

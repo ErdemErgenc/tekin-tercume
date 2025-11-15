@@ -57,7 +57,11 @@ const LanguageDetail: React.FC<LanguageDetailProps> = ({ languageId, onNavigate 
 
         <div className="language-header">
           <div className="language-title-section">
-            <span className="language-flag-large">{currentLanguage.flag}</span>
+            {currentLanguage.flagComponent ? (
+              <currentLanguage.flagComponent className="language-flag-svg-large" />
+            ) : (
+              <span className="language-flag-large">{currentLanguage.flag}</span>
+            )}
             <h1 className="language-title">{currentLanguage.name}</h1>
           </div>
         </div>
