@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import './Services.css';
 
-const Services: React.FC = () => {
+interface ServicesProps {
+  onNavigate?: (page: string) => void;
+}
+
+const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -38,7 +42,8 @@ const Services: React.FC = () => {
       features: [
         'Akademik, teknik, hukuki ve ticari metinlerde profesyonellik',
         'Doğru, güvenilir ve terminolojiye uygun çeviri'
-      ]
+      ],
+      navigateTo: 'translation-service'
     },
     {
       id: 2,
@@ -48,7 +53,8 @@ const Services: React.FC = () => {
       features: [
         'Acil işlerinizde öncelikli hizmet',
         'Süreye uygun planlama ve hızlı sonuç'
-      ]
+      ],
+      navigateTo: 'translation-service'
     },
     {
       id: 3,
@@ -58,7 +64,8 @@ const Services: React.FC = () => {
       features: [
         'Tüm çeviriler gizlilik ilkesiyle korunur',
         'Müşteri verileri üçüncü kişilerle paylaşılmaz'
-      ]
+      ],
+      navigateTo: 'translation-service'
     },
     {
       id: 4,
@@ -68,7 +75,8 @@ const Services: React.FC = () => {
       features: [
         'Online destek ve iletişim',
         'Esnek çalışma saatleri'
-      ]
+      ],
+      navigateTo: 'translation-service'
     },
     {
       id: 5,
@@ -78,7 +86,8 @@ const Services: React.FC = () => {
       features: [
         'Çift kontrol sistemi ile hatasız teslim',
         'Profesyonel editör onayı'
-      ]
+      ],
+      navigateTo: 'translation-service'
     },
     {
       id: 6,
@@ -88,9 +97,16 @@ const Services: React.FC = () => {
       features: [
         'Şeffaf ve sürprizsiz fiyatlandırma',
         'Uzun vadeli iş birliklerinde özel indirimler'
-      ]
+      ],
+      navigateTo: 'translation-service'
     }
   ];
+
+  const handleServiceClick = (navigateTo: string) => {
+    if (onNavigate) {
+      onNavigate(navigateTo);
+    }
+  };
 
   return (
     <section className="services">
@@ -104,7 +120,12 @@ const Services: React.FC = () => {
 
         <div className="services-grid">
           {services.map((service) => (
-            <div key={service.id} className="service-card card">
+            <div
+              key={service.id}
+              className="service-card card"
+              onClick={() => handleServiceClick(service.navigateTo)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="service-header">
                 <div className="service-icon">{service.icon}</div>
                 <div className="service-info">

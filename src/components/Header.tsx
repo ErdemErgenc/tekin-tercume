@@ -35,10 +35,30 @@ const Header: React.FC<HeaderProps> = ({
       id: 'services',
       hasDropdown: true,
       subItems: [
-        { name: 'Tercüme Hizmeti', id: 'translation-service' },
-        { name: 'Vize Hizmetleri', id: 'visa-services' },
-        { name: 'Göçmenlik Hizmetleri', id: 'immigration-services' },
-        { name: 'Mesleki Belgelendirme', id: 'professional-info' }
+        {
+          name: 'Tercüme Hizmeti',
+          id: 'translation-service',
+          icon: '📄',
+          description: 'Resmî belgelerinizin güvenilir çevirisi'
+        },
+        {
+          name: 'Vize Hizmetleri',
+          id: 'visa-services',
+          icon: '✈️',
+          description: 'Vize başvurularında profesyonel destek'
+        },
+        {
+          name: 'Göçmenlik Hizmetleri',
+          id: 'immigration-services',
+          icon: '🌍',
+          description: 'İkamet ve göçmenlik danışmanlığı'
+        },
+        {
+          name: 'Mesleki Belgelendirme',
+          id: 'professional-info',
+          icon: '🎓',
+          description: 'Diploma denklik ve sertifikalar'
+        }
       ]
     },
     {
@@ -103,17 +123,21 @@ const Header: React.FC<HeaderProps> = ({
                   {item.hasDropdown && openDropdown === item.id && (
                     <div className="dropdown-menu">
                       {item.subItems?.map((subItem: any) => (
-                        <button
+                        <div
                           key={subItem.id}
-                          className="dropdown-item"
+                          className="dropdown-service-card"
                           onClick={() => {
                             onNavigate(subItem.id);
                             setOpenDropdown(null);
                           }}
                         >
-                          {subItem.flag && <span className="item-flag-emoji">{subItem.flag}</span>}
-                          <span className="item-name">{subItem.name}</span>
-                        </button>
+                          <div className="service-card-icon">{subItem.icon}</div>
+                          <div className="service-card-content">
+                            <h4 className="service-card-title">{subItem.name}</h4>
+                            <p className="service-card-description">{subItem.description}</p>
+                          </div>
+                          <div className="service-card-arrow">→</div>
+                        </div>
                       ))}
                     </div>
                   )}

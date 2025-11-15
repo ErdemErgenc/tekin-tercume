@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ServicePages.css';
 
 interface ServicePageProps {
@@ -7,33 +7,38 @@ interface ServicePageProps {
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) => {
+  const [selectedFeature, setSelectedFeature] = useState<any>(null);
   const getServiceContent = () => {
     switch (serviceType) {
       case 'translation-service':
         return {
-          title: 'Noter Onaylı Yeminli Tercüme Hizmeti',
-          subtitle: 'Adalet Bakanlığı Onaylı Profesyonel Çeviri Hizmetleri',
-          description: 'Tekin Tercüme olarak, Adalet Bakanlığı tarafından yetkilendirilmiş yeminli tercümanlarımız aracılığıyla 128+ dilde resmi belge çevirisi sunuyoruz. Tüm çevirilerimiz noter onaylı olup, ulusal ve uluslararası resmi kurumlarda geçerlidir. Diploma, pasaport, mahkeme kararları, ticari sözleşmeler ve daha birçok belgede güvenilir ve hızlı çözümler üretiyoruz.',
+          title: 'Tercüme Hizmeti',
+          subtitle: 'Profesyonel Çeviri Hizmetleri',
+          description: 'Resmî belgelerinizin, akademik çalışmalarınızın ve iş evraklarınızın güvenilir ve doğru çevirisini sunuyoruz. Deneyimli tercüman ekibimiz; Türkçe, Almanca, İngilizce ve diğer birçok dilde profesyonel hizmet vermektedir. Apostil, noter onayı ve yeminli tercüme gibi ihtiyaçlarınıza uygun çözümlerle belgelerinizin uluslararası geçerliliğini sağlıyoruz.',
           features: [
             {
               icon: '📄',
               title: 'Resmi Belge Çevirisi',
-              description: 'Pasaport, nüfus cüzdanı, diploması, transkriptler ve tüm resmi belgeleriniz'
+              description: 'Pasaport, nüfus cüzdanı, diploması, transkriptler ve tüm resmi belgeleriniz',
+              detail: 'Resmî belgelerinizin, akademik çalışmalarınızın ve iş evraklarınızın güvenilir ve doğru çevirisini sunuyoruz. Deneyimli tercüman ekibimiz; Türkçe, Almanca, İngilizce ve diğer birçok dilde profesyonel hizmet vermektedir. Apostil, noter onayı ve yeminli tercüme gibi ihtiyaçlarınıza uygun çözümlerle belgelerinizin uluslararası geçerliliğini sağlıyoruz.'
             },
             {
               icon: '⚖️',
               title: 'Yeminli Tercüman',
-              description: 'Adalet Bakanlığı onaylı yeminli tercümanlar tarafından çeviri'
+              description: 'Adalet Bakanlığı onaylı yeminli tercümanlar tarafından çeviri',
+              detail: 'Resmî belgelerinizin, akademik çalışmalarınızın ve iş evraklarınızın güvenilir ve doğru çevirisini sunuyoruz. Deneyimli tercüman ekibimiz; Türkçe, Almanca, İngilizce ve diğer birçok dilde profesyonel hizmet vermektedir. Apostil, noter onayı ve yeminli tercüme gibi ihtiyaçlarınıza uygun çözümlerle belgelerinizin uluslararası geçerliliğini sağlıyoruz.'
             },
             {
               icon: '🌍',
               title: '128 Dil Desteği',
-              description: 'İngilizce, Almanca, Fransızca, İtalyanca ve daha fazlası'
+              description: 'İngilizce, Almanca, Fransızca, İtalyanca ve daha fazlası',
+              detail: 'Resmî belgelerinizin, akademik çalışmalarınızın ve iş evraklarınızın güvenilir ve doğru çevirisini sunuyoruz. Deneyimli tercüman ekibimiz; Türkçe, Almanca, İngilizce ve diğer birçok dilde profesyonel hizmet vermektedir. Apostil, noter onayı ve yeminli tercüme gibi ihtiyaçlarınıza uygun çözümlerle belgelerinizin uluslararası geçerliliğini sağlıyoruz.'
             },
             {
               icon: '⚡',
               title: 'Hızlı Teslimat',
-              description: '24 saat içinde acil çeviri hizmeti mevcuttur'
+              description: '24 saat içinde acil çeviri hizmeti mevcuttur',
+              detail: 'Resmî belgelerinizin, akademik çalışmalarınızın ve iş evraklarınızın güvenilir ve doğru çevirisini sunuyoruz. Deneyimli tercüman ekibimiz; Türkçe, Almanca, İngilizce ve diğer birçok dilde profesyonel hizmet vermektedir. Apostil, noter onayı ve yeminli tercüme gibi ihtiyaçlarınıza uygun çözümlerle belgelerinizin uluslararası geçerliliğini sağlıyoruz.'
             }
           ],
           pricing: [
@@ -46,39 +51,45 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
 
       case 'visa-services':
         return {
-          title: 'Vize Danışmanlık ve Başvuru Hizmetleri',
+          title: 'Vize Hizmetleri',
           subtitle: 'Turistik, Çalışma ve Aile Birleşimi Vizelerinde Profesyonel Destek',
-          description: 'Yurt dışına çıkmak isteyenler için her türlü vize başvurusunda A\'dan Z\'ye danışmanlık ve evrak hazırlama hizmeti sunuyoruz. Schengen ülkeleri, ABD, Kanada, İngiltere, Avustralya başta olmak üzere tüm ülkelere turistik, iş, öğrenci ve aile birleşimi vizelerinde uzman kadromuzla yanınızdayız. Vize başvurunuz için gerekli tüm belgelerin çevirisi, noter tasdiki, randevu yönetimi ve başvuru sonrası takip hizmetleri ile vize alma sürecinizi kolaylaştırıyoruz.',
+          description: 'Yurt dışına seyahat planınızda en önemli adımlardan biri olan vize sürecinde yanınızdayız. Belgelerinizin hazırlanmasından başvuru formlarının doldurulmasına, randevu alımından takip sürecine kadar her aşamada danışmanlık hizmeti sunuyoruz. Profesyonel ekibimiz sayesinde vize başvurularınız hızlı, eksiksiz ve güvenli bir şekilde ilerler.',
           features: [
             {
               icon: '✈️',
-              title: 'Turistik Vize',
-              description: 'Schengen, ABD, İngiltere, Kanada, Avustralya ve tüm ülkeler için turistik vize başvuru desteği'
+              title: 'Turistik Vizesi',
+              description: 'Seyahat etmek istediğiniz ülkenin turistik vize başvurusunda gerekli tüm belgeleri hazırlamanıza yardımcı oluyoruz',
+              detail: 'Seyahat etmek istediğiniz ülkenin turistik vize başvurusunda gerekli tüm belgeleri hazırlamanıza yardımcı oluyoruz. Uçuş ve konaklama belgelerinden seyahat sigortasına kadar süreci şeffaf şekilde yönetiyor, sorunsuz bir vize onayı için size rehberlik ediyoruz.'
             },
             {
               icon: '💼',
               title: 'Çalışma Vizesi',
-              description: 'İş vizesi ve çalışma izni başvurularında tam süreç yönetimi ve evrak hazırlığı'
+              description: 'Yurt dışında kariyer yapmak isteyenler için çalışma vizesi danışmanlığı sunuyoruz',
+              detail: 'Yurt dışında kariyer yapmak isteyenler için çalışma vizesi danışmanlığı sunuyoruz. İş sözleşmelerinizin ve gerekli belgelerin hazırlanmasında profesyonel destek veriyor, ülkeye göre değişen prosedürlerde en güncel bilgileri sağlıyoruz.'
             },
             {
               icon: '👨‍👩‍👧‍👦',
               title: 'Aile Birleşimi Vizesi',
-              description: 'Yurt dışındaki aile üyelerinizle birleşmek için gerekli tüm evrak ve başvuru süreçleri'
+              description: 'Ailenize kavuşmanız için tüm resmi süreçlerde yanınızdayız',
+              detail: 'Ailenize kavuşmanız için tüm resmi süreçlerde yanınızdayız. Evlilik ve doğum belgelerinin tercümesi, başvuru dosyasının hazırlanması ve konsolosluk görüşmesi için rehberlik hizmeti sunuyoruz. Aile birleşimi sürecinizi en hızlı ve sorunsuz şekilde tamamlamanıza yardımcı oluyoruz.'
             },
             {
               icon: '🎓',
               title: 'Öğrenci Vizesi',
-              description: 'Eğitim vizesi, dil okulu vizesi ve staj vizesi başvurularında profesyonel danışmanlık'
+              description: 'Yurt dışına seyahat planınızda en önemli adımlardan biri olan vize sürecinde yanınızdayız',
+              detail: 'Yurt dışına seyahat planınızda en önemli adımlardan biri olan vize sürecinde yanınızdayız. Belgelerinizin hazırlanmasından başvuru formlarının doldurulmasına, randevu alımından takip sürecine kadar her aşamada danışmanlık hizmeti sunuyoruz. Profesyonel ekibimiz sayesinde vize başvurularınız hızlı, eksiksiz ve güvenli bir şekilde ilerler.'
             },
             {
               icon: '📋',
               title: 'Evrak Hazırlama',
-              description: 'Vize başvurusu için gerekli tüm belgelerin çevirisi, tasdiki ve düzenlenmesi'
+              description: 'Vize başvurusu için gerekli tüm belgelerin çevirisi, tasdiki ve düzenlenmesi',
+              detail: 'Yurt dışına seyahat planınızda en önemli adımlardan biri olan vize sürecinde yanınızdayız. Belgelerinizin hazırlanmasından başvuru formlarının doldurulmasına, randevu alımından takip sürecine kadar her aşamada danışmanlık hizmeti sunuyoruz. Profesyonel ekibimiz sayesinde vize başvurularınız hızlı, eksiksiz ve güvenli bir şekilde ilerler.'
             },
             {
               icon: '🗓️',
               title: 'Randevu Yönetimi',
-              description: 'Konsolosluk ve vize merkezi randevularının alınması ve takibi'
+              description: 'Konsolosluk ve vize merkezi randevularının alınması ve takibi',
+              detail: 'Yurt dışına seyahat planınızda en önemli adımlardan biri olan vize sürecinde yanınızdayız. Belgelerinizin hazırlanmasından başvuru formlarının doldurulmasına, randevu alımından takip sürecine kadar her aşamada danışmanlık hizmeti sunuyoruz. Profesyonel ekibimiz sayesinde vize başvurularınız hızlı, eksiksiz ve güvenli bir şekilde ilerler.'
             }
           ],
           pricing: []
@@ -86,39 +97,51 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
 
       case 'immigration-services':
         return {
-          title: 'Göçmenlik ve İkamet Danışmanlık Hizmetleri',
+          title: 'Göçmenlik Hizmetleri',
           subtitle: 'Türkiye, Kanada ve Diğer Ülkelere Kalıcı İkamet Süreçleri',
-          description: 'Yurt dışına yerleşmek veya Türkiye\'de ikamet izni almak isteyenler için kapsamlı göçmenlik danışmanlığı sunuyoruz. Türkiye\'ye gelen yabancılar için kısa/uzun dönem ikamet izni, çalışma izni ve vatandaşlık başvurularında; yurt dışına yerleşmek isteyenler için ise Kanada Express Entry, Provincial Nominee Program (PNP), Avustralya, ABD ve Avrupa ülkelerinin göçmenlik programlarında A\'dan Z\'ye destek sağlıyoruz. Evrak hazırlama, denklik işlemleri, dil sınavı bilgilendirmesi ve başvuru sonrası takip hizmetleri ile göçmenlik sürecinizi sorunsuz tamamlamanıza yardımcı oluyoruz.',
+          description: 'Yeni bir ülkeye yerleşme süreci ciddi hazırlık ve doğru adımlar gerektirir. Alanında uzman danışmanlarımızla göçmenlik başvurularınızda güvenilir destek sağlıyoruz. Belgelerinizin eksiksiz hazırlanmasını, başvurularınızın güncel mevzuata uygun olmasını garanti ediyoruz.',
           features: [
             {
               icon: '🇹🇷',
               title: 'Türkiye İkamet İzni',
-              description: 'Yabancılar için kısa/uzun dönem ikamet, çalışma izni ve vatandaşlık başvuruları'
+              description: 'Türkiye\'de uzun süre kalmak isteyen yabancılar için ikamet izni başvurularında profesyonel danışmanlık sunuyoruz',
+              detail: 'Türkiye\'de uzun süre kalmak isteyen yabancılar için ikamet izni başvurularında profesyonel danışmanlık sunuyoruz. Gerekli belgelerin hazırlanmasından online başvurunun yapılmasına kadar tüm süreçte sizinle birlikteyiz.'
+            },
+            {
+              icon: '🇨🇦',
+              title: 'Kanada İkamet İzni',
+              description: 'Kanada\'da eğitim, çalışma veya aile birleşimi yoluyla oturum almak isteyenlere özel danışmanlık sağlıyoruz',
+              detail: 'Kanada\'da eğitim, çalışma veya aile birleşimi yoluyla oturum almak isteyenlere özel danışmanlık sağlıyoruz. Başvurularınızın Kanada göçmenlik yasalarına uygun yapılması için profesyonel destek sunarak süreci güvenle tamamlamanızı sağlıyoruz.'
             },
             {
               icon: '🇨🇦',
               title: 'Kanada Express Entry',
-              description: 'Federal Skilled Worker, Canadian Experience Class ve Federal Skilled Trades programları'
+              description: 'Kanada\'da kalıcı oturum hakkı elde etmenin en hızlı ve en popüler yollarından biri Express Entry sistemidir',
+              detail: 'Kanada\'da kalıcı oturum hakkı elde etmenin en hızlı ve en popüler yollarından biri Express Entry sistemidir. Bu sistem, nitelikli iş gücünü Kanada\'ya çekmek için puan esaslı bir göçmenlik programıdır. Eğitim durumu, iş deneyimi, dil yeterliliği (İngilizce/Fransızca) ve yaş gibi kriterlere göre değerlendirilen başvuru sahipleri arasından en yüksek puanı alan adaylar davet edilmektedir. Biz, başvuru sürecinizde doğru stratejiyle ilerlemenizi sağlıyoruz. Profil oluşturma, gerekli belgelerin hazırlanması, dil sınavı yönlendirmesi, iş deneyimi ve eğitim belgelerinizin resmi denklik süreci (ECA) gibi tüm aşamalarda profesyonel danışmanlık sunuyoruz. Hedefiniz Kanada\'da yeni bir yaşam kurmaksa, Express Entry başvurunuzu eksiksiz ve güçlü bir dosya ile hazırlamanız için yanınızdayız.'
             },
             {
               icon: '🇨🇦',
               title: 'Provincial Nominee Program',
-              description: 'Kanada eyalet bazlı göçmenlik programları (Ontario, British Columbia, Alberta vb.)'
+              description: 'Kanada eyalet bazlı göçmenlik programları (Ontario, British Columbia, Alberta vb.)',
+              detail: 'Yeni bir ülkeye yerleşme süreci ciddi hazırlık ve doğru adımlar gerektirir. Alanında uzman danışmanlarımızla göçmenlik başvurularınızda güvenilir destek sağlıyoruz. Belgelerinizin eksiksiz hazırlanmasını, başvurularınızın güncel mevzuata uygun olmasını garanti ediyoruz.'
             },
             {
               icon: '🌍',
               title: 'Diğer Ülkeler',
-              description: 'ABD Green Card, Avustralya Skilled Migration, Avrupa Golden Visa programları'
+              description: 'ABD Green Card, Avustralya Skilled Migration, Avrupa Golden Visa programları',
+              detail: 'Yeni bir ülkeye yerleşme süreci ciddi hazırlık ve doğru adımlar gerektirir. Alanında uzman danışmanlarımızla göçmenlik başvurularınızda güvenilir destek sağlıyoruz. Belgelerinizin eksiksiz hazırlanmasını, başvurularınızın güncel mevzuata uygun olmasını garanti ediyoruz.'
             },
             {
               icon: '📋',
               title: 'Evrak Yönetimi',
-              description: 'Tüm belgelerin çevirisi, tasdiki, apostil ve konsolosluk onayı işlemleri'
+              description: 'Tüm belgelerin çevirisi, tasdiki, apostil ve konsolosluk onayı işlemleri',
+              detail: 'Yeni bir ülkeye yerleşme süreci ciddi hazırlık ve doğru adımlar gerektirir. Alanında uzman danışmanlarımızla göçmenlik başvurularınızda güvenilir destek sağlıyoruz. Belgelerinizin eksiksiz hazırlanmasını, başvurularınızın güncel mevzuata uygun olmasını garanti ediyoruz.'
             },
             {
               icon: '🎯',
               title: 'Puan Hesaplama',
-              description: 'Express Entry CRS puanı ve eyalet programları uygunluk değerlendirmesi'
+              description: 'Express Entry CRS puanı ve eyalet programları uygunluk değerlendirmesi',
+              detail: 'Yeni bir ülkeye yerleşme süreci ciddi hazırlık ve doğru adımlar gerektirir. Alanında uzman danışmanlarımızla göçmenlik başvurularınızda güvenilir destek sağlıyoruz. Belgelerinizin eksiksiz hazırlanmasını, başvurularınızın güncel mevzuata uygun olmasını garanti ediyoruz.'
             }
           ],
           pricing: [
@@ -131,39 +154,45 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
 
       case 'professional-info':
         return {
-          title: 'Mesleki Belgelendirme ve Denklik Hizmetleri',
+          title: 'Mesleki Belgelendirme Hizmetleri',
           subtitle: 'WES, ICAS, CES ve Uluslararası Diploma Denklik İşlemleri',
-          description: 'Yurt dışında çalışmak, eğitim görmek veya göçmenlik başvurusu yapmak isteyenler için diploma ve sertifikaların uluslararası kuruluşlarca değerlendirilmesi gereklidir. Kanada için WES (World Education Services), ICAS (International Credential Assessment Service), CES (Comparative Education Service); ABD, İngiltere, Avustralya ve diğer ülkeler için diploma denklik başvurularınızı profesyonelce yönetiyoruz. E-Devlet üzerinden barkodlu belge çıkarma, YÖK onaylı diploma sureti alma, noter tasdiki, apostil işlemleri ve konsolosluk onayı gibi tüm adımlarda size rehberlik ediyoruz.',
+          description: 'Kariyerinizde fark yaratacak belgelerinizin doğruluğunu ve uluslararası geçerliliğini sağlıyoruz. Eğitim ve mesleki yeterlilik belgelerinizin resmi geçerliliğe uygun hazırlanması için profesyonel destek sunuyoruz.',
           features: [
             {
               icon: '🇨🇦',
               title: 'WES (World Education Services)',
-              description: 'Kanada için en yaygın diploma denklik kuruluşu - transkript ve diploma değerlendirmesi'
+              description: 'Kanada için en yaygın diploma denklik kuruluşu - transkript ve diploma değerlendirmesi',
+              detail: 'Kariyerinizde fark yaratacak belgelerinizin doğruluğunu ve uluslararası geçerliliğini sağlıyoruz. Eğitim ve mesleki yeterlilik belgelerinizin resmi geçerliliğe uygun hazırlanması için profesyonel destek sunuyoruz.'
             },
             {
               icon: '🇨🇦',
               title: 'ICAS (International Credential Assessment)',
-              description: 'Kanada için diploma denklik değerlendirmesi - akademik ve mesleki sertifikalar'
+              description: 'Kanada için diploma denklik değerlendirmesi - akademik ve mesleki sertifikalar',
+              detail: 'Kariyerinizde fark yaratacak belgelerinizin doğruluğunu ve uluslararası geçerliliğini sağlıyoruz. Eğitim ve mesleki yeterlilik belgelerinizin resmi geçerliliğe uygun hazırlanması için profesyonel destek sunuyoruz.'
             },
             {
               icon: '🎓',
               title: 'CES (Comparative Education Service)',
-              description: 'Toronto Üniversitesi destekli denklik hizmeti - lisans ve lisansüstü değerlendirme'
+              description: 'Toronto Üniversitesi destekli denklik hizmeti - lisans ve lisansüstü değerlendirme',
+              detail: 'Kariyerinizde fark yaratacak belgelerinizin doğruluğunu ve uluslararası geçerliliğini sağlıyoruz. Eğitim ve mesleki yeterlilik belgelerinizin resmi geçerliliğe uygun hazırlanması için profesyonel destek sunuyoruz.'
             },
             {
               icon: '📜',
-              title: 'E-Devlet ve YÖK Belgeleri',
-              description: 'Barkodlu transkript, diploma tasdik belgesi, YÖK onaylı tercüme ve apostil işlemleri'
+              title: 'Barkodlu E-Devlet Eğitim Sertifikaları',
+              description: 'Türkiye\'de alınan resmi eğitim sertifikalarının barkodlu doğrulama sistemleri üzerinden geçerlilikleri',
+              detail: 'Türkiye\'de alınan resmi eğitim sertifikalarının barkodlu doğrulama sistemleri üzerinden geçerliliklerini sağlıyor, yurtdışı kurum ve kuruluşlarda kabul edilebilirliğini artırıyoruz.'
             },
             {
               icon: '✅',
-              title: 'Apostil ve Konsolosluk Onayı',
-              description: 'Belgelerin uluslararası geçerliliği için Dışişleri Bakanlığı apostil ve konsolosluk tasdiki'
+              title: 'Uluslararası Sertifikalar',
+              description: 'Eğitim, mesleki yeterlilik ve uzmanlık alanlarında aldığınız uluslararası sertifikaların geçerliliği',
+              detail: 'Eğitim, mesleki yeterlilik ve uzmanlık alanlarında aldığınız uluslararası sertifikaların geçerliliğini sağlamak için danışmanlık hizmeti sunuyoruz. Belgelerinizin resmi kurumlarda tanınması için gerekli adımları profesyonelce yönetiyoruz.'
             },
             {
               icon: '🌍',
               title: 'Diğer Ülkeler',
-              description: 'ABD, İngiltere, Avustralya, Almanya için diploma denklik başvuru danışmanlığı'
+              description: 'ABD, İngiltere, Avustralya, Almanya için diploma denklik başvuru danışmanlığı',
+              detail: 'Kariyerinizde fark yaratacak belgelerinizin doğruluğunu ve uluslararası geçerliliğini sağlıyoruz. Eğitim ve mesleki yeterlilik belgelerinizin resmi geçerliliğe uygun hazırlanması için profesyonel destek sunuyoruz.'
             }
           ],
           pricing: [
@@ -212,12 +241,20 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
           <h2>Neler Sunuyoruz?</h2>
           <div className="features-grid">
             {content.features.map((feature, index) => (
-              <div key={index} className="feature-item">
+              <div
+                key={index}
+                className="feature-item"
+                onClick={() => setSelectedFeature(feature)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="feature-icon">{feature.icon}</div>
                 <div className="feature-content">
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
                 </div>
+                <button className="details-btn">
+                  Detaylı Bilgi →
+                </button>
               </div>
             ))}
           </div>
@@ -234,6 +271,32 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
             Hızlı Teklif Al
           </button>
         </div>
+
+        {/* Modal */}
+        {selectedFeature && (
+          <div className="service-modal" onClick={() => setSelectedFeature(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setSelectedFeature(null)}>
+                ✕
+              </button>
+
+              <div className="modal-header">
+                <span className="modal-icon">{selectedFeature.icon}</span>
+                <h3 className="modal-title">{selectedFeature.title}</h3>
+              </div>
+
+              <div className="modal-body">
+                <p className="modal-description">{selectedFeature.detail}</p>
+              </div>
+
+              <div className="modal-footer">
+                <button className="modal-cta-btn" onClick={() => setSelectedFeature(null)}>
+                  Anladım
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

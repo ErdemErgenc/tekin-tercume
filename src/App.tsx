@@ -78,7 +78,7 @@ const App: React.FC = () => {
               onQuoteRequest={handleQuoteRequest}
               onQuickQuote={handleQuickQuote}
             />
-            <Services />
+            <Services onNavigate={setCurrentPage} />
             <About />
           </>
         );
