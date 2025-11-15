@@ -130,7 +130,7 @@ const Services: React.FC = () => {
         <div className="services-footer">
           <div className="success-rate">
             <div className="stats-card">
-              <div className="stats-number">%98</div>
+              <div className="stats-number">%100</div>
               <div className="stats-text">
                 <h3>Müşteri Memnuniyeti</h3>
                 <p>Çeviri hizmeti arayan müşterilerin büyük çoğunluğu bizi tercih ediyor ve tavsiye ediyor.</p>
@@ -147,7 +147,7 @@ const Services: React.FC = () => {
               <div className="stat-item">
                 <div className="stat-icon">🌍</div>
                 <div className="stat-info">
-                  <span className="stat-number">25+</span>
+                  <span className="stat-number">128</span>
                   <span className="stat-label">Dil Desteği</span>
                 </div>
               </div>

@@ -14,7 +14,7 @@ const FAQ: React.FC = () => {
         },
         {
           question: 'Hangi dillerde tercüme hizmeti veriyorsunuz?',
-          answer: 'İngilizce, Almanca, Fransızca, İtalyanca, Rusça, Arapça, Farsça, Çince, Japonca, Yunanca, Felemenkçe, Bulgarca, Romence, Ukraynaca başta olmak üzere 25+ dilde yeminli ve profesyonel tercüme hizmeti sunuyoruz.'
+          answer: 'İngilizce, Almanca, Fransızca, İtalyanca, Rusça, Arapça, Farsça, Çince, Japonca, Yunanca, Felemenkçe, Bulgarca, Romence, Ukraynaca başta olmak üzere 128 dilde yeminli ve profesyonel tercüme hizmeti sunuyoruz.'
         },
         {
           question: 'Yeminli tercüme ile normal tercüme arasındaki fark nedir?',

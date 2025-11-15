@@ -13,7 +13,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
         return {
           title: 'Noter Onaylı Yeminli Tercüme Hizmeti',
           subtitle: 'Adalet Bakanlığı Onaylı Profesyonel Çeviri Hizmetleri',
-          description: 'Tekin Tercüme olarak, Adalet Bakanlığı tarafından yetkilendirilmiş yeminli tercümanlarımız aracılığıyla 25+ dilde resmi belge çevirisi sunuyoruz. Tüm çevirilerimiz noter onaylı olup, ulusal ve uluslararası resmi kurumlarda geçerlidir. Diploma, pasaport, mahkeme kararları, ticari sözleşmeler ve daha birçok belgede güvenilir ve hızlı çözümler üretiyoruz.',
+          description: 'Tekin Tercüme olarak, Adalet Bakanlığı tarafından yetkilendirilmiş yeminli tercümanlarımız aracılığıyla 128+ dilde resmi belge çevirisi sunuyoruz. Tüm çevirilerimiz noter onaylı olup, ulusal ve uluslararası resmi kurumlarda geçerlidir. Diploma, pasaport, mahkeme kararları, ticari sözleşmeler ve daha birçok belgede güvenilir ve hızlı çözümler üretiyoruz.',
           features: [
             {
               icon: '📄',
@@ -27,7 +27,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
             },
             {
               icon: '🌍',
-              title: '25+ Dil Desteği',
+              title: '128 Dil Desteği',
               description: 'İngilizce, Almanca, Fransızca, İtalyanca ve daha fazlası'
             },
             {

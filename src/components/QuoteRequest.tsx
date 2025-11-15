@@ -79,7 +79,7 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
 
       // Get the appropriate API URL based on environment
       const emailConfig = getEmailConfig();
-      
+
       // Send email via our backend API (Gmail SMTP) or Vercel Function
       const response = await fetch(`${emailConfig.API_URL}/send-quote`, {
         method: 'POST',

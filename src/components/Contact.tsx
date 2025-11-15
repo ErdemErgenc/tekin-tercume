@@ -65,9 +65,13 @@ const Contact: React.FC = () => {
 
             <div className="hours-card">
               <h3>Çalışma Saatleri</h3>
-              <p>Pazartesi - Cuma: 09:00 - 18:00</p>
-              <p>Cumartesi: 09:00 - 13:00</p>
-              <p>Pazar: Kapalı</p>
+              <p>Pazartesi: 08:00 - 18:30</p>
+              <p>Salı: 08:00 - 18:30</p>
+              <p>Çarşamba: 08:00 - 18:30</p>
+              <p>Perşembe: 08:00 - 18:30</p>
+              <p>Cuma: 08:00 - 18:30</p>
+              <p>Cumartesi: 08:00 - 18:30</p>
+              <p>Pazar: 08:00 - 18:30</p>
               <p><small>WhatsApp 7/24 aktif</small></p>
             </div>
           </div>

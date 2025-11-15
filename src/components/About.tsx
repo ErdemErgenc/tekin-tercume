@@ -5,8 +5,8 @@ const About: React.FC = () => {
   const stats = [
     { number: '15+', label: 'Yıllık Tecrübe' },
     { number: '5000+', label: 'Memnun Müşteri' },
-    { number: '25+', label: 'Dil Desteği' },
-    { number: '%98', label: 'Müşteri Memnuniyeti' }
+    { number: '128', label: 'Dil Desteği' },
+    { number: '%100', label: 'Müşteri Memnuniyeti' }
   ];
 
   const features = [
@@ -137,7 +137,7 @@ const About: React.FC = () => {
             <div className="benefit-box">
               <div className="benefit-box-icon">🌐</div>
               <h4>Geniş Dil Seçeneği</h4>
-              <p>25+ dilde çeviri hizmeti ile tüm ihtiyaçlarınıza çözüm</p>
+              <p>128 dilde çeviri hizmeti ile tüm ihtiyaçlarınıza çözüm</p>
             </div>
 
             <div className="benefit-box">
