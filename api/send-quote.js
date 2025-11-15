@@ -1,6 +1,14 @@
 // Vercel Function for email sending
 import nodemailer from 'nodemailer';
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+};
+
 // Gmail SMTP Transporter Configuration
 const createTransporter = () => {
   return nodemailer.createTransporter({
