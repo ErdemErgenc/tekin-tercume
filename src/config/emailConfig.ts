@@ -12,27 +12,26 @@ export const PRODUCTION_EMAIL_CONFIG = {
 
 // Auto-detect environment and use appropriate config
 export const getEmailConfig = () => {
-  // Check if we're in development (localhost or 127.0.0.1)
-  const isDevelopment =
-    typeof window !== 'undefined' &&
-    (window.location.hostname === 'localhost' ||
-      window.location.hostname === '127.0.0.1' ||
-      window.location.hostname.includes('192.168')); // Local network
-
-  // In production (Vercel), always use relative path
-  const isProduction =
-    typeof window !== 'undefined' &&
-    (window.location.hostname.includes('vercel.app') ||
-      window.location.hostname.includes('tekintercume.com'));
-
-  console.log('🌐 Environment detection:', {
-    hostname: typeof window !== 'undefined' ? window.location.hostname : 'server',
-    isDevelopment,
-    isProduction,
-    apiUrl: isProduction || (!isDevelopment) ? '/api' : 'http://localhost:3001/api'
-  });
-
-  return (isProduction || (!isDevelopment)) ? PRODUCTION_EMAIL_CONFIG : LOCAL_EMAIL_CONFIG;
+  // Always use production API for Vercel domains
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    
+    // If on Vercel domain, ALWAYS use production API
+    if (hostname.includes('vercel.app') || hostname.includes('tekintercume.com')) {
+      console.log('🌐 PRODUCTION MODE - Using /api endpoint');
+      return PRODUCTION_EMAIL_CONFIG;
+    }
+    
+    // Only use localhost API if explicitly on localhost
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      console.log('🌐 DEVELOPMENT MODE - Using localhost:3001/api endpoint');
+      return LOCAL_EMAIL_CONFIG;
+    }
+  }
+  
+  // Default to production for safety
+  console.log('🌐 DEFAULT TO PRODUCTION - Using /api endpoint');
+  return PRODUCTION_EMAIL_CONFIG;
 };
 
 // EmailJS Configuration (Alternative method - not currently used)
