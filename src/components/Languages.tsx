@@ -1,49 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Languages.css';
 
 interface LanguagePageProps {
   language?: string;
 }
 
+interface LanguageData {
+  name: string;
+  flag: string;
+  turkish: string;
+  foreign: string;
+}
+
 const Languages: React.FC<LanguagePageProps> = () => {
-  const languages = [
-    {
-      name: 'İngilizce',
-      flag: '🇬🇧',
-      turkish: 'İngilizce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-      foreign: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.'
-    },
-    {
-      name: 'Almanca',
-      flag: '🇩🇪',
-      turkish: 'Almanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-      foreign: 'Ihre deutschen Dokumente werden von unseren vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.'
-    },
-    {
-      name: 'Fransızca',
-      flag: '🇫🇷',
-      turkish: 'Fransızca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-      foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés et validés officiellement par une certification notariale.'
-    },
-    {
-      name: 'İtalyanca',
-      flag: '🇮🇹',
-      turkish: 'İtalyanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-      foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati e certificati con approvazione notarile.'
-    },
-    {
-      name: 'Rusça',
-      flag: '🇷🇺',
-      turkish: 'Rusça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-      foreign: 'Ваши русские документы переводятся нашими присяжными переводчиками и заверяются нотариально.'
-    },
-    {
-      name: 'Arapça',
-      flag: '🇸🇦',
-      turkish: 'Arapça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-      foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين ويتم اعتمادها رسمياً بواسطة كاتب العدل.'
-    }
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageData | null>(null);
+
+  const allLanguages = [
+    { name: 'İngilizce', flag: '🇬🇧', turkish: 'İngilizce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.' },
+    { name: 'Almanca', flag: '🇩🇪', turkish: 'Almanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Ihre deutschen Dokumente werden von unseren vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.' },
+    { name: 'Fransızca', flag: '🇫🇷', turkish: 'Fransızca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés et validés officiellement par une certification notariale.' },
+    { name: 'İtalyanca', flag: '🇮🇹', turkish: 'İtalyanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati e certificati con approvazione notarile.' },
+    { name: 'Rusça', flag: '🇷🇺', turkish: 'Rusça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Ваши русские документы переводятся нашими присяжными переводчиками и заверяются нотариально.' },
+    { name: 'Arapça', flag: '🇸🇦', turkish: 'Arapça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين ويتم اعتمادها رسمياً بواسطة كاتب العدل.' },
+    { name: 'Farsça', flag: '🇮🇷', turkish: 'Farsça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'اسناد فارسی شما توسط مترجمان رسمی ما ترجمه شده و با تأیید رسمی دفتر اسناد رسمی معتبر می‌شود.' },
+    { name: 'Çince', flag: '🇨🇳', turkish: 'Çince belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: '您的中文文件由我们的宣誓翻译员翻译，并经过公证认证以获得官方效力。' },
+    { name: 'Japonca', flag: '🇯🇵', turkish: 'Japonca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: '日本語の書類は、当社の公証翻訳者によって翻訳され、公証人による認証付きで正式な効力を持ちます。' },
+    { name: 'Yunanca', flag: '🇬🇷', turkish: 'Yunanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Τα ελληνικά σας έγγραφα μεταφράζονται από τους επίσημους μεταφραστές μας και επικυρώνονται με συμβολαιογραφική βεβαίωση.' },
+    { name: 'Felemenkçe', flag: '🇳🇱', turkish: 'Felemenkçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Uw Nederlandse documenten worden vertaald door onze beëdigde vertalers en officieel gelegaliseerd met notariële goedkeuring.' },
+    { name: 'Bulgarca', flag: '🇧🇬', turkish: 'Bulgarca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Вашите български документи се превеждат от нашите заклети преводачи и се удостоверяват нотариално за официална валидност.' },
+    { name: 'Romence', flag: '🇷🇴', turkish: 'Romence belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Documentele dvs. românești sunt traduse de traducătorii noștri autorizați și certificate prin notar pentru valabilitate oficială.' },
+    { name: 'Ukraynaca', flag: '🇺🇦', turkish: 'Ukraynaca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Ваші українські документи перекладаються нашими присяжними перекладачами та нотаріально завіряються для офіційної дійсності.' }
   ];
+
+  const languages = allLanguages.slice(0, 6);
 
   const services = [
     'Kimlik, pasaport, nüfus kayıt örneği, doğum belgesi, evlilik cüzdanı ve benzeri kişisel belgeler',
@@ -67,7 +56,11 @@ const Languages: React.FC<LanguagePageProps> = () => {
 
         <div className="languages-grid">
           {languages.map((language, index) => (
-            <div key={index} className="language-card card">
+            <div
+              key={index}
+              className="language-card card"
+              onClick={() => setSelectedLanguage(language)}
+            >
               <div className="language-header">
                 <span className="language-flag">{language.flag}</span>
                 <h3 className="language-name">{language.name}</h3>
@@ -85,20 +78,46 @@ const Languages: React.FC<LanguagePageProps> = () => {
                 </p>
               </div>
 
-              <div className="services-section">
-                <h4 className="services-title">📌 Hizmetlerimiz:</h4>
-                <ul className="services-list">
-                  {services.map((service, serviceIndex) => (
-                    <li key={serviceIndex} className="service-item">
-                      <span className="service-bullet">•</span>
-                      {service}
+              <button className="details-btn">
+                Detaylı Bilgi →
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal */}
+        {selectedLanguage && (
+          <div className="language-modal" onClick={() => setSelectedLanguage(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setSelectedLanguage(null)}>
+                ✕
+              </button>
+
+              <div className="modal-header">
+                <span className="modal-flag">{selectedLanguage.flag}</span>
+                <h3 className="modal-title">{selectedLanguage.name} Çeviri Hizmetleri</h3>
+              </div>
+
+              <div className="modal-body">
+                <h4 className="modal-section-title">📌 Hizmetlerimiz:</h4>
+                <ul className="modal-services-list">
+                  {services.map((service, index) => (
+                    <li key={index} className="modal-service-item">
+                      <span className="service-check">✓</span>
+                      <span>{service}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+
+              <div className="modal-footer">
+                <button className="modal-cta-btn" onClick={() => setSelectedLanguage(null)}>
+                  Anladım
+                </button>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        )}
 
         <div className="other-languages">
           <div className="card">

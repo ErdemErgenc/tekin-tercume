@@ -22,8 +22,8 @@ export const languagesData: Record<string, LanguageData> = {
   ingilizce: {
     name: 'İngilizce',
     flag: '🇬🇧',
-    turkish: 'İngilizce belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Your English documents are translated by our notary-approved sworn translators and certified with notary approval to gain official validity.',
+    turkish: 'İngilizce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.',
     turkishServices: turkishServices,
     foreignServices: [
       'Personal documents such as ID, passport, birth certificate, marriage certificate, and population registry extract',
@@ -38,8 +38,8 @@ export const languagesData: Record<string, LanguageData> = {
   almanca: {
     name: 'Almanca',
     flag: '🇩🇪',
-    turkish: 'Almanca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Ihre deutschen Dokumente werden von unseren notariell beglaubigten vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.',
+    turkish: 'Almanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Ihre deutschen Dokumente werden von unseren vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.',
     turkishServices: turkishServices,
     foreignServices: [
       'Persönliche Dokumente wie Ausweis, Reisepass, Geburtsurkunde, Heiratsurkunde und Meldebescheinigung',
@@ -54,8 +54,8 @@ export const languagesData: Record<string, LanguageData> = {
   fransizca: {
     name: 'Fransızca',
     flag: '🇫🇷',
-    turkish: 'Fransızca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés certifiés par notaire et validés officiellement par une certification notariale.',
+    turkish: 'Fransızca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés et validés officiellement par une certification notariale.',
     turkishServices: turkishServices,
     foreignServices: [
       'Documents personnels tels que carte d\'identité, passeport, acte de naissance, livret de famille, certificat de mariage',
@@ -70,8 +70,8 @@ export const languagesData: Record<string, LanguageData> = {
   italyanca: {
     name: 'İtalyanca',
     flag: '🇮🇹',
-    turkish: 'İtalyanca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati certificati dal notaio e certificati con approvazione notarile.',
+    turkish: 'İtalyanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati e certificati con approvazione notarile.',
     turkishServices: turkishServices,
     foreignServices: [
       'Documenti personali come carta d\'identità, passaporto, certificato di nascita, certificato di matrimonio',
@@ -86,8 +86,8 @@ export const languagesData: Record<string, LanguageData> = {
   rusca: {
     name: 'Rusça',
     flag: '🇷🇺',
-    turkish: 'Rusça belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Ваши русские документы переводятся нашими нотариально заверенными присяжными переводчиками и заверяются нотариально.',
+    turkish: 'Rusça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Ваши русские документы переводятся нашими присяжными переводчиками и заверяются нотариально.',
     turkishServices: turkishServices,
     foreignServices: [
       'Личные документы: паспорт, удостоверение личности, свидетельство о рождении, свидетельство о браке',
@@ -102,8 +102,8 @@ export const languagesData: Record<string, LanguageData> = {
   arapca: {
     name: 'Arapça',
     flag: '🇸🇦',
-    turkish: 'Arapça belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين المعتمدين من كاتب العدل ويتم اعتمادها رسمياً بواسطة كاتب العدل.',
+    turkish: 'Arapça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين ويتم اعتمادها رسمياً بواسطة كاتب العدل.',
     turkishServices: turkishServices,
     foreignServices: [
       'المستندات الشخصية: الهوية، جواز السفر، شهادة الميلاد، شهادة الزواج',
@@ -118,8 +118,8 @@ export const languagesData: Record<string, LanguageData> = {
   farsca: {
     name: 'Farsça',
     flag: '🇮🇷',
-    turkish: 'Farsça belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'اسناد فارسی شما توسط مترجمان رسمی تأیید شده توسط دفتر اسناد رسمی ما ترجمه شده و با تأیید رسمی دفتر اسناد رسمی معتبر می‌شود.',
+    turkish: 'Farsça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'اسناد فارسی شما توسط مترجمان رسمی ما ترجمه شده و با تأیید رسمی دفتر اسناد رسمی معتبر می‌شود.',
     turkishServices: turkishServices,
     foreignServices: [
       'اسناد شخصی: کارت شناسایی، گذرنامه، شناسنامه، سند ازدواج',
@@ -134,8 +134,8 @@ export const languagesData: Record<string, LanguageData> = {
   cince: {
     name: 'Çince',
     flag: '🇨🇳',
-    turkish: 'Çince belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: '您的中文文件由我们经过公证认证的宣誓翻译员翻译，并经过公证认证以获得官方效力。',
+    turkish: 'Çince belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: '您的中文文件由我们的宣誓翻译员翻译，并经过公证认证以获得官方效力。',
     turkishServices: turkishServices,
     foreignServices: [
       '个人文件：身份证、护照、出生证明、结婚证',
@@ -150,8 +150,8 @@ export const languagesData: Record<string, LanguageData> = {
   japonca: {
     name: 'Japonca',
     flag: '🇯🇵',
-    turkish: 'Japonca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: '日本語の書類は、公証人によって認証された当社の公証翻訳者によって翻訳され、公証人による認証付きで正式な効力を持ちます。',
+    turkish: 'Japonca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: '日本語の書類は、当社の公証翻訳者によって翻訳され、公証人による認証付きで正式な効力を持ちます。',
     turkishServices: turkishServices,
     foreignServices: [
       '個人書類：身分証明書、パスポート、出生証明書、婚姻証明書',
@@ -166,8 +166,8 @@ export const languagesData: Record<string, LanguageData> = {
   yunanca: {
     name: 'Yunanca',
     flag: '🇬🇷',
-    turkish: 'Yunanca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Τα ελληνικά σας έγγραφα μεταφράζονται από τους επίσημους μεταφραστές μας που έχουν πιστοποιηθεί από συμβολαιογράφο και επικυρώνονται με συμβολαιογραφική βεβαίωση.',
+    turkish: 'Yunanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Τα ελληνικά σας έγγραφα μεταφράζονται από τους επίσημους μεταφραστές μας και επικυρώνονται με συμβολαιογραφική βεβαίωση.',
     turkishServices: turkishServices,
     foreignServices: [
       'Προσωπικά έγγραφα: ταυτότητα, διαβατήριο, πιστοποιητικό γέννησης, πιστοποιητικό γάμου',
@@ -182,8 +182,8 @@ export const languagesData: Record<string, LanguageData> = {
   felemenkce: {
     name: 'Felemenkçe',
     flag: '🇳🇱',
-    turkish: 'Felemenkçe belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Uw Nederlandse documenten worden vertaald door onze door notaris gecertificeerde beëdigde vertalers en officieel gelegaliseerd met notariële goedkeuring.',
+    turkish: 'Felemenkçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Uw Nederlandse documenten worden vertaald door onze beëdigde vertalers en officieel gelegaliseerd met notariële goedkeuring.',
     turkishServices: turkishServices,
     foreignServices: [
       'Persoonlijke documenten: identiteitskaart, paspoort, geboorteakte, huwelijksakte',
@@ -198,8 +198,8 @@ export const languagesData: Record<string, LanguageData> = {
   bulgarca: {
     name: 'Bulgarca',
     flag: '🇧🇬',
-    turkish: 'Bulgarca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Вашите български документи се превеждат от нашите нотариално удостоверени заклети преводачи и се удостоверяват нотариално за официална валидност.',
+    turkish: 'Bulgarca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Вашите български документи се превеждат от нашите заклети преводачи и се удостоверяват нотариално за официална валидност.',
     turkishServices: turkishServices,
     foreignServices: [
       'Лични документи: лична карта, паспорт, акт за раждане, брачен акт',
@@ -214,8 +214,8 @@ export const languagesData: Record<string, LanguageData> = {
   romence: {
     name: 'Romence',
     flag: '🇷🇴',
-    turkish: 'Romence belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Documentele dvs. românești sunt traduse de traducătorii noștri autorizați certificați de notar și certificate prin notar pentru valabilitate oficială.',
+    turkish: 'Romence belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Documentele dvs. românești sunt traduse de traducătorii noștri autorizați și certificate prin notar pentru valabilitate oficială.',
     turkishServices: turkishServices,
     foreignServices: [
       'Documente personale: carte de identitate, pașaport, certificat de naștere, certificat de căsătorie',
@@ -230,8 +230,8 @@ export const languagesData: Record<string, LanguageData> = {
   ukraynaca: {
     name: 'Ukraynaca',
     flag: '🇺🇦',
-    turkish: 'Ukraynaca belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'Ваші українські документи перекладаються нашими нотаріально завіреними присяжними перекладачами та нотаріально завіряються для офіційної дійсності.',
+    turkish: 'Ukraynaca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Ваші українські документи перекладаються нашими присяжними перекладачами та нотаріально завіряються для офіційної дійсності.',
     turkishServices: turkishServices,
     foreignServices: [
       'Особисті документи: паспорт, посвідчення особи, свідоцтво про народження, свідоцтво про шлюб',
@@ -246,8 +246,8 @@ export const languagesData: Record<string, LanguageData> = {
   diger: {
     name: 'Diğer Diller',
     flag: '🌐',
-    turkish: 'Yukarıda belirtilen dillerin dışında tüm dillerde belgeleriniz noter onaylı yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
-    foreign: 'For all other languages not listed above, your documents are translated by our notary-approved sworn translators and certified with notary approval.',
+    turkish: 'Yukarıda belirtilen dillerin dışında tüm dillerde belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'For all other languages not listed above, your documents are translated by our sworn translators and certified with notary approval.',
     turkishServices: turkishServices,
     foreignServices: [
       'Personal documents such as ID, passport, birth certificate, marriage certificate, and population registry extract',
