@@ -84,12 +84,19 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  overflow: hidden;
+  max-height: 160px;
+  /* SVG içindeki alt yazıyı gizle */
 }
 
 .footer-logo-img {
   height: 80px;
   width: auto;
   filter: brightness(0) invert(1);
+  display: block;
+  max-height: 80px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .logo-text {
