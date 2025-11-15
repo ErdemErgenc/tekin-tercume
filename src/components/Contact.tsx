@@ -38,6 +38,7 @@ const Contact: React.FC = () => {
               <div className="contact-item">
                 <strong>WhatsApp / Mobil:</strong>
                 <a href="tel:+905447215315">+90 544 721 53 15</a>
+                
               </div>
 
               <div className="contact-item">
@@ -52,7 +53,7 @@ const Contact: React.FC = () => {
 
               <div className="contact-item">
                 <strong>Adres:</strong>
-                <span>Diyarbakır, Türkiye</span>
+                <span>Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ</span>
               </div>
 
               <div className="contact-item">
@@ -153,6 +154,44 @@ const Contact: React.FC = () => {
                   Mesaj Gönder
                 </button>
               </form>
+            </div>
+          </div>
+        </div>
+
+        {/* Google Maps Section */}
+        <div className="map-section">
+          <div className="map-card">
+            <h3>Konum</h3>
+            <p className="map-address">
+              Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ
+            </p>
+            <div className="map-container">
+              <iframe
+                title="Tekin Tercüme Konum"
+                className="map-iframe"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src={
+                  `https://www.google.com/maps?q=${encodeURIComponent(
+                    "Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ"
+                  )}&output=embed`
+                }
+              />
+            </div>
+            <div className="map-actions">
+              <a
+                className="map-link"
+                href={
+                  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                    "Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ"
+                  )}`
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Haritalar'da Aç
+              </a>
             </div>
           </div>
         </div>
