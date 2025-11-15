@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
             <div className="feature-card">
               <div className="card-header">
                 <h3 className="card-title">HEMEN TEKLİF İSTEYİN</h3>
-                <p className="card-subtitle">SIZI ARAYALIM!</p>
+                <p className="card-subtitle">SİZİ ARAYALIM!</p>
               </div>
 
               <div className="language-selection-area">
