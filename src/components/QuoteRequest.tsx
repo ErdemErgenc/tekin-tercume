@@ -444,8 +444,8 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
           )}
 
           {step < 2 ? (
-            <button 
-              className="btn-primary" 
+            <button
+              className="btn-primary"
               onClick={handleNext}
               disabled={!formData.fromLang || !formData.toLang || !formData.urgency}
             >
