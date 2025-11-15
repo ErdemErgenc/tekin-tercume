@@ -12,19 +12,18 @@ import LanguageDetail from './components/LanguageDetail';
 import Contact from './components/Contact';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
-import QuoteRequest from './components/QuoteRequest';
 import VisaServices from './components/VisaServices';
 import QuickQuote from './components/QuickQuote';
 import ServicePage from './components/ServicePage';
 
 const App: React.FC = () => {
-  const [showQuoteRequest, setShowQuoteRequest] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
   const [currentLanguage, setCurrentLanguage] = useState('tr');
   const [quoteLanguages, setQuoteLanguages] = useState({ from: '', to: '' });
 
   const handleQuoteRequest = () => {
-    setShowQuoteRequest(true);
+    // Modal yerine QuickQuote sayfasına yönlendir
+    setCurrentPage('quick-quote');
   };
 
   const handleQuickQuote = (fromLanguage: string, toLanguage: string) => {
@@ -95,10 +94,6 @@ const App: React.FC = () => {
         currentLanguage={currentLanguage}
         onLanguageChange={setCurrentLanguage}
       />
-
-      {showQuoteRequest && (
-        <QuoteRequest onClose={() => setShowQuoteRequest(false)} />
-      )}
 
       <main>
         {renderPage()}

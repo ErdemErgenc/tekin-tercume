@@ -52,6 +52,29 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
     console.log('📤 Hızlı teklif talebi gönderiliyor:', formData);
 
     try {
+      // Convert file to base64 if exists
+      let fileBase64 = null;
+      let fileName = null;
+      let fileType = null;
+
+      if (formData.document) {
+        fileName = formData.document.name;
+        fileType = formData.document.type;
+
+        // Read file as base64
+        const reader = new FileReader();
+        fileBase64 = await new Promise<string>((resolve, reject) => {
+          reader.onload = () => {
+            const base64 = reader.result as string;
+            // Remove data:image/png;base64, prefix
+            const base64Data = base64.split(',')[1];
+            resolve(base64Data);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(formData.document!);
+        });
+      }
+
       // Send email via Gmail SMTP backend
       const response = await fetch('http://localhost:3001/api/send-quote', {
         method: 'POST',
@@ -69,19 +92,31 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
           fromLang: formData.fromLang,
           toLang: formData.toLang,
           urgency: formData.urgency,
-          documentName: formData.document?.name || null
+          documentName: fileName,
+          documentBase64: fileBase64,
+          documentType: fileType
         })
       });
 
       console.log('📬 Response status:', response.status);
+      console.log('📬 Response content-type:', response.headers.get('content-type'));
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('❌ Non-JSON response:', text.substring(0, 200));
+        throw new Error(`Server yanıt hatası (Status: ${response.status}). Backend çalışıyor mu?`);
+      }
+
       const responseData = await response.json();
       console.log('📧 Response data:', responseData);
 
-      if (responseData.success) {
+      if (response.ok && responseData.success) {
         alert('✅ Teklif talebiniz başarıyla gönderildi! Emailinizi kontrol edin.');
         onNavigate('home');
       } else {
-        throw new Error(responseData.message || 'Email gönderimi başarısız');
+        throw new Error(responseData.message || `Email gönderimi başarısız (Status: ${response.status})`);
       }
     } catch (error) {
       console.error('❌ Email send error:', error);

@@ -53,6 +53,29 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
     try {
       console.log('📤 Sending quote request...', formData);
 
+      // Convert file to base64 if exists
+      let fileBase64 = null;
+      let fileName = null;
+      let fileType = null;
+
+      if (formData.document) {
+        fileName = formData.document.name;
+        fileType = formData.document.type;
+
+        // Read file as base64
+        const reader = new FileReader();
+        fileBase64 = await new Promise<string>((resolve, reject) => {
+          reader.onload = () => {
+            const base64 = reader.result as string;
+            // Remove data:image/png;base64, prefix
+            const base64Data = base64.split(',')[1];
+            resolve(base64Data);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(formData.document!);
+        });
+      }
+
       // Send email via our backend API (Gmail SMTP)
       const response = await fetch('http://localhost:3001/api/send-quote', {
         method: 'POST',
@@ -72,7 +95,9 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
           fromLang: formData.fromLang,
           toLang: formData.toLang,
           urgency: formData.urgency,
-          documentName: formData.document?.name || null
+          documentName: fileName,
+          documentBase64: fileBase64,
+          documentType: fileType
         })
       });
 

@@ -17,7 +17,8 @@ const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '50mb' })); // Increase limit for file uploads
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(express.static(__dirname)); // Serve static files from server directory
 
 // Gmail SMTP Transporter Configuration
@@ -124,16 +125,31 @@ app.post('/api/send-quote', async (req, res) => {
       contactPreference,
       contactMethod,
       documentName,
+      documentBase64,
+      documentType,
       fromLang,
       toLang,
       urgency
     } = req.body;
+
+    // Prepare attachments
+    const attachments = [];
+    if (documentBase64 && documentName) {
+      attachments.push({
+        filename: documentName,
+        content: documentBase64,
+        encoding: 'base64',
+        contentType: documentType || 'application/octet-stream'
+      });
+      console.log(`📎 Attachment added: ${documentName} (${documentType || 'unknown type'})`);
+    }
 
     // Email content
     const mailOptions = {
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER,
       subject: `🎯 Yeni Teklif Talebi - ${name}`,
+      attachments: attachments,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9;">
           <div style="background: linear-gradient(135deg, #000066 0%, #0000CC 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
@@ -184,9 +200,13 @@ app.post('/api/send-quote', async (req, res) => {
               <p style="margin: 0; line-height: 1.8; white-space: pre-line;">${description || 'Detay belirtilmedi'}</p>
             </div>
 
-            <p style="margin: 15px 0;">
-              <strong>📎 Yüklenen Belge:</strong> ${documentName || 'Belge yüklenmedi'}
+            ${documentName ? `
+            <p style="margin: 15px 0; background: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #ffc107;">
+              <strong>📎 Yüklenen Belge:</strong> ${documentName}
+              <br>
+              <small style="color: #666;">Belge email'e eklenmiştir (Attachments/Ekler bölümünden açabilirsiniz)</small>
             </p>
+            ` : ''}
 
             <h2 style="color: #000066; border-bottom: 2px solid #0000CC; padding-bottom: 10px; margin-top: 30px;">✅ Hizmet Tercihleri</h2>
             <table style="width: 100%; margin: 20px 0;">
