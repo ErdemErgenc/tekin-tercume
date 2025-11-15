@@ -18,7 +18,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
             {
               icon: '📄',
               title: 'Resmi Belge Çevirisi',
-              description: 'Pasaport, nüfus cüzdanı, diplomas, transkriptler ve tüm resmi belgeleriniz'
+              description: 'Pasaport, nüfus cüzdanı, diploması, transkriptler ve tüm resmi belgeleriniz'
             },
             {
               icon: '⚖️',
@@ -101,7 +101,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
               description: 'Federal Skilled Worker, Canadian Experience Class ve Federal Skilled Trades programları'
             },
             {
-              icon: '�🇦',
+              icon: '🇨🇦',
               title: 'Provincial Nominee Program',
               description: 'Kanada eyalet bazlı göçmenlik programları (Ontario, British Columbia, Alberta vb.)'
             },

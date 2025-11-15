@@ -34,7 +34,7 @@ const FAQ: React.FC = () => {
         },
         {
           question: 'Noter tasdiki nasıl yapılır?',
-          answer: 'Tercüme işlemi tamamlandıktan sonra yeminli tercüman imzalı belgeyi notere götürür ve noter huzurunda tasdik işlemi yapılır. Bu işlem genellikle aynı gün içinde tamamlanır. Diyarbakır dışındaki müşterilerimiz için kargo ile gönderim yapılır.'
+          answer: 'Tercüme işlemi tamamlandıktan sonra yeminli tercüman imzalı belgeyi notere götürür ve noter huzurunda tasdik işlemi yapılır. Bu işlem genellikle aynı gün içinde tamamlanır. Elazığ dışındaki müşterilerimiz için kargo ile gönderim yapılır.'
         },
         {
           question: 'Apostil işlemi nedir?',
@@ -134,7 +134,7 @@ const FAQ: React.FC = () => {
       items: [
         {
           question: 'Ödeme nasıl yapılır?',
-          answer: 'Nakit, havale/EFT, kredi kartı ve kapıda ödeme seçenekleri mevcuttur. Diyarbakır dışındaki müşterilerimiz için havale ile ödeme yapılabilir. Belge tesliminden sonra ödeme alınır.'
+          answer: 'Nakit, havale/EFT, kredi kartı ve kapıda ödeme seçenekleri mevcuttur. Elazığ dışındaki müşterilerimiz için havale ile ödeme yapılabilir. Belge tesliminden sonra ödeme alınır.'
         },
         {
           question: 'Fiyatlarınız sabit mi yoksa belgeye göre değişiyor mu?',
@@ -151,7 +151,7 @@ const FAQ: React.FC = () => {
       items: [
         {
           question: 'Ofis adresiniz nerede?',
-          answer: 'Diyarbakır merkez ofisimizden hizmet vermekteyiz. Adres ve iletişim bilgilerimize web sitemizin İletişim bölümünden ulaşabilirsiniz.'
+          answer: 'Elazığ merkez ofisimizden hizmet vermekteyiz. Adres ve iletişim bilgilerimize web sitemizin İletişim bölümünden ulaşabilirsiniz.'
         },
         {
           question: 'Türkiye\'nin her yerinden hizmet alabilir miyim?',

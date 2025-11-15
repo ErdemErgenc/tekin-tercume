@@ -46,7 +46,7 @@ const About: React.FC = () => {
           </h2>
           <p className="section-subtitle">
             Tekin Tercüme olarak, Adalet Bakanlığı onaylı yeminli tercümanlarımızla profesyonel çeviri hizmetleri sunuyoruz.
-            Diyarbakır merkezli ofisimizden Türkiye geneline ve yurtdışına noter onaylı yeminli tercüme, vize danışmanlığı,
+            Elazığ merkezli ofisimizden Türkiye geneline ve yurtdışına noter onaylı yeminli tercüme, vize danışmanlığı,
             göçmenlik hizmetleri ve mesleki belgelendirme desteği sağlıyoruz. Müşteri memnuniyeti odaklı yaklaşımımızla,
             güvenilir ve hızlı çözümler üretiyoruz.
           </p>

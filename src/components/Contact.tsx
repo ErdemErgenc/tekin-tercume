@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
                 <div className="icon">✉️</div>
                 <div className="info-content">
                   <strong>E-posta</strong>
-                  <a href="mailto:infotekintercume@gmail.com">infotekintercume@gmail.com</a>
+                  <a href="mailto:infotekintercume@gmail.com">info@tekintercume.com.tr</a>
                 </div>
               </div>
 
