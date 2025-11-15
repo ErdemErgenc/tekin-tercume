@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Services.css';
 
 const Services: React.FC = () => {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const elementsToAnimate = document.querySelectorAll('.service-card, .stats-card, .stat-item');
+    elementsToAnimate.forEach((el) => observerRef.current?.observe(el));
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
   const services = [
     {
       id: 1,

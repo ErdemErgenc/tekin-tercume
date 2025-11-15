@@ -242,9 +242,11 @@
   0% {
     transform: translate3d(-30%, 0, 0);
   }
+
   50% {
     transform: translate3d(-15%, 0, 0);
   }
+
   100% {
     transform: translate3d(-30%, 0, 0);
   }
