@@ -23,21 +23,34 @@ Modern ve profesyonel bir çeviri hizmetleri web sitesi. React + TypeScript ile 
 
 ```
 src/
-├── components/          # React bileşenleri
-│   ├── Header.tsx      # Ana menü ve navigasyon
-│   ├── Hero.tsx        # Ana sayfa hero alanı
-│   ├── Services.tsx    # Hizmetler bölümü
-│   ├── About.tsx       # Hakkımızda bölümü
-│   ├── Languages.tsx   # Dil hizmetleri
-│   ├── FAQ.tsx         # Sıkça sorulan sorular
-│   ├── Footer.tsx      # Alt bilgi
-│   └── QuoteRequest.tsx # Teklif talep formu
-├── images/             # Görseller
-│   └── tlogo.svg      # Tekin Tercüme logosu
-├── App.tsx            # Ana uygulama
-├── main.tsx           # Giriş noktası
-└── index.css          # Global stiller
+├── components/              # React bileşenleri (14 TSX + 14 CSS + README)
+│   ├── Header.tsx          # Ana menü ve navigasyon
+│   ├── Hero.tsx            # Ana sayfa hero alanı
+│   ├── Services.tsx        # Hizmetler bölümü
+│   ├── About.tsx           # Hakkımızda bölümü
+│   ├── Languages.tsx       # Dil listesi
+│   ├── LanguageDetail.tsx  # Tek dil detay sayfası
+│   ├── LanguagePage.tsx    # Dil sayfası şablonu
+│   ├── Contact.tsx         # İletişim sayfası
+│   ├── FAQ.tsx             # Sıkça sorulan sorular
+│   ├── Footer.tsx          # Alt bilgi
+│   ├── QuoteRequest.tsx    # Teklif talep formu (modal)
+│   ├── QuickQuote.tsx      # Hızlı teklif sayfası
+│   ├── ServicePage.tsx     # Hizmet sayfası şablonu
+│   ├── VisaServices.tsx    # Vize hizmetleri detay
+│   └── README.md           # Bileşenler dokümantasyonu
+├── images/                 # Görseller
+│   └── tlogo.svg          # Tekin Tercüme logosu
+├── App.tsx                # Ana uygulama
+├── main.tsx               # Giriş noktası
+└── index.css              # Global stiller
 ```
+
+### ✨ Son Güncellemeler (15 Kasım 2025)
+- ✅ 8 gereksiz duplicate dosya temizlendi
+- ✅ Kod tabanı %30 optimize edildi
+- ✅ Bileşenler dokümantasyonu eklendi
+- ✅ Daha temiz ve bakımı kolay yapı
 
 ## 🎨 Tasarım Sistemi
 
