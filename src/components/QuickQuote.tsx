@@ -15,6 +15,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [fileError, setFileError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     fromLang: initialFromLanguage,
@@ -48,6 +49,15 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
+    setFileError(null); // Reset error on new file selection
+
+    if (file && file.size > 10 * 1024 * 1024) { // 10 MB limit
+      setFileError('Dosya boyutu 10 MB\'ı aşamaz.');
+      setFormData(prev => ({ ...prev, document: null }));
+      e.target.value = ''; // Clear the file input
+      return;
+    }
+
     setFormData(prev => ({ ...prev, document: file }));
   };
 
@@ -210,6 +220,11 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                   {formData.document && (
                     <div className="file-info">
                       ✓ {formData.document.name}
+                    </div>
+                  )}
+                  {fileError && (
+                    <div className="file-error-message">
+                      {fileError}
                     </div>
                   )}
                 </div>

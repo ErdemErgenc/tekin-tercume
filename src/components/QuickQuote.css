@@ -274,6 +274,14 @@
   margin: 0;
 }
 
+/* Error Message */
+.file-error-message {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .quick-quote {

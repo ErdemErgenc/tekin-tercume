@@ -34,5 +34,8 @@
     "env": {
       "NODE_ENV": "production"
     }
+  },
+  "api": {
+    "maxPayloadSize": "10mb"
   }
 }
