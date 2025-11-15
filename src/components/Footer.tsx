@@ -11,12 +11,12 @@ const Footer: React.FC = () => {
           <div className="footer-info">
             <div className="contact-info">
               <div className="contact-item">
-                <span className="contact-icon">�</span>
+               
                 <span className="contact-label">WhatsApp & Mobil:</span>
                 <a href="tel:+905447215315">+90 544 721 53 15</a>
               </div>
               <div className="contact-item">
-                <span className="contact-icon">📞</span>
+                
                 <span className="contact-label">Ofis:</span>
                 <a href="tel:+904242387254">+90 424 238 72 54</a>
               </div>
