@@ -1,215 +1,142 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <section className="contact">
       <div className="container">
         <div className="contact-header">
           <h1>İletişim</h1>
-          <p>Profesyonel çeviri hizmetleri için bizimle iletişime geçin</p>
+          <p>Profesyonel Çeviri Hizmetleri İçin Bizimle İletişime Geçin</p>
         </div>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-card">
-              <h3>İletişim Bilgileri</h3>
-
-              <div className="contact-item">
-                <strong>WhatsApp / Mobil:</strong>
-                <a href="tel:+905447215315">+90 544 721 53 15</a>
-                
+        {/* İletişim Bilgileri ve Çalışma Saatleri */}
+        <div className="contact-main-grid">
+          <div className="contact-info-card">
+            <h3>İletişim Bilgileri</h3>
+            <div className="info-items">
+              <div className="info-item">
+                <div className="icon">📱</div>
+                <div className="info-content">
+                  <strong>WhatsApp</strong>
+                  <a href="https://wa.me/905447215315" target="_blank" rel="noopener noreferrer">
+                    +90 544 721 53 15
+                  </a>
+                </div>
               </div>
 
-              <div className="contact-item">
-                <strong>Ofis Telefonu:</strong>
-                <a href="tel:+904242387254">+90 424 238 72 54</a>
+              <div className="info-item">
+                <div className="icon">📞</div>
+                <div className="info-content">
+                  <strong>Mobil Telefon</strong>
+                  <a href="tel:+905447215315">+90 544 721 53 15</a>
+                </div>
               </div>
 
-              <div className="contact-item">
-                <strong>E-posta:</strong>
-                <a href="mailto:infotekintercume@gmail.com">infotekintercume@gmail.com</a>
+              <div className="info-item">
+                <div className="icon">☎️</div>
+                <div className="info-content">
+                  <strong>Ofis Telefonu</strong>
+                  <a href="tel:+904242387254">+90 424 238 72 54</a>
+                </div>
               </div>
 
-              <div className="contact-item">
-                <strong>Adres:</strong>
-                <span>Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ</span>
+              <div className="info-item">
+                <div className="icon">✉️</div>
+                <div className="info-content">
+                  <strong>E-posta</strong>
+                  <a href="mailto:infotekintercume@gmail.com">infotekintercume@gmail.com</a>
+                </div>
               </div>
 
-              <div className="contact-item">
-                <strong>Instagram:</strong>
-                <a href="https://www.instagram.com/tekintercume/" target="_blank" rel="noopener noreferrer">
-                  @tekintercume
-                </a>
+              <div className="info-item">
+                <div className="icon">📍</div>
+                <div className="info-content">
+                  <strong>Adres</strong>
+                  <span>Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ</span>
+                </div>
               </div>
-            </div>
 
-            <div className="hours-card">
-              <h3>Çalışma Saatleri</h3>
-              <p>Pazartesi: 08:00 - 18:30</p>
-              <p>Salı: 08:00 - 18:30</p>
-              <p>Çarşamba: 08:00 - 18:30</p>
-              <p>Perşembe: 08:00 - 18:30</p>
-              <p>Cuma: 08:00 - 18:30</p>
-              <p>Cumartesi: 08:00 - 18:30</p>
-              <p>Pazar: 08:00 - 18:30</p>
-              <p><small>WhatsApp 7/24 aktif</small></p>
+              <div className="info-item">
+                <div className="icon">📸</div>
+                <div className="info-content">
+                  <strong>Instagram</strong>
+                  <a href="https://www.instagram.com/tekintercume/" target="_blank" rel="noopener noreferrer">
+                    @tekintercume
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="contact-form-section">
-            <div className="form-card">
-              <h3>Mesaj Gönder</h3>
-
-              <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name">Ad Soyad</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="phone">Telefon</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">E-posta</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="service">Hizmet Türü</label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">Seçiniz</option>
-                    <option value="translation">Noter Onaylı Yeminli Tercüme</option>
-                    <option value="visa">Vize Danışmanlığı</option>
-                    <option value="immigration">Göçmenlik Hizmetleri</option>
-                    <option value="certification">Mesleki Belgelendirme (WES/ICAS)</option>
-                    <option value="urgent">Acil Çeviri (24 Saat)</option>
-                    <option value="other">Diğer</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Mesajınız</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={5}
-                    required
-                    placeholder="Çeviri ihtiyacınızı detaylı olarak açıklayın..."
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="submit-btn">
-                  Mesaj Gönder
-                </button>
-              </form>
+          <div className="working-hours-card">
+            <h3>Çalışma Saatleri</h3>
+            <div className="hours-list">
+              <div className="hours-item">
+                <span className="day">Pazartesi</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+              <div className="hours-item">
+                <span className="day">Salı</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+              <div className="hours-item">
+                <span className="day">Çarşamba</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+              <div className="hours-item">
+                <span className="day">Perşembe</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+              <div className="hours-item">
+                <span className="day">Cuma</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+              <div className="hours-item">
+                <span className="day">Cumartesi</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+              <div className="hours-item">
+                <span className="day">Pazar</span>
+                <span className="time">08:00 - 18:30</span>
+              </div>
+            </div>
+            <div className="hours-note">
+              <p>⏰ WhatsApp 7/24 aktif - Acil durumlar için her zaman ulaşabilirsiniz.</p>
             </div>
           </div>
         </div>
 
-        {/* Google Maps Section */}
+        {/* Konum - Harita */}
         <div className="map-section">
-          <div className="map-card">
-            <h3>Konum</h3>
-            <p className="map-address">
-              Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ
-            </p>
-            <div className="map-container">
-              <iframe
-                title="Tekin Tercüme Konum"
-                className="map-iframe"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src={
-                  `https://www.google.com/maps?q=${encodeURIComponent(
-                    "Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ"
-                  )}&output=embed`
-                }
-              />
-            </div>
-            <div className="map-actions">
-              <a
-                className="map-link"
-                href={
-                  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    "Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ"
-                  )}`
-                }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Google Haritalar'da Aç
-              </a>
-            </div>
+          <h3>Konum</h3>
+          <p className="map-description">Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ</p>
+          <div className="map-container">
+            <iframe
+              title="Tekin Tercüme Konum"
+              className="map-iframe"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                "Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ"
+              )}&output=embed`}
+            />
+          </div>
+          <div className="map-actions">
+            <a
+              className="map-link"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                "Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📍 Google Haritalar'da Aç
+            </a>
           </div>
         </div>
 
-        <div className="quick-contact">
-          <div className="quick-contact-card">
-            <h3>Hızlı İletişim</h3>
-            <p>Acil çeviri ihtiyacınız için</p>
-            <div className="quick-buttons">
-              <a href="https://wa.me/905447215315" className="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
-              <a href="tel:+905447215315" className="call-btn">
-                Ara
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
