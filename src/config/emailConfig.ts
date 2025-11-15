@@ -15,20 +15,20 @@ export const getEmailConfig = () => {
   // Always use production API for Vercel domains
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-    
+
     // If on Vercel domain, ALWAYS use production API
     if (hostname.includes('vercel.app') || hostname.includes('tekintercume.com')) {
       console.log('🌐 PRODUCTION MODE - Using /api endpoint');
       return PRODUCTION_EMAIL_CONFIG;
     }
-    
+
     // Only use localhost API if explicitly on localhost
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
       console.log('🌐 DEVELOPMENT MODE - Using localhost:3001/api endpoint');
       return LOCAL_EMAIL_CONFIG;
     }
   }
-  
+
   // Default to production for safety
   console.log('🌐 DEFAULT TO PRODUCTION - Using /api endpoint');
   return PRODUCTION_EMAIL_CONFIG;
