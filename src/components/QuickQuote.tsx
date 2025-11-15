@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './QuickQuote.css';
+import { getEmailConfig } from '../config/emailConfig';
 
 interface QuickQuoteProps {
   initialFromLanguage?: string;
