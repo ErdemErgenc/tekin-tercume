@@ -134,7 +134,9 @@
 }
 
 .dropdown-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   width: 100%;
   padding: 0.75rem 1rem;
   background: none;
@@ -152,6 +154,19 @@
 .dropdown-item:hover {
   background: rgba(0, 0, 102, 0.05);
   color: var(--primary-color, #000066);
+}
+
+.item-flag-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+}
+
+.item-name {
+  flex: 1;
 }
 
 /* Header Actions */

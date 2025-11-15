@@ -111,8 +111,8 @@ const Header: React.FC<HeaderProps> = ({
                             setOpenDropdown(null);
                           }}
                         >
-                          {subItem.flag && <span className="item-flag">{subItem.flag}</span>}
-                          {subItem.name}
+                          {subItem.flag && <span className="item-flag-emoji">{subItem.flag}</span>}
+                          <span className="item-name">{subItem.name}</span>
                         </button>
                       ))}
                     </div>

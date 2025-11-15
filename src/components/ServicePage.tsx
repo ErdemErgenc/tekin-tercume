@@ -101,12 +101,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
               description: 'Federal Skilled Worker, Canadian Experience Class ve Federal Skilled Trades programları'
             },
             {
-              icon: '🏛️',
+              icon: '�🇦',
               title: 'Provincial Nominee Program',
               description: 'Kanada eyalet bazlı göçmenlik programları (Ontario, British Columbia, Alberta vb.)'
             },
             {
-              icon: '�',
+              icon: '🌍',
               title: 'Diğer Ülkeler',
               description: 'ABD Green Card, Avustralya Skilled Migration, Avrupa Golden Visa programları'
             },
@@ -141,12 +141,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
               description: 'Kanada için en yaygın diploma denklik kuruluşu - transkript ve diploma değerlendirmesi'
             },
             {
-              icon: '📋',
+              icon: '🇨🇦',
               title: 'ICAS (International Credential Assessment)',
               description: 'Kanada için diploma denklik değerlendirmesi - akademik ve mesleki sertifikalar'
             },
             {
-              icon: '�',
+              icon: '🎓',
               title: 'CES (Comparative Education Service)',
               description: 'Toronto Üniversitesi destekli denklik hizmeti - lisans ve lisansüstü değerlendirme'
             },
