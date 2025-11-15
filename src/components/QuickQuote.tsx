@@ -12,6 +12,9 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
   initialToLanguage = 'english',
   onNavigate
 }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const [formData, setFormData] = useState({
     fromLang: initialFromLanguage,
     toLang: initialToLanguage,
@@ -49,6 +52,8 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
     console.log('📤 Hızlı teklif talebi gönderiliyor:', formData);
 
     try {
@@ -113,15 +118,20 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
       console.log('📧 Response data:', responseData);
 
       if (response.ok && responseData.success) {
-        alert('✅ Teklif talebiniz başarıyla gönderildi! Emailinizi kontrol edin.');
-        onNavigate('home');
+        setSubmitStatus('success');
+        // 3 saniye sonra ana sayfaya dön
+        setTimeout(() => {
+          onNavigate('home');
+        }, 3000);
       } else {
         throw new Error(responseData.message || `Email gönderimi başarısız (Status: ${response.status})`);
       }
     } catch (error) {
       console.error('❌ Email send error:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Bilinmeyen hata';
-      alert('❌ Email gönderimi başarısız: ' + errorMessage);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -297,17 +307,80 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
           </div>
 
           <div className="form-footer">
-            <button type="submit" className="submit-btn">
-              🚀 Teklif Talep Et
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isSubmitting || submitStatus === 'success'}
+            >
+              {isSubmitting ? '⏳ Gönderiliyor...' :
+                submitStatus === 'success' ? '✅ Gönderildi!' :
+                  '🚀 Teklif Talep Et'}
             </button>
+
+            {/* Loading & Status Messages */}
+            {isSubmitting && (
+              <div style={{
+                marginTop: '20px',
+                padding: '20px',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                borderRadius: '12px',
+                color: 'white',
+                textAlign: 'center',
+                animation: 'pulse 2s ease-in-out infinite'
+              }}>
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  border: '4px solid rgba(255,255,255,0.3)',
+                  borderTop: '4px solid white',
+                  borderRadius: '50%',
+                  margin: '0 auto 15px',
+                  animation: 'spin 1s linear infinite'
+                }}></div>
+                <h3 style={{ margin: '0 0 10px', fontSize: '20px' }}>📧 Talebiniz Gönderiliyor...</h3>
+                <p style={{ margin: 0, opacity: 0.9 }}>Lütfen bekleyin, dosyanız işleniyor</p>
+              </div>
+            )}
+
+            {submitStatus === 'success' && (
+              <div style={{
+                marginTop: '20px',
+                padding: '25px',
+                background: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+                borderRadius: '12px',
+                color: 'white',
+                textAlign: 'center',
+                animation: 'slideIn 0.5s ease-out'
+              }}>
+                <div style={{ fontSize: '60px', marginBottom: '15px' }}>✅</div>
+                <h3 style={{ margin: '0 0 10px', fontSize: '24px' }}>Talebiniz Başarıyla Gönderildi!</h3>
+                <p style={{ margin: 0, fontSize: '16px' }}>
+                  <br />
+
+                </p>
+              </div>
+            )}
+
+            {submitStatus === 'error' && (
+              <div style={{
+                marginTop: '20px',
+                padding: '20px',
+                background: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%)',
+                borderRadius: '12px',
+                color: 'white',
+                textAlign: 'center'
+              }}>
+                <div style={{ fontSize: '50px', marginBottom: '10px' }}>❌</div>
+                <h3 style={{ margin: '0 0 10px', fontSize: '20px' }}>Gönderim Başarısız</h3>
+                <p style={{ margin: 0 }}>Lütfen tekrar deneyin veya bizi arayın</p>
+              </div>
+            )}
 
             <div className="form-note">
               <p>
                 🔒 Bilgileriniz güvenli şekilde saklanır ve sadece teklif hazırlamak için kullanılır.
               </p>
-              <p>
-                ⏱️ Teklifimizi 2 saat içinde size ileteceğiz.
-              </p>
+
             </div>
           </div>
         </form>
