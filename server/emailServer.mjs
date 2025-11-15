@@ -110,6 +110,9 @@ app.get('/api/test-email', async (req, res) => {
 // Send email endpoint
 app.post('/api/send-quote', async (req, res) => {
   try {
+    console.log('📬 New quote request received!');
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+
     const {
       name,
       email,
@@ -119,7 +122,11 @@ app.post('/api/send-quote', async (req, res) => {
       notaryByOffice,
       multipleCopies,
       contactPreference,
-      documentName
+      contactMethod,
+      documentName,
+      fromLang,
+      toLang,
+      urgency
     } = req.body;
 
     // Email content
@@ -150,11 +157,29 @@ app.post('/api/send-quote', async (req, res) => {
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; color: #555;">💬 İletişim Tercihi:</td>
-                <td style="padding: 8px 0;">${contactPreference || 'Belirtilmedi'}</td>
+                <td style="padding: 8px 0;">${contactMethod || contactPreference || 'Belirtilmedi'}</td>
               </tr>
             </table>
 
             <h2 style="color: #000066; border-bottom: 2px solid #0000CC; padding-bottom: 10px; margin-top: 30px;">📄 Tercüme Detayları</h2>
+            ${fromLang && toLang ? `
+            <table style="width: 100%; margin: 20px 0; background: #f0f9ff; padding: 15px; border-radius: 8px;">
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #555;">🌐 Kaynak Dil:</td>
+                <td style="padding: 8px 0;">${fromLang}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #555;">🎯 Hedef Dil:</td>
+                <td style="padding: 8px 0;">${toLang}</td>
+              </tr>
+              ${urgency ? `
+              <tr>
+                <td style="padding: 8px 0; font-weight: bold; color: #555;">⚡ Aciliyet:</td>
+                <td style="padding: 8px 0;">${urgency === 'very-urgent' ? '🔴 Çok Acil' : urgency === 'urgent' ? '🟡 Acil' : '🟢 Normal'}</td>
+              </tr>
+              ` : ''}
+            </table>
+            ` : ''}
             <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
               <p style="margin: 0; line-height: 1.8; white-space: pre-line;">${description || 'Detay belirtilmedi'}</p>
             </div>
@@ -175,11 +200,13 @@ app.post('/api/send-quote', async (req, res) => {
                   ${notaryByOffice === 'yes' ? '✅' : '❌'} Noter tasdiki çeviri bürosu tarafından yapılsın
                 </td>
               </tr>
+              ${multipleCopies && multipleCopies !== '1' ? `
               <tr>
                 <td style="padding: 8px 0;">
-                  ${multipleCopies === 'yes' ? '✅' : '❌'} Birden fazla nüsha istiyorum
+                  📑 <strong>${multipleCopies} adet nüsha istiyorum</strong>
                 </td>
               </tr>
+              ` : ''}
             </table>
 
             <div style="background: #e8f4f8; border-left: 4px solid #0000CC; padding: 15px; margin-top: 30px; border-radius: 4px;">

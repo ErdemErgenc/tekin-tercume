@@ -47,12 +47,47 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
     setFormData(prev => ({ ...prev, document: file }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Hızlı teklif talebi gönderildi:', formData);
-    // Form submission logic
-    alert('Teklif talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.');
-    onNavigate('home');
+    console.log('📤 Hızlı teklif talebi gönderiliyor:', formData);
+
+    try {
+      // Send email via Gmail SMTP backend
+      const response = await fetch('http://localhost:3001/api/send-quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          description: formData.description,
+          notaryApproval: formData.notaryApproval,
+          multipleCopies: formData.multipleCopies,
+          contactMethod: formData.contactMethod,
+          fromLang: formData.fromLang,
+          toLang: formData.toLang,
+          urgency: formData.urgency,
+          documentName: formData.document?.name || null
+        })
+      });
+
+      console.log('📬 Response status:', response.status);
+      const responseData = await response.json();
+      console.log('📧 Response data:', responseData);
+
+      if (responseData.success) {
+        alert('✅ Teklif talebiniz başarıyla gönderildi! Emailinizi kontrol edin.');
+        onNavigate('home');
+      } else {
+        throw new Error(responseData.message || 'Email gönderimi başarısız');
+      }
+    } catch (error) {
+      console.error('❌ Email send error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Bilinmeyen hata';
+      alert('❌ Email gönderimi başarısız: ' + errorMessage);
+    }
   };
 
   return (

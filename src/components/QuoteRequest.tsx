@@ -18,7 +18,11 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
     name: '',
     phone: '',
     email: '',
-    contactPreference: ''
+    contactPreference: '',
+    contactMethod: '',
+    fromLang: '',
+    toLang: '',
+    urgency: ''
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -47,6 +51,8 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
     setSubmitStatus('idle');
 
     try {
+      console.log('📤 Sending quote request...', formData);
+
       // Send email via our backend API (Gmail SMTP)
       const response = await fetch('http://localhost:3001/api/send-quote', {
         method: 'POST',
@@ -62,22 +68,31 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
           notaryByOffice: formData.notaryByOffice,
           multipleCopies: formData.multipleCopies,
           contactPreference: formData.contactPreference,
+          contactMethod: formData.contactMethod,
+          fromLang: formData.fromLang,
+          toLang: formData.toLang,
+          urgency: formData.urgency,
           documentName: formData.document?.name || null
         })
       });
 
-      const data = await response.json();
+      console.log('📬 Response status:', response.status);
+      const responseData = await response.json();
+      console.log('📧 Response data:', responseData);
 
-      if (data.success) {
+      if (responseData.success) {
         setSubmitStatus('success');
         setTimeout(() => {
           onClose();
         }, 3000);
       } else {
-        throw new Error(data.message);
+        throw new Error(responseData.message || 'Email gönderimi başarısız');
       }
     } catch (error) {
-      console.error('Email send error:', error);
+      console.error('❌ Email send error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Bilinmeyen hata';
+      console.error('❌ Error message:', errorMessage);
+      alert('Email gönderimi başarısız: ' + errorMessage);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
