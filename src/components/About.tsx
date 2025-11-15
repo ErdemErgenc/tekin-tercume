@@ -45,9 +45,9 @@ const About: React.FC = () => {
             <br />Çeviri Partneri
           </h2>
           <p className="section-subtitle">
-            Tekin Tercüme olarak, Adalet Bakanlığı onaylı yeminli tercümanlarımızla profesyonel çeviri hizmetleri sunuyoruz. 
-            Diyarbakır merkezli ofisimizden Türkiye geneline ve yurtdışına noter onaylı yeminli tercüme, vize danışmanlığı, 
-            göçmenlik hizmetleri ve mesleki belgelendirme desteği sağlıyoruz. Müşteri memnuniyeti odaklı yaklaşımımızla, 
+            Tekin Tercüme olarak, Adalet Bakanlığı onaylı yeminli tercümanlarımızla profesyonel çeviri hizmetleri sunuyoruz.
+            Diyarbakır merkezli ofisimizden Türkiye geneline ve yurtdışına noter onaylı yeminli tercüme, vize danışmanlığı,
+            göçmenlik hizmetleri ve mesleki belgelendirme desteği sağlıyoruz. Müşteri memnuniyeti odaklı yaklaşımımızla,
             güvenilir ve hızlı çözümler üretiyoruz.
           </p>
         </div>
@@ -59,9 +59,9 @@ const About: React.FC = () => {
             <div className="company-info">
               <h3>Neden Tekin Tercüme?</h3>
               <p>
-                Yılların deneyimi ve sektördeki uzmanlığımızla, tüm çeviri ihtiyaçlarınıza en kaliteli çözümü sunuyoruz. 
-                Yeminli tercümanlarımız, her dil ve belge türünde titizlikle çalışarak hatasız ve profesyonel sonuçlar üretir. 
-                Hızlı teslimat, uygun fiyat ve kesintisiz müşteri desteği ile yanınızdayız. Resmi kurumlar tarafından 
+                Yılların deneyimi ve sektördeki uzmanlığımızla, tüm çeviri ihtiyaçlarınıza en kaliteli çözümü sunuyoruz.
+                Yeminli tercümanlarımız, her dil ve belge türünde titizlikle çalışarak hatasız ve profesyonel sonuçlar üretir.
+                Hızlı teslimat, uygun fiyat ve kesintisiz müşteri desteği ile yanınızdayız. Resmi kurumlar tarafından
                 kabul edilen belgelerimizle vize, göçmenlik ve resmi başvuru süreçlerinizde güvenle ilerleyebilirsiniz.
               </p>
 

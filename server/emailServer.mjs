@@ -66,10 +66,10 @@ app.get('/api/test-email', async (req, res) => {
     console.log('🔍 Testing Gmail SMTP connection...');
     console.log('   User:', process.env.EMAIL_USER || process.env.GMAIL_USER);
     console.log('   Pass length:', (process.env.EMAIL_PASSWORD || process.env.GMAIL_APP_PASSWORD)?.length);
-    
+
     await transporter.verify();
     console.log('✅ Gmail SMTP connection verified!');
-    
+
     // Send test email
     const testMail = await transporter.sendMail({
       from: process.env.EMAIL_USER || process.env.GMAIL_USER,
@@ -85,20 +85,20 @@ app.get('/api/test-email', async (req, res) => {
         </div>
       `
     });
-    
+
     console.log('📧 Test email sent! Message ID:', testMail.messageId);
     console.log('📬 Check inbox at:', process.env.EMAIL_USER || process.env.GMAIL_USER);
-    
-    res.json({ 
-      success: true, 
+
+    res.json({
+      success: true,
       message: 'Gmail SMTP connection successful! Test email sent.',
       messageId: testMail.messageId,
       sentTo: process.env.EMAIL_USER || process.env.GMAIL_USER
     });
   } catch (error) {
     console.error('❌ Gmail SMTP error:', error);
-    res.status(500).json({ 
-      success: false, 
+    res.status(500).json({
+      success: false,
       message: 'Gmail SMTP connection failed',
       error: error.message,
       code: error.code,
@@ -184,10 +184,10 @@ app.post('/api/send-quote', async (req, res) => {
 
             <div style="background: #e8f4f8; border-left: 4px solid #0000CC; padding: 15px; margin-top: 30px; border-radius: 4px;">
               <p style="margin: 0; color: #555;">
-                <strong>⏰ Talep Zamanı:</strong> ${new Date().toLocaleString('tr-TR', { 
-                  dateStyle: 'full', 
-                  timeStyle: 'short' 
-                })}
+                <strong>⏰ Talep Zamanı:</strong> ${new Date().toLocaleString('tr-TR', {
+        dateStyle: 'full',
+        timeStyle: 'short'
+      })}
               </p>
             </div>
           </div>
@@ -207,16 +207,16 @@ app.post('/api/send-quote', async (req, res) => {
     console.log('✅ Email sent successfully!');
     console.log('📧 Message ID:', info.messageId);
 
-    res.json({ 
-      success: true, 
+    res.json({
+      success: true,
       message: 'Email sent successfully',
       messageId: info.messageId
     });
 
   } catch (error) {
     console.error('❌ Email send error:', error);
-    res.status(500).json({ 
-      success: false, 
+    res.status(500).json({
+      success: false,
       message: 'Failed to send email',
       error: error.message,
       details: error.toString()
