@@ -102,7 +102,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 2.5rem 2rem;
   background: white;
   border-radius: 20px;
@@ -128,6 +128,17 @@
   border-radius: 20px;
   flex-shrink: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 102, 0.2);
+  margin: 0 auto;
+  position: relative;
+}
+
+.feature-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 20px;
+  pointer-events: none;
 }
 
 .feature-content h4 {
@@ -307,8 +318,16 @@
 }
 
 .benefit-box-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, var(--primary-color, #000066), #0000CC);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 102, 0.15);
 }
 
 .benefit-box h4 {
@@ -422,7 +441,13 @@
   }
 
   .feature-card {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
   }
 
   .badge-content {
