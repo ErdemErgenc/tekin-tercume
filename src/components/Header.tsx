@@ -14,7 +14,6 @@ import NL from 'country-flag-icons/react/3x2/NL';
 import BG from 'country-flag-icons/react/3x2/BG';
 import RO from 'country-flag-icons/react/3x2/RO';
 import UA from 'country-flag-icons/react/3x2/UA';
-import TR from 'country-flag-icons/react/3x2/TR';
 
 interface HeaderProps {
   logo: string;

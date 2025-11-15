@@ -82,7 +82,7 @@ const Languages: React.FC<LanguagePageProps> = () => {
                   {FlagComponent ? (
                     <FlagComponent className="language-flag-svg" />
                   ) : (
-                    <span className="language-flag">{language.flag}</span>
+                    <span className="language-flag">🌍</span>
                   )}
                   <h3 className="language-name">{language.name}</h3>
                 </div>
