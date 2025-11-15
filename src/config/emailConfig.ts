@@ -1,23 +1,25 @@
-// EmailJS Configuration
-// Sign up at: https://www.emailjs.com/
-// Create a service, template, and get your public key
+// Email Configuration for both local development and production
 
-export const EMAIL_CONFIG = {
+// For local development - Node.js server
+export const LOCAL_EMAIL_CONFIG = {
+  API_URL: 'http://localhost:3001/api'
+};
+
+// For production - Vercel Functions
+export const PRODUCTION_EMAIL_CONFIG = {
+  API_URL: '/api'
+};
+
+// Auto-detect environment and use appropriate config
+export const getEmailConfig = () => {
+  const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  return isDevelopment ? LOCAL_EMAIL_CONFIG : PRODUCTION_EMAIL_CONFIG;
+};
+
+// EmailJS Configuration (Alternative method - not currently used)
+export const EMAILJS_CONFIG = {
   PUBLIC_KEY: 'YOUR_PUBLIC_KEY', // Replace with your EmailJS public key
   SERVICE_ID: 'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
   TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
   TO_EMAIL: 'infotekintercume@gmail.com'
 };
-
-// Instructions to set up EmailJS:
-// 1. Go to https://www.emailjs.com/ and create an account
-// 2. Add an email service (Gmail recommended)
-//    - For Gmail: Use infotekintercume@gmail.com
-//    - App Password: gaio coxp zstn fxat
-// 3. Create an email template with these variables:
-//    - {{from_name}}
-//    - {{from_email}}
-//    - {{from_phone}}
-//    - {{message}}
-// 4. Get your Public Key from Account settings
-// 5. Replace the values above
