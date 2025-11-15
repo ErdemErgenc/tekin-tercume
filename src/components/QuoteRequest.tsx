@@ -173,12 +173,88 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
               <div className="form-group">
                 <label>Çeviri Detayları</label>
                 <textarea
-                  placeholder="• Belge türü (diploma, sözleşme, vs.)&#10;• Sayfa sayısı&#10;• Kaynak ve hedef dil&#10;• Aciliyet durumu&#10;• Özel talepleriniz"
-                  rows={5}
+                  placeholder="• Belge türü (diploma, sözleşme, vs.)&#10;• Sayfa sayısı&#10;• Özel talepleriniz"
+                  rows={4}
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   className="description-textarea"
                 />
+              </div>
+
+              <div className="form-row language-row">
+                <div className="form-group">
+                  <label>Kaynak Dil *</label>
+                  <select
+                    value={formData.fromLang}
+                    onChange={(e) => handleInputChange('fromLang', e.target.value)}
+                    required
+                  >
+                    <option value="">Seçiniz</option>
+                    <option value="Türkçe">Türkçe</option>
+                    <option value="İngilizce">İngilizce</option>
+                    <option value="Almanca">Almanca</option>
+                    <option value="Fransızca">Fransızca</option>
+                    <option value="İtalyanca">İtalyanca</option>
+                    <option value="Rusça">Rusça</option>
+                    <option value="Arapça">Arapça</option>
+                    <option value="Farsça">Farsça</option>
+                    <option value="Çince">Çince</option>
+                    <option value="Japonca">Japonca</option>
+                    <option value="İspanyolca">İspanyolca</option>
+                    <option value="Portekizce">Portekizce</option>
+                    <option value="Yunanca">Yunanca</option>
+                    <option value="Hollandaca">Hollandaca</option>
+                    <option value="Bulgarca">Bulgarca</option>
+                    <option value="Romence">Romence</option>
+                    <option value="Ukraynaca">Ukraynaca</option>
+                    <option value="Diğer">Diğer</option>
+                  </select>
+                </div>
+
+                <div className="arrow-separator">→</div>
+
+                <div className="form-group">
+                  <label>Hedef Dil *</label>
+                  <select
+                    value={formData.toLang}
+                    onChange={(e) => handleInputChange('toLang', e.target.value)}
+                    required
+                  >
+                    <option value="">Seçiniz</option>
+                    <option value="Türkçe">Türkçe</option>
+                    <option value="İngilizce">İngilizce</option>
+                    <option value="Almanca">Almanca</option>
+                    <option value="Fransızca">Fransızca</option>
+                    <option value="İtalyanca">İtalyanca</option>
+                    <option value="Rusça">Rusça</option>
+                    <option value="Arapça">Arapça</option>
+                    <option value="Farsça">Farsça</option>
+                    <option value="Çince">Çince</option>
+                    <option value="Japonca">Japonca</option>
+                    <option value="İspanyolca">İspanyolca</option>
+                    <option value="Portekizce">Portekizce</option>
+                    <option value="Yunanca">Yunanca</option>
+                    <option value="Hollandaca">Hollandaca</option>
+                    <option value="Bulgarca">Bulgarca</option>
+                    <option value="Romence">Romence</option>
+                    <option value="Ukraynaca">Ukraynaca</option>
+                    <option value="Diğer">Diğer</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Aciliyet Durumu *</label>
+                <select
+                  value={formData.urgency}
+                  onChange={(e) => handleInputChange('urgency', e.target.value)}
+                  required
+                >
+                  <option value="">Seçiniz</option>
+                  <option value="normal">🟢 Normal (3-5 iş günü)</option>
+                  <option value="urgent">🟡 Acil (1-2 iş günü)</option>
+                  <option value="very-urgent">🔴 Çok Acil (24 saat)</option>
+                </select>
               </div>
 
               <div className="form-group radio-group">
@@ -368,7 +444,11 @@ const QuoteRequest: React.FC<QuoteRequestProps> = ({ onClose }) => {
           )}
 
           {step < 2 ? (
-            <button className="btn-primary" onClick={handleNext}>
+            <button 
+              className="btn-primary" 
+              onClick={handleNext}
+              disabled={!formData.fromLang || !formData.toLang || !formData.urgency}
+            >
               Devam Et →
             </button>
           ) : (
