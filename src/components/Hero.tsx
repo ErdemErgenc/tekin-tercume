@@ -11,12 +11,16 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
   const { t } = useI18n();
-  const [fromLanguage, setFromLanguage] = useState('turkce');
+  const [fromLanguage, setFromLanguage] = useState('turkish');
   const [toLanguage, setToLanguage] = useState('english');
+  const [fromLangOther, setFromLangOther] = useState('');
+  const [toLangOther, setToLangOther] = useState('');
 
   const handleQuickQuote = () => {
     if (onQuickQuote) {
-      onQuickQuote(fromLanguage, toLanguage);
+      const finalFromLang = fromLanguage === 'other' ? fromLangOther : fromLanguage;
+      const finalToLang = toLanguage === 'other' ? toLangOther : toLanguage;
+      onQuickQuote(finalFromLang, finalToLang);
     }
   };
 
@@ -51,6 +55,16 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                         </option>
                       ))}
                     </select>
+                    {fromLanguage === 'other' && (
+                      <input
+                        type="text"
+                        value={fromLangOther}
+                        onChange={(e) => setFromLangOther(e.target.value)}
+                        placeholder={t('quickQuote.sections.otherLangPlaceholder')}
+                        className="modern-select"
+                        style={{ marginTop: '0.5rem' }}
+                      />
+                    )}
                   </div>
 
                   <div className="arrow-divider">
@@ -72,6 +86,16 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                         </option>
                       ))}
                     </select>
+                    {toLanguage === 'other' && (
+                      <input
+                        type="text"
+                        value={toLangOther}
+                        onChange={(e) => setToLangOther(e.target.value)}
+                        placeholder={t('quickQuote.sections.otherLangPlaceholder')}
+                        className="modern-select"
+                        style={{ marginTop: '0.5rem' }}
+                      />
+                    )}
                   </div>
                 </div>
               </div>

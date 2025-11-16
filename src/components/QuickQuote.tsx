@@ -11,7 +11,7 @@ interface QuickQuoteProps {
 }
 
 const QuickQuote: React.FC<QuickQuoteProps> = ({
-  initialFromLanguage = 'turkce',
+  initialFromLanguage = 'turkish',
   initialToLanguage = 'english',
   onNavigate
 }) => {
@@ -20,9 +20,15 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [fileError, setFileError] = useState<string | null>(null);
 
+  // Check if initial languages are in the options list
+  const isFromLangInOptions = languageOptions.some(lang => lang.value === initialFromLanguage);
+  const isToLangInOptions = languageOptions.some(lang => lang.value === initialToLanguage);
+
   const [formData, setFormData] = useState({
-    fromLang: initialFromLanguage,
-    toLang: initialToLanguage,
+    fromLang: isFromLangInOptions ? initialFromLanguage : 'other',
+    toLang: isToLangInOptions ? initialToLanguage : 'other',
+    fromLangOther: !isFromLangInOptions ? initialFromLanguage : '',
+    toLangOther: !isToLangInOptions ? initialToLanguage : '',
     document: null as File | null,
     description: '',
     notaryApproval: '',
@@ -99,8 +105,8 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
           notaryApproval: formData.notaryApproval,
           multipleCopies: formData.multipleCopies,
           contactMethod: formData.contactMethod,
-          fromLang: formData.fromLang,
-          toLang: formData.toLang,
+          fromLang: formData.fromLang === 'other' ? formData.fromLangOther : formData.fromLang,
+          toLang: formData.toLang === 'other' ? formData.toLangOther : formData.toLang,
           urgency: formData.urgency,
           documentName: fileName,
           documentBase64: fileBase64,
@@ -168,6 +174,17 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                       </option>
                     ))}
                   </select>
+                  {formData.fromLang === 'other' && (
+                    <input
+                      type="text"
+                      value={formData.fromLangOther}
+                      onChange={(e) => handleInputChange('fromLangOther', e.target.value)}
+                      placeholder={t('quickQuote.sections.otherLangPlaceholder')}
+                      required
+                      className="other-language-input"
+                      style={{ marginTop: '0.5rem' }}
+                    />
+                  )}
                 </div>
 
                 <div className="arrow-between">→</div>
@@ -185,6 +202,17 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                       </option>
                     ))}
                   </select>
+                  {formData.toLang === 'other' && (
+                    <input
+                      type="text"
+                      value={formData.toLangOther}
+                      onChange={(e) => handleInputChange('toLangOther', e.target.value)}
+                      placeholder={t('quickQuote.sections.otherLangPlaceholder')}
+                      required
+                      className="other-language-input"
+                      style={{ marginTop: '0.5rem' }}
+                    />
+                  )}
                 </div>
               </div>
             </div>
