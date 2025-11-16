@@ -32,6 +32,17 @@ export const tr = {
     to: 'Hedef Dil',
     continue: 'Devam Et'
   },
+  languageOptions: {
+    turkish: 'Türkçe',
+    english: 'İngilizce',
+    german: 'Almanca',
+    french: 'Fransızca',
+    italian: 'İtalyanca',
+    russian: 'Rusça',
+    arabic: 'Arapça',
+    chinese: 'Çince',
+    japanese: 'Japonca'
+  },
   services: {
     sectionTitle: 'Çeviri Ofisinin Faydaları',
     sectionSubtitle: 'Profesyonel çeviri hizmetlerimizle güvenilir çözümler sunuyoruz',

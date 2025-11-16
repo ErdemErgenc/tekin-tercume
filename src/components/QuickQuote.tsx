@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './QuickQuote.css';
 import { getEmailConfig } from '../config/emailConfig';
 import { useI18n } from '../lib/i18n';
+import { languageOptions } from '../data/languageOptions';
 
 interface QuickQuoteProps {
   initialFromLanguage?: string;
@@ -32,18 +33,6 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
     email: '',
     contactMethod: 'whatsapp'
   });
-
-  const languages = [
-    { value: 'turkce', label: 'Türkçe' },
-    { value: 'english', label: 'English' },
-    { value: 'deutsch', label: 'Deutsch' },
-    { value: 'francais', label: 'Français' },
-    { value: 'italiano', label: 'Italiano' },
-    { value: 'русский', label: 'Русский' },
-    { value: 'العربية', label: 'العربية' },
-    { value: '中文', label: '中文' },
-    { value: '日本語', label: '日本語' },
-  ];
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -173,9 +162,9 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                     onChange={(e) => handleInputChange('fromLang', e.target.value)}
                     required
                   >
-                    {languages.map((lang) => (
+                    {languageOptions.map((lang) => (
                       <option key={lang.value} value={lang.value}>
-                        {lang.label}
+                        {t(lang.labelKey)}
                       </option>
                     ))}
                   </select>
@@ -190,9 +179,9 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                     onChange={(e) => handleInputChange('toLang', e.target.value)}
                     required
                   >
-                    {languages.map((lang) => (
+                    {languageOptions.map((lang) => (
                       <option key={lang.value} value={lang.value}>
-                        {lang.label}
+                        {t(lang.labelKey)}
                       </option>
                     ))}
                   </select>

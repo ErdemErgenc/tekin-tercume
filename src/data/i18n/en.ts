@@ -32,6 +32,17 @@ export const en = {
     to: 'Target Language',
     continue: 'Continue'
   },
+  languageOptions: {
+    turkish: 'Turkish',
+    english: 'English',
+    german: 'German',
+    french: 'French',
+    italian: 'Italian',
+    russian: 'Russian',
+    arabic: 'Arabic',
+    chinese: 'Chinese',
+    japanese: 'Japanese'
+  },
   services: {
     sectionTitle: 'Benefits of a Translation Office',
     sectionSubtitle: 'We deliver reliable solutions with professional translation',

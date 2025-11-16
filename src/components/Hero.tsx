@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Hero.css';
 import { useI18n } from '../lib/i18n';
+import { languageOptions } from '../data/languageOptions';
 
 interface HeroProps {
   onQuoteRequest: () => void;
@@ -11,18 +12,6 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
   const { t } = useI18n();
   const [fromLanguage, setFromLanguage] = useState('turkce');
   const [toLanguage, setToLanguage] = useState('english');
-
-  const languages = [
-    { value: 'turkce', label: 'Türkçe' },
-    { value: 'english', label: 'English' },
-    { value: 'deutsch', label: 'Deutsch' },
-    { value: 'francais', label: 'Français' },
-    { value: 'italiano', label: 'Italiano' },
-    { value: 'русский', label: 'Русский' },
-    { value: 'العربية', label: 'العربية' },
-    { value: '中文', label: '中文' },
-    { value: '日本語', label: '日本語' },
-  ];
 
   const handleQuickQuote = () => {
     if (onQuickQuote) {
@@ -55,9 +44,9 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                       onChange={(e) => setFromLanguage(e.target.value)}
                       className="modern-select"
                     >
-                      {languages.map((lang) => (
+                      {languageOptions.map((lang) => (
                         <option key={lang.value} value={lang.value}>
-                          {lang.label}
+                          {t(lang.labelKey)}
                         </option>
                       ))}
                     </select>
@@ -76,9 +65,9 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                       onChange={(e) => setToLanguage(e.target.value)}
                       className="modern-select"
                     >
-                      {languages.map((lang) => (
+                      {languageOptions.map((lang) => (
                         <option key={lang.value} value={lang.value}>
-                          {lang.label}
+                          {t(lang.labelKey)}
                         </option>
                       ))}
                     </select>
