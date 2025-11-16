@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import CA from 'country-flag-icons/react/3x2/CA';
+import TR from 'country-flag-icons/react/3x2/TR';
 import './ServicePages.css';
 
 interface ServicePageProps {
@@ -8,6 +10,15 @@ interface ServicePageProps {
 
 const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) => {
   const [selectedFeature, setSelectedFeature] = useState<any>(null);
+
+  const renderIcon = (icon: string, title?: string) => {
+    const t = (title || '').toLowerCase();
+    const isCA = icon === '🇨🇦' || t.includes('kanada') || t.includes('canada');
+    const isTR = icon === '🇹🇷' || t.includes('türkiye') || t.includes('turkiye') || t.includes('turkey');
+    if (isCA) return <CA className="flag-svg" title="Canada" />;
+    if (isTR) return <TR className="flag-svg" title="Türkiye" />;
+    return icon;
+  };
   const getServiceContent = () => {
     switch (serviceType) {
       case 'translation-service':
@@ -247,7 +258,7 @@ const ServicePage: React.FC<ServicePageProps> = ({ onNavigate, serviceType }) =>
                 onClick={() => setSelectedFeature(feature)}
                 style={{ cursor: 'pointer' }}
               >
-                <div className="feature-icon">{feature.icon}</div>
+                <div className="feature-icon">{renderIcon(feature.icon, feature.title)}</div>
                 <div className="feature-content">
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>

@@ -153,6 +153,13 @@
   filter: drop-shadow(0 10px 30px rgba(0, 0, 102, 0.15));
 }
 
+.feature-icon .flag-svg {
+  width: 64px;
+  height: 48px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 102, 0.12);
+}
+
 .feature-item:hover .feature-icon {
   transform: translateY(-5px) scale(1.1);
   filter: drop-shadow(0 15px 40px rgba(0, 0, 102, 0.25));
