@@ -1,4 +1,9 @@
 export const en = {
+  common: {
+    backHome: '← Back to Home',
+    requestQuote: 'Quick Quote',
+    contact: 'Contact'
+  },
   header: {
     nav: {
       home: 'Home',
@@ -176,6 +181,15 @@ export const en = {
     sectionTitle: 'Our Language Services',
     sectionSubtitle: 'We provide professional translation in many languages',
     details: 'More Details →',
+    cta: {
+      title: 'Get a Quote Now',
+      descriptionPrefix: 'For your',
+      descriptionSuffix: 'translation and notary certification, contact us.'
+    },
+    error: {
+      title: 'Language not found',
+      description: 'The requested language page does not exist.'
+    },
     modal: {
       servicesTitle: '📌 Our Services:',
       understood: 'Got it',

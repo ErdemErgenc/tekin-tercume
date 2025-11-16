@@ -1,4 +1,9 @@
 export const tr = {
+  common: {
+    backHome: '← Ana Sayfaya Dön',
+    requestQuote: 'Hızlı Teklif Al',
+    contact: 'İletişim'
+  },
   header: {
     nav: {
       home: 'Ana Sayfa',
@@ -176,6 +181,15 @@ export const tr = {
     sectionTitle: 'Dil Hizmetlerimiz',
     sectionSubtitle: 'Birçok dilde profesyonel çeviri hizmetleri sunuyoruz',
     details: 'Detaylı Bilgi →',
+    cta: {
+      title: 'Hemen Teklif Alın',
+      descriptionPrefix: 'Profesyonel',
+      descriptionSuffix: 'çeviri ve noter onayı için bizimle iletişime geçin.'
+    },
+    error: {
+      title: 'Dil bulunamadı',
+      description: 'Aradığınız dil sayfası mevcut değil.'
+    },
     modal: {
       servicesTitle: '📌 Hizmetlerimiz:',
       understood: 'Anladım',
