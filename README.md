@@ -91,6 +91,16 @@ npm run preview
 ### Geliştirme Sunucusu
 Proje `http://localhost:5173` adresinde çalışacaktır.
 
+### E-posta Gönderimi (Serverless)
+- Bu proje e-postaları Vercel Functions üzerinden gönderir. Lokal Express sunucusuna ihtiyaç yoktur.
+- Frontend formları `POST /api/contact` endpoint'ine gönderim yapar.
+- Production için Vercel'e şu environment değişkenlerini ekleyin:
+	- `EMAIL_USER` = Gmail adresiniz
+	- `EMAIL_PASSWORD` = Gmail App Password (16 haneli)
+	- (Opsiyonel) `EMAIL_RECIPIENT` = Alıcı adresi (boşsa `EMAIL_USER` kullanılır)
+  
+İstatistik: `GET /api/email-stats`
+
 ## 📋 Özellikler Detay
 
 ### 🌐 Çok Dilli Hizmetler

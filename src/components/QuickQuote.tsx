@@ -92,7 +92,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
       }
 
       const config = getEmailConfig();
-      const apiUrl = `${config.API_URL}/send-quote`;
+      const apiUrl = `${config.API_URL}/contact`;
 
       // Send email via Gmail SMTP backend
       const response = await fetch(apiUrl, {

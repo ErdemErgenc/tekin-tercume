@@ -1,6 +1,6 @@
 # 🚀 Vercel Production Deployment Guide
 
-Bu proje Vercel'e production olarak deploy edilebilir. Email servisi Vercel Functions kullanarak çalışır.
+Bu proje Vercel'e production olarak deploy edilir ve e‑posta gönderimi tamamen Vercel Functions (serverless) ile çalışır. Ayrı bir Node/Express sunucusu gerekmez.
 
 ## 📋 Deployment Adımları
 
@@ -22,9 +22,9 @@ Vercel Dashboard'da > Settings > Environment Variables:
 
 ```
 EMAIL_USER=infotekintercume@gmail.com
-GMAIL_USER=infotekintercume@gmail.com
-EMAIL_PASSWORD=your-gmail-app-password
-GMAIL_APP_PASSWORD=your-gmail-app-password
+EMAIL_PASSWORD=<GMAIL_APP_PASSWORD>
+# (Opsiyonel)
+EMAIL_RECIPIENT=info@tekintercume.com.tr
 NODE_ENV=production
 ```
 
@@ -36,17 +36,18 @@ NODE_ENV=production
 
 ## 🔧 API Endpoints (Production)
 
-- **Quote Request**: `https://your-domain.vercel.app/api/send-quote`
-- **Email Test**: `https://your-domain.vercel.app/api/test-email`
+- **Contact/Quote**: `https://your-domain.vercel.app/api/contact`
+- **Email Stats**: `https://your-domain.vercel.app/api/email-stats`
 
 ## 📁 File Structure
 
 ```
 ├── api/                    # Vercel Functions
-│   ├── send-quote.js       # Email gönderimi
-│   └── test-email.js       # Email test
+│   ├── _lib/
+│   │   └── rate-limiter.js # Rate limit & günlük sayaç
+│   ├── contact.js          # Email gönderimi (contact & quote)
+│   └── email-stats.js      # İstatistik endpoint'i
 ├── src/                    # React frontend
-├── server/                 # Local development server
 ├── vercel.json             # Vercel configuration
 └── package.json
 ```
@@ -55,32 +56,28 @@ NODE_ENV=production
 
 ### Local Development
 ```bash
+npm install
 npm run dev          # Frontend (Vite)
-npm run server       # Email Server (Express)
+# Serverless fonksiyonlar lokal Vite ile çalışmaz; test için deploy edin veya `vercel dev` kullanın
 ```
 
 ### Production (Vercel)
-- Frontend: Automatically built and deployed
-- Email: Vercel Functions (`/api/send-quote`)
-- Auto-detection: Frontend automatically uses correct API URL
+- Frontend: Otomatik build & deploy
+- Email: Vercel Functions (`/api/contact`)
+- Frontend her zaman `'/api'` endpoint'ini kullanır
 
 ## ✅ Testing Production
 
-### 1. Test Email Function
-```bash
-curl https://your-domain.vercel.app/api/test-email
-```
-
-### 2. Test Quote Submission
-Web sitesinde quote form'u kullan ve Gmail'i kontrol et.
+### Test Quote/Contact Submission
+Web sitesinde quote/iletişim formunu kullan ve Gmail'i kontrol et.
 
 ## 🔍 Troubleshooting
 
 ### Common Issues:
 1. **Environment variables missing**: Vercel Dashboard'da kontrol et
-2. **Gmail authentication error**: App password doğru mu?
-3. **CORS issues**: Functions CORS headers'ı include ediyor
-4. **File upload limits**: Vercel 4.5MB limit var
+2. **Gmail authentication error**: App password doğru mu? 2FA açık mı?
+3. **Rate limit**: 429/503 hata kodlarında bir süre bekleyin
+4. **File upload limits**: Vercel body limit ~10MB (ayarlanmıştır)
 
 ### Debug Logs:
 Vercel Dashboard > Functions > Logs
