@@ -1,47 +1,76 @@
-.whatsapp-button {
+.contact-fab-group {
   position: fixed;
   right: 24px;
   bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 999;
+}
+
+.whatsapp-button,
+.phone-button {
+  position: relative;
   width: 64px;
   height: 64px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  background: linear-gradient(135deg, #25d366, #12b054);
-  box-shadow:
-    0 10px 25px rgba(18, 176, 84, 0.45),
-    0 5px 10px rgba(0, 0, 0, 0.15);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 200ms ease, box-shadow 200ms ease;
   animation: whatsapp-float 3s ease-in-out infinite;
-  z-index: 999;
   isolation: isolate;
+  text-decoration: none;
 }
 
-.whatsapp-button:hover {
+.whatsapp-button {
+  background: linear-gradient(135deg, #25d366, #12b054);
+  box-shadow:
+    0 10px 25px rgba(18, 176, 84, 0.45),
+    0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.phone-button {
+  background: linear-gradient(135deg, #0066ff, #003cbf);
+  box-shadow:
+    0 10px 25px rgba(0, 72, 191, 0.45),
+    0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-button:hover,
+.phone-button:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow:
-    0 14px 30px rgba(18, 176, 84, 0.55),
-    0 8px 16px rgba(0, 0, 0, 0.2);
+    0 14px 30px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.whatsapp-icon svg {
+.whatsapp-icon svg,
+.phone-icon svg {
   width: 28px;
   height: 28px;
   fill: currentColor;
 }
 
-.whatsapp-glow {
+.whatsapp-glow,
+.phone-glow {
   position: absolute;
   inset: -12px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(37, 211, 102, 0.45), transparent 70%);
   opacity: 0.8;
   animation: whatsapp-pulse 2.8s infinite;
   z-index: -1;
+}
+
+.whatsapp-glow {
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.45), transparent 70%);
+}
+
+.phone-glow {
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.45), transparent 70%);
 }
 
 @keyframes whatsapp-float {
