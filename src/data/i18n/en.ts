@@ -56,7 +56,7 @@ export const en = {
         ]
       },
       reachable: {
-        title: '24/7 Availability',
+        title: '7/24 Availability',
         subtitle: 'We are always with you',
         features: [
           'Online support and communication',
@@ -179,8 +179,33 @@ export const en = {
     modal: {
       servicesTitle: '📌 Our Services:',
       understood: 'Got it',
-      titleSuffix: 'Translation Services'
+      titleSuffix: 'Translation Services',
+      services: [
+        'ID, passport, population registry, birth certificate, marriage certificate and other personal documents',
+        'Legal documents such as divorce rulings, court decisions, powers of attorney, title deeds, lease agreements',
+        'Educational/academic documents such as diplomas, transcripts, student certificates, certificates, academic papers, theses',
+        'Commercial documents such as contracts, incorporation documents, tax certificates, trade registry gazette, invoices',
+        'All required documents for visa and immigration applications',
+        'Interpretation services (at notaries, marriage ceremonies, meetings and official appointments)',
+        'Technical and medical documents (manuals, reports, medical certificates, etc.)'
+      ]
     },
+    cards: [
+      { key: 'english', name: 'English', flag: 'GB', desc: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.', foreign: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.' },
+      { key: 'german', name: 'German', flag: 'DE', desc: 'Your German documents are translated by our sworn translators and certified with notary approval to gain official validity.', foreign: 'Ihre deutschen Dokumente werden von unseren vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.' },
+      { key: 'french', name: 'French', flag: 'FR', desc: 'Your French documents are translated by our sworn translators and certified with notary approval.', foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés et validés officiellement par une certification notariale.' },
+      { key: 'italian', name: 'Italian', flag: 'IT', desc: 'Your Italian documents are translated by our sworn translators and certified with notary approval.', foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati e certificati con approvazione notarile.' },
+      { key: 'russian', name: 'Russian', flag: 'RU', desc: 'Your Russian documents are translated by our sworn translators and notarized for official validity.', foreign: 'Ваши русские документы переводятся нашими присяжными переводчиками и заверяются нотариально.' },
+      { key: 'arabic', name: 'Arabic', flag: 'SA', desc: 'Your Arabic documents are translated by our sworn translators and certified with notary approval.', foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين ويتم اعتمادها رسمياً بواسطة كاتب العدل.' },
+      { key: 'persian', name: 'Persian', flag: 'IR', desc: 'Your Persian documents are translated by our sworn translators and certified with notary approval.', foreign: 'اسناد فارسی شما توسط مترجمان رسمی ما ترجمه شده و با تأیید رسمی دفتر اسناد رسمی معتبر می‌شود.' },
+      { key: 'chinese', name: 'Chinese', flag: 'CN', desc: 'Your Chinese documents are translated by our sworn translators and certified with notary approval.', foreign: '您的中文文件由我们的宣誓翻译员翻译，并经过公证认证以获得官方效力。' },
+      { key: 'japanese', name: 'Japanese', flag: 'JP', desc: 'Your Japanese documents are translated by our sworn translators and certified with notary approval.', foreign: '日本語の書類は、当社の公証翻訳者によって翻訳され、公証人による認証付きで正式な効力を持ちます。' },
+      { key: 'greek', name: 'Greek', flag: 'GR', desc: 'Your Greek documents are translated by our sworn translators and certified with notary approval.', foreign: 'Τα ελληνικά σας έγγραφα μεταφράζονται από τους επίσημους μεταφραστές μας και επικυρώνονται με συμβολαιογραφική βεβαίωση.' },
+      { key: 'dutch', name: 'Dutch', flag: 'NL', desc: 'Your Dutch documents are translated by our sworn translators and certified with notary approval.', foreign: 'Uw Nederlandse documenten worden vertaald door onze beëdigde vertalers en officieel gelegaliseerd mit notariële goedkeuring.' },
+      { key: 'bulgarian', name: 'Bulgarian', flag: 'BG', desc: 'Your Bulgarian documents are translated by our sworn translators and notarized for official validity.', foreign: 'Вашите български документи се превеждат от нашите заклети преводачи и се удостоверяват нотариално за официална валидност.' },
+      { key: 'romanian', name: 'Romanian', flag: 'RO', desc: 'Your Romanian documents are translated by our sworn translators and certified with notary approval.', foreign: 'Documentele dvs. românești sunt traduse de traducătorii noștri autorizați și certificate prin notar pentru valabilitate oficială.' },
+      { key: 'ukrainian', name: 'Ukrainian', flag: 'UA', desc: 'Your Ukrainian documents are translated by our sworn translators and notarized for official validity.', foreign: 'Ваші українські документи перекладаються нашими присяжними перекладачами та нотаріально завіряються для офіційної дійсності.' }
+    ],
     other: {
       title: 'Other Languages',
       tr: 'For all languages not listed above, your documents are translated by our sworn translators and certified with notary approval.',
@@ -233,7 +258,7 @@ export const en = {
     hours: {
       title: 'Working Hours',
       mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday', sun: 'Sunday',
-      note: '⏰ WhatsApp is active 24/7 — Reach us anytime for urgent cases.'
+      note: '⏰ WhatsApp is active 7/24 — Reach us anytime for urgent cases.'
     },
     location: {
       title: 'Location',
@@ -546,7 +571,7 @@ export const en = {
           },
           {
             question: 'How do I reach customer service?',
-            answer: 'WhatsApp: +90 544 721 53 15 (24/7), Office: +90 424 238 72 54, Email: info@tekintercume.com.tr. We respond promptly during working hours.'
+            answer: 'WhatsApp: +90 544 721 53 15 (7/24), Office: +90 424 238 72 54, Email: info@tekintercume.com.tr. We respond promptly during working hours.'
           }
         ]
       }

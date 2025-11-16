@@ -160,7 +160,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
               <div className="stat-item">
                 <div className="stat-icon">⚡</div>
                 <div className="stat-info">
-                  <span className="stat-number">24/7</span>
+                  <span className="stat-number">7/24</span>
                   <span className="stat-label">{t('services.stats.fast')}</span>
                 </div>
               </div>

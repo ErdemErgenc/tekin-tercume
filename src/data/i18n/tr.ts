@@ -179,8 +179,33 @@ export const tr = {
     modal: {
       servicesTitle: '📌 Hizmetlerimiz:',
       understood: 'Anladım',
-      titleSuffix: 'Çeviri Hizmetleri'
+      titleSuffix: 'Çeviri Hizmetleri',
+      services: [
+        'Kimlik, pasaport, nüfus kayıt örneği, doğum belgesi, evlilik cüzdanı ve benzeri kişisel belgeler',
+        'Boşanma kararı, mahkeme ilamı, vekaletname, tapu, kira sözleşmesi gibi hukuki belgeler',
+        'Diploma, transkript, öğrenci belgesi, sertifika, akademik makale, tez gibi eğitim/akademik belgeler',
+        'Ticari sözleşmeler, şirket kuruluş belgeleri, vergi levhası, ticaret sicil gazetesi, fatura gibi ticari belgeler',
+        'Vize ve göçmenlik başvuruları için gerekli tüm evraklar',
+        'Sözlü tercüme hizmetleri (noter huzurunda, nikâh işlemlerinde, toplantılarda ve resmi görüşmelerde)',
+        'Teknik ve medikal belgeler (kullanım kılavuzu, rapor, medikal sertifika vb.)'
+      ]
     },
+    cards: [
+      { key: 'english', name: 'İngilizce', flag: 'GB', desc: 'İngilizce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Your English documents are translated by our sworn translators and certified with notary approval to gain official validity.' },
+      { key: 'german', name: 'Almanca', flag: 'DE', desc: 'Almanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Ihre deutschen Dokumente werden von unseren vereidigten Übersetzern übersetzt und mit notarieller Beglaubigung rechtskräftig gemacht.' },
+      { key: 'french', name: 'Fransızca', flag: 'FR', desc: 'Fransızca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Vos documents en français sont traduits par nos traducteurs assermentés et validés officiellement par une certification notariale.' },
+      { key: 'italian', name: 'İtalyanca', flag: 'IT', desc: 'İtalyanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'I vostri documenti in italiano sono tradotti dai nostri traduttori giurati e certificati con approvazione notarile.' },
+      { key: 'russian', name: 'Rusça', flag: 'RU', desc: 'Rusça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Ваши русские документы переводятся нашими присяжными переводчиками и заверяются нотариально.' },
+      { key: 'arabic', name: 'Arapça', flag: 'SA', desc: 'Arapça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'يتم ترجمة مستنداتك العربية من قبل مترجمينا المحلفين ويتم اعتمادها رسمياً بواسطة كاتب العدل.' },
+      { key: 'persian', name: 'Farsça', flag: 'IR', desc: 'Farsça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'اسناد فارسی شما توسط مترجمان رسمی ما ترجمه شده و با تأیید رسمی دفتر اسناد رسمی معتبر می‌شود.' },
+      { key: 'chinese', name: 'Çince', flag: 'CN', desc: 'Çince belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: '您的中文文件由我们的宣誓翻译员翻译，并经过公证认证以获得官方效力。' },
+      { key: 'japanese', name: 'Japonca', flag: 'JP', desc: 'Japonca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: '日本語の書類は、当社の公証翻訳者によって翻訳され、公証人による認証付きで正式な効力を持ちます。' },
+      { key: 'greek', name: 'Yunanca', flag: 'GR', desc: 'Yunanca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Τα ελληνικά σας έγγραφα μεταφράζονται από τους επίσημους μεταφραστές μας και επικυρώνονται με συμβολαιογραφική βεβαίωση.' },
+      { key: 'dutch', name: 'Felemenkçe', flag: 'NL', desc: 'Felemenkçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Uw Nederlandse documenten worden vertaald door onze beëdigde vertalers en officieel gelegaliseerd met notariële goedkeuring.' },
+      { key: 'bulgarian', name: 'Bulgarca', flag: 'BG', desc: 'Bulgarca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Вашите български документи се превеждат от нашите заклети преводачи и се удостоверяват нотариално за официална валидност.' },
+      { key: 'romanian', name: 'Romence', flag: 'RO', desc: 'Romence belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Documentele dvs. românești sunt traduse de traducătorii noștri autorizați și certificate prin notar pentru valabilitate oficială.' },
+      { key: 'ukrainian', name: 'Ukraynaca', flag: 'UA', desc: 'Ukraynaca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.', foreign: 'Ваші українські документи перекладаються нашими присяжними перекладачами та нотаріально завіряються для офіційної дійсності.' }
+    ],
     other: {
       title: 'Diğer Diller',
       tr: 'Yukarıda belirtilen dillerin dışında tüm dillerde belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
