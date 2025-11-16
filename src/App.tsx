@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import logo from './images/tlogo.svg';
 
@@ -15,10 +15,18 @@ import Footer from './components/Footer';
 import VisaServices from './components/VisaServices';
 import QuickQuote from './components/QuickQuote';
 import ServicePage from './components/ServicePage';
+import { LanguageProvider, type Lang } from './lib/i18n';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState('home');
-  const [currentLanguage, setCurrentLanguage] = useState('tr');
+  const [currentLanguage, setCurrentLanguage] = useState<Lang>(() => {
+    try {
+      const stored = localStorage.getItem('lang');
+      return (stored === 'tr' || stored === 'en') ? (stored as Lang) : 'tr';
+    } catch {
+      return 'tr';
+    }
+  });
   const [quoteLanguages, setQuoteLanguages] = useState({ from: '', to: '' });
 
   const handleQuoteRequest = () => {
@@ -30,6 +38,14 @@ const App: React.FC = () => {
     setQuoteLanguages({ from: fromLanguage, to: toLanguage });
     setCurrentPage('quick-quote');
   };
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('lang', currentLanguage);
+    } catch {
+      // ignore storage errors
+    }
+  }, [currentLanguage]);
 
   const renderPage = () => {
     // Language detail pages
@@ -86,21 +102,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <Header
-        logo={logo}
-        onNavigate={setCurrentPage}
-        onQuoteRequest={handleQuoteRequest}
-        currentLanguage={currentLanguage}
-        onLanguageChange={setCurrentLanguage}
-      />
+    <LanguageProvider lang={currentLanguage} setLang={setCurrentLanguage}>
+      <div className="App">
+        <Header
+          logo={logo}
+          onNavigate={setCurrentPage}
+          onQuoteRequest={handleQuoteRequest}
+          onLanguageChange={setCurrentLanguage}
+        />
 
-      <main>
-        {renderPage()}
-      </main>
+        <main>
+          {renderPage()}
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 };
 

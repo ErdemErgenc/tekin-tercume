@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Hero.css';
+import { useI18n } from '../lib/i18n';
 
 interface HeroProps {
   onQuoteRequest: () => void;
@@ -7,6 +8,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
+  const { t } = useI18n();
   const [fromLanguage, setFromLanguage] = useState('turkce');
   const [toLanguage, setToLanguage] = useState('english');
 
@@ -33,25 +35,21 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <h1 className="hero-title">
-              Güvenle Çevir, Özgürce Seyahat Et!
-            </h1>
-            <p className="hero-subtitle">
-              Dil farklı olabilir, güven ortaktır.
-            </p>
+            <h1 className="hero-title">{t('hero.title')}</h1>
+            <p className="hero-subtitle">{t('hero.subtitle')}</p>
           </div>
 
           <div className="hero-feature-card">
             <div className="feature-card">
               <div className="card-header">
-                <h3 className="card-title">HEMEN TEKLİF İSTEYİN</h3>
-                <p className="card-subtitle">SİZİ ARAYALIM!</p>
+                <h3 className="card-title">{t('hero.cardTitle')}</h3>
+                <p className="card-subtitle">{t('hero.cardSubtitle')}</p>
               </div>
 
               <div className="language-selection-area">
                 <div className="language-row">
                   <div className="language-input">
-                    <label>Kaynak Dil</label>
+                    <label>{t('hero.from')}</label>
                     <select
                       value={fromLanguage}
                       onChange={(e) => setFromLanguage(e.target.value)}
@@ -72,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                   </div>
 
                   <div className="language-input">
-                    <label>Hedef Dil</label>
+                    <label>{t('hero.to')}</label>
                     <select
                       value={toLanguage}
                       onChange={(e) => setToLanguage(e.target.value)}
@@ -92,7 +90,7 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                 className="feature-btn"
                 onClick={handleQuickQuote}
               >
-                <span>Devam Et</span>
+                <span>{t('hero.continue')}</span>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

@@ -14,21 +14,21 @@ import NL from 'country-flag-icons/react/3x2/NL';
 import BG from 'country-flag-icons/react/3x2/BG';
 import RO from 'country-flag-icons/react/3x2/RO';
 import UA from 'country-flag-icons/react/3x2/UA';
+import { useI18n } from '../lib/i18n';
 
 interface HeaderProps {
   logo: string;
   onNavigate: (page: string) => void;
   onQuoteRequest: () => void;
-  currentLanguage?: string;
-  onLanguageChange?: (language: string) => void;
+  onLanguageChange?: (language: 'tr' | 'en') => void;
 }
 
 const Header: React.FC<HeaderProps> = ({
   logo,
   onNavigate,
-  currentLanguage = 'tr',
   onLanguageChange
 }) => {
+  const { t, lang, setLang } = useI18n();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,40 +43,40 @@ const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navItems = [
-    { name: 'Ana Sayfa', id: 'home' },
+    { name: t('header.nav.home'), id: 'home' },
     {
-      name: 'Hizmetler',
+      name: t('header.nav.services'),
       id: 'services',
       hasDropdown: true,
       subItems: [
         {
-          name: 'Tercüme Hizmeti',
+          name: t('header.nav.items.translation.name'),
           id: 'translation-service',
           icon: '📄',
-          description: 'Resmî belgelerinizin güvenilir çevirisi'
+          description: t('header.nav.items.translation.desc')
         },
         {
-          name: 'Vize Hizmetleri',
+          name: t('header.nav.items.visa.name'),
           id: 'visa-services',
           icon: '✈️',
-          description: 'Vize başvurularında profesyonel destek'
+          description: t('header.nav.items.visa.desc')
         },
         {
-          name: 'Göçmenlik Hizmetleri',
+          name: t('header.nav.items.immigration.name'),
           id: 'immigration-services',
           icon: '🌍',
-          description: 'İkamet ve göçmenlik danışmanlığı'
+          description: t('header.nav.items.immigration.desc')
         },
         {
-          name: 'Mesleki Belgelendirme',
+          name: t('header.nav.items.professional.name'),
           id: 'professional-info',
           icon: '🎓',
-          description: 'Diploma denklik ve sertifikalar'
+          description: t('header.nav.items.professional.desc')
         }
       ]
     },
     {
-      name: 'Diller',
+      name: t('header.nav.languages'),
       id: 'languages',
       hasDropdown: true,
       subItems: [
@@ -97,9 +97,9 @@ const Header: React.FC<HeaderProps> = ({
         { name: 'Diğer Diller', id: 'language-diger', flag: '🌐' }
       ]
     },
-    { name: 'Hakkımızda', id: 'about' },
-    { name: 'İletişim', id: 'contact' },
-    { name: 'SSS', id: 'faq' }
+    { name: t('header.nav.about'), id: 'about' },
+    { name: t('header.nav.contact'), id: 'contact' },
+    { name: t('header.nav.faq'), id: 'faq' }
   ];
 
   return (
@@ -190,10 +190,14 @@ const Header: React.FC<HeaderProps> = ({
             <div className="language-switcher">
               <button
                 className="language-btn"
-                onClick={() => onLanguageChange?.(currentLanguage === 'tr' ? 'en' : 'tr')}
+                onClick={() => {
+                  const next = (lang === 'tr' ? 'en' : 'tr');
+                  setLang?.(next as any);
+                  onLanguageChange?.(next);
+                }}
               >
-                <span className="flag">{currentLanguage === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
-                <span className="lang-code">{currentLanguage === 'tr' ? 'TR' : 'EN'}</span>
+                <span className="flag">{lang === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+                <span className="lang-code">{lang === 'tr' ? t('header.langCode.tr') : t('header.langCode.en')}</span>
               </button>
             </div>
 
@@ -202,7 +206,7 @@ const Header: React.FC<HeaderProps> = ({
               className="quote-button"
               onClick={() => onNavigate('quick-quote')}
             >
-              <span>Teklif Al</span>
+              <span>{t('header.quote')}</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

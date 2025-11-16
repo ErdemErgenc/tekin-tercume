@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import './Services.css';
+import { useI18n } from '../lib/i18n';
 
 interface ServicesProps {
   onNavigate?: (page: string) => void;
 }
 
 const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
+  const { t } = useI18n();
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -37,67 +39,52 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
     {
       id: 1,
       icon: '🌐',
-      title: 'Profesyonel Çeviri',
-      subtitle: 'Her dilde uzman çevirmenler',
-      features: [
-        'Akademik, teknik, hukuki ve ticari metinlerde profesyonellik',
-        'Doğru, güvenilir ve terminolojiye uygun çeviri'
-      ],
+      title: t('services.cards.professional.title'),
+      subtitle: t('services.cards.professional.subtitle'),
+      features: t('services.cards.professional.features.0') !== 'services.cards.professional.features.0' ? [
+        t('services.cards.professional.features.0'),
+        t('services.cards.professional.features.1')
+      ] : [],
       navigateTo: 'translation-service'
     },
     {
       id: 2,
       icon: '⚡',
-      title: 'Hızlı Teslimat',
-      subtitle: 'Zamanında teslim garantisi',
-      features: [
-        'Acil işlerinizde öncelikli hizmet',
-        'Süreye uygun planlama ve hızlı sonuç'
-      ],
+      title: t('services.cards.fast.title'),
+      subtitle: t('services.cards.fast.subtitle'),
+      features: [t('services.cards.fast.features.0'), t('services.cards.fast.features.1')],
       navigateTo: 'translation-service'
     },
     {
       id: 3,
       icon: '👤',
-      title: 'Gizlilik ve Güvenlik',
-      subtitle: 'Belgeleriniz güvende',
-      features: [
-        'Tüm çeviriler gizlilik ilkesiyle korunur',
-        'Müşteri verileri üçüncü kişilerle paylaşılmaz'
-      ],
+      title: t('services.cards.privacy.title'),
+      subtitle: t('services.cards.privacy.subtitle'),
+      features: [t('services.cards.privacy.features.0'), t('services.cards.privacy.features.1')],
       navigateTo: 'translation-service'
     },
     {
       id: 4,
       icon: '🕒',
-      title: '7/24 Ulaşılabilirlik',
-      subtitle: 'Her zaman yanınızdayız',
-      features: [
-        'Online destek ve iletişim',
-        'Esnek çalışma saatleri'
-      ],
+      title: t('services.cards.reachable.title'),
+      subtitle: t('services.cards.reachable.subtitle'),
+      features: [t('services.cards.reachable.features.0'), t('services.cards.reachable.features.1')],
       navigateTo: 'translation-service'
     },
     {
       id: 5,
       icon: '⭐',
-      title: 'Kalite Garantisi',
-      subtitle: 'Kontrollü ve onaylı çeviri',
-      features: [
-        'Çift kontrol sistemi ile hatasız teslim',
-        'Profesyonel editör onayı'
-      ],
+      title: t('services.cards.quality.title'),
+      subtitle: t('services.cards.quality.subtitle'),
+      features: [t('services.cards.quality.features.0'), t('services.cards.quality.features.1')],
       navigateTo: 'translation-service'
     },
     {
       id: 6,
       icon: '💰',
-      title: 'Uygun Fiyat Politikası',
-      subtitle: 'Kaliteyi uygun fiyata alın',
-      features: [
-        'Şeffaf ve sürprizsiz fiyatlandırma',
-        'Uzun vadeli iş birliklerinde özel indirimler'
-      ],
+      title: t('services.cards.price.title'),
+      subtitle: t('services.cards.price.subtitle'),
+      features: [t('services.cards.price.features.0'), t('services.cards.price.features.1')],
       navigateTo: 'translation-service'
     }
   ];
@@ -112,10 +99,8 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
     <section className="services">
       <div className="container">
         <div className="services-header">
-          <h2 className="section-title">Çeviri Ofisinin Faydaları</h2>
-          <p className="section-subtitle">
-            Profesyonel çeviri hizmetlerimizle güvenilir çözümler sunuyoruz
-          </p>
+          <h2 className="section-title">{t('services.sectionTitle')}</h2>
+          <p className="section-subtitle">{t('services.sectionSubtitle')}</p>
         </div>
 
         <div className="services-grid">
@@ -153,8 +138,8 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
             <div className="stats-card">
               <div className="stats-number">%100</div>
               <div className="stats-text">
-                <h3>Müşteri Memnuniyeti</h3>
-                <p>Çeviri hizmeti arayan müşterilerin büyük çoğunluğu bizi tercih ediyor ve tavsiye ediyor.</p>
+                <h3>{t('services.stats.satisfaction.label')}</h3>
+                <p>{t('services.stats.satisfaction.text')}</p>
               </div>
             </div>
             <div className="additional-stats">
@@ -162,21 +147,21 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
                 <div className="stat-icon">🏆</div>
                 <div className="stat-info">
                   <span className="stat-number">15+</span>
-                  <span className="stat-label">Yıl Tecrübe</span>
+                  <span className="stat-label">{t('services.stats.years')}</span>
                 </div>
               </div>
               <div className="stat-item">
                 <div className="stat-icon">🌍</div>
                 <div className="stat-info">
                   <span className="stat-number">128</span>
-                  <span className="stat-label">Dil Desteği</span>
+                  <span className="stat-label">{t('services.stats.languages')}</span>
                 </div>
               </div>
               <div className="stat-item">
                 <div className="stat-icon">⚡</div>
                 <div className="stat-info">
                   <span className="stat-number">24/7</span>
-                  <span className="stat-label">Hızlı Hizmet</span>
+                  <span className="stat-label">{t('services.stats.fast')}</span>
                 </div>
               </div>
             </div>

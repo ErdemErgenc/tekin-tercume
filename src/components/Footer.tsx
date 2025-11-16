@@ -2,8 +2,10 @@ import React from 'react';
 import './Footer.css';
 import logo from '../images/tlogo.svg';
 import qrImage from '../images/qr.jpg';
+import { useI18n } from '../lib/i18n';
 
 const Footer: React.FC = () => {
+  const { t } = useI18n();
   return (
     <footer className="footer gradient-bg">
       <div className="container">
@@ -12,12 +14,12 @@ const Footer: React.FC = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <span className="contact-icon">📱</span>
-                <span className="contact-label">WhatsApp & Mobil:</span>
+                <span className="contact-label">{t('footer.labels.whatsappMobile')}</span>
                 <a href="tel:+905447215315">+90 544 721 53 15</a>
               </div>
               <div className="contact-item">
                 <span className="contact-icon">📞</span>
-                <span className="contact-label">Ofis:</span>
+                <span className="contact-label">{t('footer.labels.office')}</span>
                 <a href="tel:+904242387254">+90 424 238 72 54</a>
               </div>
             </div>
@@ -47,16 +49,16 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="qr-section">
-            <h4 className="qr-title">Hızlı İletişim</h4>
+            <h4 className="qr-title">{t('footer.quick')}</h4>
             <div className="qr-image-container">
               <img src={qrImage} alt="WhatsApp QR Kodu" className="qr-image" />
             </div>
-            <p className="qr-description">QR kodu okutarak bize Google'dan yorum yapabilirsiniz.</p>
+            <p className="qr-description">{t('footer.qrDesc')}</p>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p className="copyright">© 2025 Tüm Hakları Saklıdır.</p>
+          <p className="copyright">{t('footer.rights')}</p>
         </div>
       </div>
     </footer>

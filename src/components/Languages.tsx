@@ -14,6 +14,7 @@ import NL from 'country-flag-icons/react/3x2/NL';
 import BG from 'country-flag-icons/react/3x2/BG';
 import RO from 'country-flag-icons/react/3x2/RO';
 import UA from 'country-flag-icons/react/3x2/UA';
+import { useI18n } from '../lib/i18n';
 
 interface LanguagePageProps {
   language?: string;
@@ -28,6 +29,7 @@ interface LanguageData {
 }
 
 const Languages: React.FC<LanguagePageProps> = () => {
+  const { t } = useI18n();
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageData | null>(null);
 
   const allLanguages = [
@@ -63,10 +65,8 @@ const Languages: React.FC<LanguagePageProps> = () => {
     <section className="languages">
       <div className="container">
         <div className="languages-header">
-          <h2 className="section-title">Dil Hizmetlerimiz</h2>
-          <p className="section-subtitle">
-            Birçok dilde profesyonel çeviri hizmetleri sunuyoruz
-          </p>
+          <h2 className="section-title">{t('languages.sectionTitle')}</h2>
+          <p className="section-subtitle">{t('languages.sectionSubtitle')}</p>
         </div>
 
         <div className="languages-grid">
@@ -99,9 +99,7 @@ const Languages: React.FC<LanguagePageProps> = () => {
                   </p>
                 </div>
 
-                <button className="details-btn">
-                  Detaylı Bilgi →
-                </button>
+                <button className="details-btn">{t('languages.details')}</button>
               </div>
             );
           })}
@@ -121,11 +119,11 @@ const Languages: React.FC<LanguagePageProps> = () => {
                 ) : (
                   <span className="modal-flag">{selectedLanguage.flag}</span>
                 )}
-                <h3 className="modal-title">{selectedLanguage.name} Çeviri Hizmetleri</h3>
+                <h3 className="modal-title">{selectedLanguage.name} {t('languages.modal.titleSuffix')}</h3>
               </div>
 
               <div className="modal-body">
-                <h4 className="modal-section-title">📌 Hizmetlerimiz:</h4>
+                <h4 className="modal-section-title">{t('languages.modal.servicesTitle')}</h4>
                 <ul className="modal-services-list">
                   {services.map((service, index) => (
                     <li key={index} className="modal-service-item">
@@ -137,9 +135,7 @@ const Languages: React.FC<LanguagePageProps> = () => {
               </div>
 
               <div className="modal-footer">
-                <button className="modal-cta-btn" onClick={() => setSelectedLanguage(null)}>
-                  Anladım
-                </button>
+                <button className="modal-cta-btn" onClick={() => setSelectedLanguage(null)}>{t('languages.modal.understood')}</button>
               </div>
             </div>
           </div>
@@ -147,12 +143,12 @@ const Languages: React.FC<LanguagePageProps> = () => {
 
         <div className="other-languages">
           <div className="card">
-            <h3 className="other-title">Diğer Diller</h3>
+            <h3 className="other-title">{t('languages.other.title')}</h3>
             <p className="other-description">
-              Yukarıda belirtilen dillerin dışında tüm dillerde belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.
+              {t('languages.other.tr')}
             </p>
             <p className="other-description-en">
-              For all other languages not listed above, your documents are translated by our sworn translators and certified with notary approval.
+              {t('languages.other.en')}
             </p>
           </div>
         </div>

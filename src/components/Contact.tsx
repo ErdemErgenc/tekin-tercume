@@ -1,24 +1,26 @@
 import React from 'react';
 import './Contact.css';
+import { useI18n } from '../lib/i18n';
 
 const Contact: React.FC = () => {
+  const { t } = useI18n();
   return (
     <section className="contact">
       <div className="container">
         <div className="contact-header">
-          <h1>İletişim</h1>
-          <p>Profesyonel Çeviri Hizmetleri İçin Bizimle İletişime Geçin</p>
+          <h1>{t('contact.title')}</h1>
+          <p>{t('contact.subtitle')}</p>
         </div>
 
         {/* İletişim Bilgileri ve Çalışma Saatleri */}
         <div className="contact-main-grid">
           <div className="contact-info-card">
-            <h3>İletişim Bilgileri</h3>
+            <h3>{t('contact.info')}</h3>
             <div className="info-items">
               <div className="info-item">
                 <div className="icon">📱</div>
                 <div className="info-content">
-                  <strong>WhatsApp</strong>
+                  <strong>{t('contact.labels.whatsapp')}</strong>
                   <a href="https://wa.me/905447215315" target="_blank" rel="noopener noreferrer">
                     +90 544 721 53 15
                   </a>
@@ -28,7 +30,7 @@ const Contact: React.FC = () => {
               <div className="info-item">
                 <div className="icon">📞</div>
                 <div className="info-content">
-                  <strong>Mobil Telefon</strong>
+                  <strong>{t('contact.labels.mobile')}</strong>
                   <a href="tel:+905447215315">+90 544 721 53 15</a>
                 </div>
               </div>
@@ -36,7 +38,7 @@ const Contact: React.FC = () => {
               <div className="info-item">
                 <div className="icon">☎️</div>
                 <div className="info-content">
-                  <strong>Ofis Telefonu</strong>
+                  <strong>{t('contact.labels.office')}</strong>
                   <a href="tel:+904242387254">+90 424 238 72 54</a>
                 </div>
               </div>
@@ -44,7 +46,7 @@ const Contact: React.FC = () => {
               <div className="info-item">
                 <div className="icon">✉️</div>
                 <div className="info-content">
-                  <strong>E-posta</strong>
+                  <strong>{t('contact.labels.email')}</strong>
                   <a href="mailto:infotekintercume@gmail.com">info@tekintercume.com.tr</a>
                 </div>
               </div>
@@ -52,7 +54,7 @@ const Contact: React.FC = () => {
               <div className="info-item">
                 <div className="icon">📍</div>
                 <div className="info-content">
-                  <strong>Adres</strong>
+                  <strong>{t('contact.labels.address')}</strong>
                   <span>Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ</span>
                 </div>
               </div>
@@ -60,7 +62,7 @@ const Contact: React.FC = () => {
               <div className="info-item">
                 <div className="icon">📸</div>
                 <div className="info-content">
-                  <strong>Instagram</strong>
+                  <strong>{t('contact.labels.instagram')}</strong>
                   <a href="https://www.instagram.com/tekintercume/" target="_blank" rel="noopener noreferrer">
                     @tekintercume
                   </a>
@@ -70,46 +72,46 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="working-hours-card">
-            <h3>Çalışma Saatleri</h3>
+            <h3>{t('contact.hours.title')}</h3>
             <div className="hours-list">
               <div className="hours-item">
-                <span className="day">Pazartesi</span>
+                <span className="day">{t('contact.hours.mon')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
               <div className="hours-item">
-                <span className="day">Salı</span>
+                <span className="day">{t('contact.hours.tue')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
               <div className="hours-item">
-                <span className="day">Çarşamba</span>
+                <span className="day">{t('contact.hours.wed')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
               <div className="hours-item">
-                <span className="day">Perşembe</span>
+                <span className="day">{t('contact.hours.thu')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
               <div className="hours-item">
-                <span className="day">Cuma</span>
+                <span className="day">{t('contact.hours.fri')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
               <div className="hours-item">
-                <span className="day">Cumartesi</span>
+                <span className="day">{t('contact.hours.sat')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
               <div className="hours-item">
-                <span className="day">Pazar</span>
+                <span className="day">{t('contact.hours.sun')}</span>
                 <span className="time">08:00 - 18:30</span>
               </div>
             </div>
             <div className="hours-note">
-              <p>⏰ WhatsApp 7/24 aktif - Acil durumlar için her zaman ulaşabilirsiniz.</p>
+              <p>{t('contact.hours.note')}</p>
             </div>
           </div>
         </div>
 
         {/* Konum - Harita */}
         <div className="map-section">
-          <h3>Konum</h3>
+          <h3>{t('contact.location.title')}</h3>
           <p className="map-description">Nailbey Mah. Gazi Cad. 50'ler, Çarşı, Kat:5, 23100 Elazığ Merkez/Elazığ</p>
           <div className="map-container">
             <iframe
@@ -132,7 +134,7 @@ const Contact: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              📍 Google Haritalar'da Aç
+              {t('contact.location.openInMaps')}
             </a>
           </div>
         </div>

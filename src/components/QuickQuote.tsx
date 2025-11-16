@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './QuickQuote.css';
 import { getEmailConfig } from '../config/emailConfig';
+import { useI18n } from '../lib/i18n';
 
 interface QuickQuoteProps {
   initialFromLanguage?: string;
@@ -13,6 +14,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
   initialToLanguage = 'english',
   onNavigate
 }) => {
+  const { t } = useI18n();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [fileError, setFileError] = useState<string | null>(null);
@@ -52,7 +54,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
     setFileError(null); // Reset error on new file selection
 
     if (file && file.size > 10 * 1024 * 1024) { // 10 MB limit
-      setFileError('Dosya boyutu 10 MB\'ı aşamaz.');
+      setFileError(t('quickQuote.file.limitError'));
       setFormData(prev => ({ ...prev, document: null }));
       e.target.value = ''; // Clear the file input
       return;
@@ -125,7 +127,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
       if (!contentType || !contentType.includes('application/json')) {
         const text = await response.text();
         console.error('❌ Non-JSON response:', text.substring(0, 200));
-        throw new Error(`Server yanıt hatası (Status: ${response.status}). Backend çalışıyor mu?`);
+        throw new Error(t('quickQuote.errors.serverResponse'));
       }
 
       const responseData = await response.json();
@@ -138,7 +140,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
           onNavigate('home');
         }, 3000);
       } else {
-        throw new Error(responseData.message || `Email gönderimi başarısız (Status: ${response.status})`);
+        throw new Error(responseData.message || t('quickQuote.errors.emailFailed'));
       }
     } catch (error) {
       console.error('❌ Email send error:', error);
@@ -153,21 +155,19 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
     <section className="quick-quote">
       <div className="container">
         <div className="quote-header">
-          <button className="back-btn" onClick={() => onNavigate('home')}>
-            ← Ana Sayfa
-          </button>
-          <h1>Hızlı Teklif Talebi</h1>
-          <p>Çeviri ihtiyaçlarınız için detaylı bilgi verin, size özel teklif hazırlayalım</p>
+          <button className="back-btn" onClick={() => onNavigate('home')}>{t('quickQuote.back')}</button>
+          <h1>{t('quickQuote.title')}</h1>
+          <p>{t('quickQuote.subtitle')}</p>
         </div>
 
         <form className="quote-form" onSubmit={handleSubmit}>
           <div className="form-sections">
             {/* Dil Bilgileri */}
             <div className="form-section">
-              <h3>Çeviri Dilleri</h3>
+              <h3>{t('quickQuote.sections.langs')}</h3>
               <div className="language-selection">
                 <div className="form-group">
-                  <label>Kaynak Dil</label>
+                  <label>{t('quickQuote.sections.from')}</label>
                   <select
                     value={formData.fromLang}
                     onChange={(e) => handleInputChange('fromLang', e.target.value)}
@@ -184,7 +184,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                 <div className="arrow-between">→</div>
 
                 <div className="form-group">
-                  <label>Hedef Dil</label>
+                  <label>{t('quickQuote.sections.to')}</label>
                   <select
                     value={formData.toLang}
                     onChange={(e) => handleInputChange('toLang', e.target.value)}
@@ -202,10 +202,10 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
 
             {/* Belge Bilgileri */}
             <div className="form-section">
-              <h3>Belge Detayları</h3>
+              <h3>{t('quickQuote.sections.details')}</h3>
 
               <div className="form-group">
-                <label>Belge Yükleme</label>
+                <label>{t('quickQuote.sections.upload')}</label>
                 <div className="file-upload-area">
                   <input
                     type="file"
@@ -214,9 +214,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                     onChange={handleFileUpload}
                     className="file-input"
                   />
-                  <label htmlFor="document-upload" className="file-upload-btn">
-                    📎 Belge Seç (.pdf, .doc, .jpg)
-                  </label>
+                  <label htmlFor="document-upload" className="file-upload-btn">{t('quickQuote.sections.pick')}</label>
                   {formData.document && (
                     <div className="file-info">
                       ✓ {formData.document.name}
@@ -231,11 +229,11 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
               </div>
 
               <div className="form-group">
-                <label>Belge Açıklaması</label>
+                <label>{t('quickQuote.sections.description')}</label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
-                  placeholder="Belge türü, sayfa sayısı, özel talepleriniz..."
+                  placeholder={t('quickQuote.sections.descriptionPlaceholder')}
                   rows={4}
                   required
                 />
@@ -243,40 +241,40 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
 
               <div className="form-row">
                 <div className="form-group">
-                  <label>Noter Onayı</label>
+                  <label>{t('quickQuote.sections.notary')}</label>
                   <select
                     value={formData.notaryApproval}
                     onChange={(e) => handleInputChange('notaryApproval', e.target.value)}
                   >
-                    <option value="">Seçiniz</option>
-                    <option value="yes">Evet, gerekli</option>
-                    <option value="no">Hayır, gerekli değil</option>
-                    <option value="unsure">Emin değilim</option>
+                    <option value="">{t('quickQuote.options.select')}</option>
+                    <option value="yes">{t('quickQuote.options.yes')}</option>
+                    <option value="no">{t('quickQuote.options.no')}</option>
+                    <option value="unsure">{t('quickQuote.options.unsure')}</option>
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label>Kopya Sayısı</label>
+                  <label>{t('quickQuote.sections.copies')}</label>
                   <select
                     value={formData.multipleCopies}
                     onChange={(e) => handleInputChange('multipleCopies', e.target.value)}
                   >
-                    <option value="1">1 kopya</option>
-                    <option value="2">2 kopya</option>
-                    <option value="3">3 kopya</option>
-                    <option value="more">Daha fazla</option>
+                    <option value="1">{t('quickQuote.options.copies.one')}</option>
+                    <option value="2">{t('quickQuote.options.copies.two')}</option>
+                    <option value="3">{t('quickQuote.options.copies.three')}</option>
+                    <option value="more">{t('quickQuote.options.copies.more')}</option>
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label>Aciliyet</label>
+                  <label>{t('quickQuote.sections.urgency')}</label>
                   <select
                     value={formData.urgency}
                     onChange={(e) => handleInputChange('urgency', e.target.value)}
                   >
-                    <option value="">Normal</option>
-                    <option value="urgent">Acil (24 saat)</option>
-                    <option value="very-urgent">Çok Acil (12 saat)</option>
+                    <option value="">{t('quickQuote.options.urgency.normal')}</option>
+                    <option value="urgent">{t('quickQuote.options.urgency.urgent')}</option>
+                    <option value="very-urgent">{t('quickQuote.options.urgency.very')}</option>
                   </select>
                 </div>
               </div>
@@ -284,39 +282,39 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
 
             {/* İletişim Bilgileri */}
             <div className="form-section">
-              <h3>İletişim Bilgileri</h3>
+              <h3>{t('quickQuote.sections.contact')}</h3>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label>Ad Soyad *</label>
+                  <label>{t('quickQuote.sections.name')}</label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    placeholder="Adınızı ve soyadınızı girin"
+                    placeholder={t('quickQuote.placeholders.name')}
                     required
                   />
                 </div>
 
                 <div className="form-group">
-                  <label>Telefon *</label>
+                  <label>{t('quickQuote.sections.phone')}</label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    placeholder="+90 5XX XXX XX XX"
+                    placeholder={t('quickQuote.placeholders.phone')}
                     required
                   />
                 </div>
               </div>
 
               <div className="form-group">
-                <label>E-posta *</label>
+                <label>{t('quickQuote.sections.email')}</label>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  placeholder="ornek@email.com"
+                  placeholder={t('quickQuote.placeholders.email')}
                   required
                 />
               </div>
@@ -331,9 +329,9 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
               className="submit-btn"
               disabled={isSubmitting || submitStatus === 'success'}
             >
-              {isSubmitting ? '⏳ Gönderiliyor...' :
-                submitStatus === 'success' ? '✅ Gönderildi!' :
-                  '🚀 Teklif Talep Et'}
+              {isSubmitting ? t('quickQuote.sections.sending') :
+                submitStatus === 'success' ? t('quickQuote.sections.sent') :
+                  t('quickQuote.sections.submit')}
             </button>
 
             {/* Loading & Status Messages */}
@@ -356,8 +354,8 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                   margin: '0 auto 15px',
                   animation: 'spin 1s linear infinite'
                 }}></div>
-                <h3 style={{ margin: '0 0 10px', fontSize: '20px' }}>📧 Talebiniz Gönderiliyor...</h3>
-                <p style={{ margin: 0, opacity: 0.9 }}>Lütfen bekleyin, dosyanız işleniyor</p>
+                <h3 style={{ margin: '0 0 10px', fontSize: '20px' }}>{t('quickQuote.sections.loadingTitle')}</h3>
+                <p style={{ margin: 0, opacity: 0.9 }}>{t('quickQuote.sections.loadingText')}</p>
               </div>
             )}
 
@@ -372,7 +370,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                 animation: 'slideIn 0.5s ease-out'
               }}>
                 <div style={{ fontSize: '60px', marginBottom: '15px' }}>✅</div>
-                <h3 style={{ margin: '0 0 10px', fontSize: '24px' }}>Talebiniz Başarıyla Gönderildi!</h3>
+                <h3 style={{ margin: '0 0 10px', fontSize: '24px' }}>{t('quickQuote.sections.sent')}</h3>
                 <p style={{ margin: 0, fontSize: '16px' }}>
                   <br />
 
@@ -390,15 +388,13 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
                 textAlign: 'center'
               }}>
                 <div style={{ fontSize: '50px', marginBottom: '10px' }}>❌</div>
-                <h3 style={{ margin: '0 0 10px', fontSize: '20px' }}>Gönderim Başarısız</h3>
-                <p style={{ margin: 0 }}>Lütfen tekrar deneyin veya bizi arayın</p>
+                <h3 style={{ margin: '0 0 10px', fontSize: '20px' }}>{t('quickQuote.sections.errorTitle')}</h3>
+                <p style={{ margin: 0 }}>{t('quickQuote.sections.errorText')}</p>
               </div>
             )}
 
             <div className="form-note">
-              <p>
-                🔒 Bilgileriniz güvenli şekilde saklanır ve sadece teklif hazırlamak için kullanılır.
-              </p>
+              <p>{t('quickQuote.sections.privacy')}</p>
 
             </div>
           </div>

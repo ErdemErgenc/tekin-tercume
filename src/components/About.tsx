@@ -1,36 +1,11 @@
 import React from 'react';
 import './About.css';
+import { useI18n } from '../lib/i18n';
 
 const About: React.FC = () => {
-  const stats = [
-    { number: '15+', label: 'Yıllık Tecrübe' },
-    { number: '5000+', label: 'Memnun Müşteri' },
-    { number: '128', label: 'Dil Desteği' },
-    { number: '%100', label: 'Müşteri Memnuniyeti' }
-  ];
-
-  const features = [
-    {
-      icon: '🏆',
-      title: 'Uzman Kadro',
-      description: 'Alanında uzman ve deneyimli yeminli tercümanlar ile akademik, teknik, hukuki ve ticari metinlerde profesyonel çeviri hizmeti sunuyoruz'
-    },
-    {
-      icon: '⚡',
-      title: 'Hızlı Teslimat',
-      description: 'Acil işlerinizde 24 saat içinde çeviri hizmeti ile zamanında teslim garantisi ve öncelikli hizmet sunuyoruz'
-    },
-    {
-      icon: '🔒',
-      title: 'Güvenilir Hizmet',
-      description: 'Tüm çevirileriniz gizlilik ilkesiyle korunur, müşteri verileri ve belgeleriniz üçüncü kişilerle kesinlikle paylaşılmaz'
-    },
-    {
-      icon: '📋',
-      title: 'Kalite Garantisi',
-      description: 'Çift kontrol sistemi ile hatasız teslim, yeminli tercüman onaylı resmi belgeler ve profesyonel editör onayı ile kalite garantisi'
-    }
-  ];
+  const { t, get } = useI18n();
+  const stats = (get('about.stats') as any[]) || [];
+  const features = (get('about.features') as any[]) || [];
 
   return (
     <section className="about-section">
@@ -38,18 +13,13 @@ const About: React.FC = () => {
         {/* Header */}
         <div className="about-header">
           <div className="section-badge">
-            <span>Hakkımızda</span>
+            <span>{t('about.badge')}</span>
           </div>
           <h2 className="section-title">
-            Türkiye'nin <span className="highlight-text">Güvenilir</span>
-            <br />Çeviri Partneri
+            {t('about.title1')} <span className="highlight-text">{t('about.highlight')}</span>
+            <br />{t('about.title2')}
           </h2>
-          <p className="section-subtitle">
-            Tekin Tercüme olarak, Adalet Bakanlığı onaylı yeminli tercümanlarımızla profesyonel çeviri hizmetleri sunuyoruz.
-            Elazığ merkezli ofisimizden Türkiye geneline ve yurtdışına noter onaylı yeminli tercüme, vize danışmanlığı,
-            göçmenlik hizmetleri ve mesleki belgelendirme desteği sağlıyoruz. Müşteri memnuniyeti odaklı yaklaşımımızla,
-            güvenilir ve hızlı çözümler üretiyoruz.
-          </p>
+          <p className="section-subtitle">{t('about.subtitle')}</p>
         </div>
 
         {/* Main Content */}
@@ -57,16 +27,11 @@ const About: React.FC = () => {
           {/* Left Content */}
           <div className="about-content">
             <div className="company-info">
-              <h3>Neden Tekin Tercüme?</h3>
-              <p>
-                Yılların deneyimi ve sektördeki uzmanlığımızla, tüm çeviri ihtiyaçlarınıza en kaliteli çözümü sunuyoruz.
-                Yeminli tercümanlarımız, her dil ve belge türünde titizlikle çalışarak hatasız ve profesyonel sonuçlar üretir.
-                Hızlı teslimat, uygun fiyat ve kesintisiz müşteri desteği ile yanınızdayız. Resmi kurumlar tarafından
-                kabul edilen belgelerimizle vize, göçmenlik ve resmi başvuru süreçlerinizde güvenle ilerleyebilirsiniz.
-              </p>
+              <h3>{t('about.whyTitle')}</h3>
+              <p>{t('about.subtitle')}</p>
 
               <div className="feature-grid">
-                {features.map((feature, index) => (
+                {features.map((feature: any, index: number) => (
                   <div key={index} className="feature-card">
                     <div className="feature-icon">{feature.icon}</div>
                     <div className="feature-content">
@@ -83,11 +48,11 @@ const About: React.FC = () => {
           <div className="about-stats">
             <div className="stats-container">
               <div className="stats-header">
-                <h3>Rakamlarla Tekin Tercüme</h3>
+                <h3>{t('about.statsTitle')}</h3>
               </div>
 
               <div className="stats-grid">
-                {stats.map((stat, index) => (
+                {stats.map((stat: any, index: number) => (
                   <div key={index} className="stat-card">
                     <div className="stat-number">{stat.number}</div>
                     <div className="stat-label">{stat.label}</div>
@@ -99,8 +64,8 @@ const About: React.FC = () => {
                 <div className="badge-content">
                   <div className="badge-icon">🥇</div>
                   <div className="badge-text">
-                    <strong>Sektör Lideri</strong>
-                    <span>Türkiye'nin en güvenilir çeviri merkezi</span>
+                    <strong>{t('about.highlight')}</strong>
+                    <span>{t('about.title2')}</span>
                   </div>
                 </div>
               </div>
@@ -111,46 +76,18 @@ const About: React.FC = () => {
         {/* Benefits Section */}
         <div className="benefits-section">
           <div className="benefits-header">
-            <h3>Çeviri Ofisinin Faydaları</h3>
-            <p>Profesyonel çeviri hizmetimizle neler kazanırsınız?</p>
+            <h3>{t('about.benefitsTitle')}</h3>
+            <p>{t('about.benefitsSubtitle')}</p>
           </div>
 
           <div className="benefits-container">
-            <div className="benefit-box">
-              <div className="benefit-box-icon">🎯</div>
-              <h4>Doğruluk ve Güvenilirlik</h4>
-              <p>Uzman tercümanlarımız sayesinde hatasız ve profesyonel çeviriler</p>
-            </div>
-
-            <div className="benefit-box">
-              <div className="benefit-box-icon">⏱️</div>
-              <h4>Zaman Tasarrufu</h4>
-              <p>Acil işlerinizde 24 saat içinde teslimat garantisi</p>
-            </div>
-
-            <div className="benefit-box">
-              <div className="benefit-box-icon">✅</div>
-              <h4>Resmi Onay</h4>
-              <p>Yeminli tercüman onaylı belgelerle tüm resmi işlemlerinizde geçerlilik</p>
-            </div>
-
-            <div className="benefit-box">
-              <div className="benefit-box-icon">🌐</div>
-              <h4>Geniş Dil Seçeneği</h4>
-              <p>128 dilde çeviri hizmeti ile tüm ihtiyaçlarınıza çözüm</p>
-            </div>
-
-            <div className="benefit-box">
-              <div className="benefit-box-icon">💼</div>
-              <h4>Profesyonel Destek</h4>
-              <p>Süreç boyunca uzman ekibimizin tam desteği</p>
-            </div>
-
-            <div className="benefit-box">
-              <div className="benefit-box-icon">🔐</div>
-              <h4>Gizlilik Garantisi</h4>
-              <p>Belgelerinizin güvenliği ve mahremiyeti bizim önceliğimiz</p>
-            </div>
+            {(get('about.benefits') as any[]).map((b: any, i: number) => (
+              <div className="benefit-box" key={i}>
+                <div className="benefit-box-icon">{b.icon}</div>
+                <h4>{b.title}</h4>
+                <p>{b.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
