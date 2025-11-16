@@ -15,6 +15,7 @@ import Footer from './components/Footer';
 import VisaServices from './components/VisaServices';
 import QuickQuote from './components/QuickQuote';
 import ServicePage from './components/ServicePage';
+import WhatsAppButton from './components/WhatsAppButton';
 import { LanguageProvider, type Lang } from './lib/i18n';
 
 const App: React.FC = () => {
@@ -116,6 +117,7 @@ const App: React.FC = () => {
         </main>
 
         <Footer />
+        <WhatsAppButton />
       </div>
     </LanguageProvider>
   );
