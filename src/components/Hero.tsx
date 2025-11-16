@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Hero.css';
 import { useI18n } from '../lib/i18n';
 import { languageOptions } from '../data/languageOptions';
+import tLogo from '../images/tlogo.svg';
 
 interface HeroProps {
   onQuoteRequest: () => void;
@@ -84,6 +85,10 @@ const Hero: React.FC<HeroProps> = ({ onQuickQuote }) => {
                   <path d="M4.167 10h11.666M10 4.167L15.833 10 10 15.833" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
+
+              <div className="feature-card-logo">
+                <img src={tLogo} alt="Tekin Tercüme Logo" />
+              </div>
             </div>
           </div>
         </div>

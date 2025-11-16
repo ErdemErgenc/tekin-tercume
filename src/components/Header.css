@@ -38,7 +38,7 @@
 }
 
 .logo {
-  height: 45px;
+  height: 65px;
   width: auto;
 }
 
@@ -54,7 +54,7 @@
 
 .logo-text::after {
   content: 'Tercüme';
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 /* Navigation */
@@ -511,7 +511,7 @@
   }
 
   .logo {
-    height: 35px;
+    height: 65px;
   }
 
   .header-actions {
