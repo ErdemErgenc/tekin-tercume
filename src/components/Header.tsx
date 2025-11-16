@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import GB from 'country-flag-icons/react/3x2/GB';
+import TR from 'country-flag-icons/react/3x2/TR';
 import DE from 'country-flag-icons/react/3x2/DE';
 import FR from 'country-flag-icons/react/3x2/FR';
 import IT from 'country-flag-icons/react/3x2/IT';
@@ -31,6 +32,7 @@ const Header: React.FC<HeaderProps> = ({
   const { t, lang, setLang } = useI18n();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -187,18 +189,47 @@ const Header: React.FC<HeaderProps> = ({
           {/* Header Actions */}
           <div className="header-actions">
             {/* Language Switcher */}
-            <div className="language-switcher">
+            <div className={`language-switcher language-switch ${isLangOpen ? 'open' : ''}`}>
               <button
                 className="language-btn"
-                onClick={() => {
-                  const next = (lang === 'tr' ? 'en' : 'tr');
-                  setLang?.(next as any);
-                  onLanguageChange?.(next);
-                }}
+                onClick={() => setIsLangOpen((v) => !v)}
+                aria-haspopup="listbox"
+                aria-expanded={isLangOpen}
               >
-                <span className="flag">{lang === 'tr' ? '🇹🇷' : '🇬🇧'}</span>
+                {lang === 'tr' ? (
+                  <TR className="item-flag-svg" />
+                ) : (
+                  <GB className="item-flag-svg" />
+                )}
                 <span className="lang-code">{lang === 'tr' ? t('header.langCode.tr') : t('header.langCode.en')}</span>
+                <span className="dropdown-arrow">▾</span>
               </button>
+              {isLangOpen && (
+                <div className="language-dropdown" role="listbox">
+                  <button
+                    className={`language-option ${lang === 'tr' ? 'active' : ''}`}
+                    onClick={() => {
+                      setLang?.('tr');
+                      onLanguageChange?.('tr');
+                      setIsLangOpen(false);
+                    }}
+                  >
+                    <TR className="item-flag-svg" />
+                    <span>TR — Türkçe</span>
+                  </button>
+                  <button
+                    className={`language-option ${lang === 'en' ? 'active' : ''}`}
+                    onClick={() => {
+                      setLang?.('en');
+                      onLanguageChange?.('en');
+                      setIsLangOpen(false);
+                    }}
+                  >
+                    <GB className="item-flag-svg" />
+                    <span>EN — English</span>
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Quote Button - Opens New Page */}
