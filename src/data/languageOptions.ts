@@ -57,5 +57,6 @@ export const languageOptions: LanguageOption[] = [
   { value: 'mongolian', labelKey: 'languageOptions.mongolian' },
   { value: 'icelandic', labelKey: 'languageOptions.icelandic' },
   { value: 'luxembourgish', labelKey: 'languageOptions.luxembourgish' },
+  { value: 'albanian', labelKey: 'languageOptions.albanian' },
   { value: 'other', labelKey: 'languageOptions.other' }
 ];

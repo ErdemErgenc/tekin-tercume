@@ -86,6 +86,7 @@ export const en = {
     mongolian: 'Mongolian',
     icelandic: 'Icelandic',
     luxembourgish: 'Luxembourgish',
+    albanian: 'Albanian',
     other: 'Other (Please specify)'
   },
   services: {

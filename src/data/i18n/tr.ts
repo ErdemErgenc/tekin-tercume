@@ -86,6 +86,7 @@ export const tr = {
     mongolian: 'Moğolca',
     icelandic: 'İzlandaca',
     luxembourgish: 'Lüksemburgca',
+    albanian: 'Arnavutça',
     other: 'Diğer (Lütfen belirtin)'
   },
   services: {

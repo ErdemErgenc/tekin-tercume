@@ -108,8 +108,7 @@ const Header: React.FC<HeaderProps> = ({
         { name: t('languageOptions.bulgarian'), id: 'language-bulgarca', flagComponent: BG },
         { name: t('languageOptions.romanian'), id: 'language-romence', flagComponent: RO },
         { name: t('languageOptions.ukrainian'), id: 'language-ukraynaca', flagComponent: UA },
-        // Albanian & Macedonian do not exist in languageOptions yet; keep Turkish labels
-        { name: 'Arnavutça', id: 'language-arnavutca', flagComponent: AL },
+        { name: t('languageOptions.albanian'), id: 'language-arnavutca', flagComponent: AL },
         { name: t('languageOptions.spanish'), id: 'language-ispanyolca', flagComponent: ES },
         { name: t('languageOptions.polish'), id: 'language-lehce', flagComponent: PL },
         { name: t('languageOptions.portuguese'), id: 'language-portekizce', flagComponent: PT },
@@ -234,9 +233,8 @@ const Header: React.FC<HeaderProps> = ({
           <div className="header-actions">
             {/* Language Switcher */}
             <div
-              className={`language-switcher language-switch ${
-                isLangOpen ? 'open' : ''
-              }`}
+              className={`language-switcher language-switch ${isLangOpen ? 'open' : ''
+                }`}
             >
               <button
                 className="language-btn"
