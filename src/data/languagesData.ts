@@ -13,6 +13,18 @@ import NL from 'country-flag-icons/react/3x2/NL';
 import BG from 'country-flag-icons/react/3x2/BG';
 import RO from 'country-flag-icons/react/3x2/RO';
 import UA from 'country-flag-icons/react/3x2/UA';
+import AL from 'country-flag-icons/react/3x2/AL';
+import ES from 'country-flag-icons/react/3x2/ES';
+import PL from 'country-flag-icons/react/3x2/PL';
+import PT from 'country-flag-icons/react/3x2/PT';
+import CZ from 'country-flag-icons/react/3x2/CZ';
+import UZ from 'country-flag-icons/react/3x2/UZ';
+import TM from 'country-flag-icons/react/3x2/TM';
+import KG from 'country-flag-icons/react/3x2/KG';
+import AZ from 'country-flag-icons/react/3x2/AZ';
+import ID from 'country-flag-icons/react/3x2/ID';
+import GE from 'country-flag-icons/react/3x2/GE';
+import MK from 'country-flag-icons/react/3x2/MK';
 
 // Tüm dil verileri
 export interface LanguageData {
@@ -258,6 +270,198 @@ export const languagesData: Record<string, LanguageData> = {
       'Усі документи, необхідні для заявок на візу та імміграцію',
       'Усні переклади (перед нотаріусом, на весіллях, зустрічах та офіційних процедурах)',
       'Технічні та медичні документи (інструкції, звіти, медичні сертифікати тощо)'
+    ]
+  },
+  arnavutca: {
+    name: 'Arnavutça',
+    flagComponent: AL,
+    turkish: 'Arnavutça belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Dokumentet tuaja në gjuhën shqipe përkthehen nga përkthyesit tanë të betuar dhe marrin vlefshmëri zyrtare me vulën noteriale.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Dokumente personale si letërnjoftimi, pasaporta, certifikata e lindjes, certifikata e martesës dhe dokumente të tjera personale',
+      'Dokumente ligjore si vendimi i divorcit, aktgjykimet, prokurat, certifikatat e pronësisë dhe kontratat e qirasë',
+      'Dokumente akademike si diploma, transkripte, vërtetime studenti, certifikata, artikuj akademikë dhe teza',
+      'Dokumente tregtare si kontrata tregtare, dokumentet e themelimit të kompanisë, certifikata tatimore, regjistri tregtar dhe faturat',
+      'Të gjitha dokumentet e nevojshme për aplikimet për vizə və emigracion',
+      'Shërbime interpretimi (para noterit, në procedurat e martesës, në takime dhe në mbledhje zyrtare)',
+      'Dokumente teknike dhe mjekësore (manuale përdorimi, raporte, certifikata mjekësore etj.)'
+    ]
+  },
+  ispanyolca: {
+    name: 'İspanyolca',
+    flagComponent: ES,
+    turkish: 'İspanyolca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Sus documentos en español son traducidos por nuestros traductores jurados y obtienen validez oficial con certificación notarial.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Documentos personales como documento de identidad, pasaporte, certificado de nacimiento, certificado de matrimonio y otros documentos personales',
+      'Documentos legales como sentencia de divorcio, resoluciones judiciales, poderes notariales, escrituras de propiedad y contratos de alquiler',
+      'Documentos académicos como diplomas, historiales académicos, certificados de estudiante, certificados, artículos académicos y tesis',
+      'Documentos comerciales como contratos comerciales, documentos de constitución de empresas, certificados fiscales, registros mercantiles y facturas',
+      'Todos los documentos necesarios para solicitudes de visado y de inmigración',
+      'Servicios de interpretación (ante notario, en ceremonias de matrimonio, reuniones y entrevistas oficiales)',
+      'Documentos técnicos y médicos (manuales de uso, informes, certificados médicos, etc.)'
+    ]
+  },
+  lehce: {
+    name: 'Lehçe',
+    flagComponent: PL,
+    turkish: 'Lehçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Państwa dokumenty w języku polskim są tłumaczone przez naszych tłumaczy przysięgłych i uzyskują moc urzędową dzięki poświadczeniu notarialnemu.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Dokumenty osobiste, takie jak dowód osobisty, paszport, akt urodzenia, akt małżeństwa i inne dokumenty osobiste',
+      'Dokumenty prawne, takie jak wyroki rozwodowe, orzeczenia sądowe, pełnomocnictwa, akty własności oraz umowy najmu',
+      'Dokumenty akademickie, takie jak dyplomy, transkrypty, zaświadczenia o studiowaniu, certyfikaty, artykuły naukowe i prace dyplomowe',
+      'Dokumenty handlowe, takie jak umowy handlowe, dokumenty rejestracyjne firm, zaświadczenia podatkowe, odpisy z rejestru handlowego oraz faktury',
+      'Wszystkie dokumenty wymagane do wniosków wizowych i imigracyjnych',
+      'Usługi tłumaczeń ustnych (u notariusza, podczas czynności ślubnych, na spotkaniach i w oficjalnych rozmowach)',
+      'Dokumenty techniczne i medyczne (instrukcje obsługi, raporty, zaświadczenia medyczne itp.)'
+    ]
+  },
+  portekizce: {
+    name: 'Portekizce',
+    flagComponent: PT,
+    turkish: 'Portekizce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Seus documentos em português são traduzidos por nossos tradutores juramentados e adquirem validade oficial com o reconhecimento em cartório.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Documentos pessoais como carteira de identidade, passaporte, certidão de nascimento, certidão de casamento e outros documentos pessoais',
+      'Documentos jurídicos como sentença de divórcio, decisões judiciais, procurações, escrituras de propriedade e contratos de locação',
+      'Documentos acadêmicos como diplomas, históricos escolares, atestados de matrícula, certificados, artigos acadêmicos e teses',
+      'Documentos comerciais como contratos comerciais, documentos de constituição de empresas, comprovantes de inscrição fiscal, registros comerciais e faturas',
+      'Todos os documentos necessários para pedidos de visto e processos de imigração',
+      'Serviços de interpretação (perante o tabelião, em cerimônias de casamento, reuniões e entrevistas oficiais)',
+      'Documentos técnicos e médicos (manuais de utilização, relatórios, certificados médicos, etc.)'
+    ]
+  },
+  cekce: {
+    name: 'Çekçe',
+    flagComponent: CZ,
+    turkish: 'Çekçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Vaše dokumenty v českém jazyce jsou překládány našimi soudními tlumočníky a získávají úřední platnost díky notářskému ověření.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Osobní dokumenty jako občanský průkaz, pas, rodný list, oddací list a další osobní doklady',
+      'Právní dokumenty jako rozvodové rozsudky, soudní rozhodnutí, plné moci, listy vlastnictví a nájemní smlouvy',
+      'Akademické dokumenty jako diplomy, výpisy ze studia, potvrzení o studiu, certifikáty, odborné články a závěrečné práce',
+      'Obchodní dokumenty jako obchodní smlouvy, zakladatelské listiny společností, daňová potvrzení, výpisy z obchodního rejstříku a faktury',
+      'Veškeré dokumenty potřebné pro žádosti o víza a imigrační řízení',
+      'Tlumočnické služby (u notáře, při uzavírání sňatku, na schůzkách a při oficiálních jednáních)',
+      'Technické a lékařské dokumenty (návody k použití, zprávy, lékařská potvrzení apod.)'
+    ]
+  },
+  ozbekce: {
+    name: 'Özbekçe',
+    flagComponent: UZ,
+    turkish: 'Özbekçe belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'O‘zbek tilidagi hujjatlaringiz qasamyodli tarjimonlarimiz tomonidan tarjima qilinadi va notarial tasdiq bilan rasmiy kuchga ega bo‘ladi.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Shaxsiy hujjatlar, jumladan shaxsni tasdiqlovchi hujjat, pasport, tug‘ilganlik guvohnomasi, nikoh guvohnomasi va shunga o‘xshash shaxsiy hujjatlar',
+      'Yuridik hujjatlar, masalan ajrim (ajralish) qarori, sud hujjatlari, ishonchnomalar, mulk hujjatlari va ijara shartnomalari',
+      'Taʼlim va akademik hujjatlar, jumladan diplom, transkript, talabalik haqida maʼlumotnoma, sertifikatlar, ilmiy maqolalar va dissertatsiyalar',
+      'Tijorat hujjatlari, jumladan tijorat shartnomalari, kompaniya tashkil etish hujjatlari, soliq guvohnomasi, savdo reyestri hujjatlari va hisob-fakturalar',
+      'Viza va immigratsiya arizalari uchun zarur bo‘lgan barcha hujjatlar',
+      'Og‘zaki tarjima xizmatlari (notarius huzurida, nikoh marosimlarida, uchrashuvlarda va rasmiy muzokaralarda)',
+      'Texnik va tibbiy hujjatlar (foydalanish qo‘llanmalari, hisobotlar, tibbiy sertifikatlar va boshqalar)'
+    ]
+  },
+  turkmence: {
+    name: 'Türkmence',
+    flagComponent: TM,
+    turkish: 'Türkmence belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Türkmençe resminamalaryňyz biziň kasam eden terjimeçilerimiz tarapyndan terjime edilýär we notarius tassyklamasy bilen resmi güýje eýe bolýar.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Şahsy resminamalar, şol sanda şahsyýetnamalar, pasportlar, dogluş hakyndaky şahadatnamalar, nikah şahadatnamalary we şoňa meňzeş şahsy resminamalar',
+      'Hukuk resminamalary, mysal üçin, aýrylyşmak baradaky kazyýet kararlary, beýleki kazyýet çözgütleri, ynanç hatlary, emläk resminamalary we kärende şertnamalary',
+      'Bilim we akademiki resminamalar, şol sanda diplomlar, transkriptler, talyp şahadatnamalary, sertifikatlar, ylmy makalalar we dissertasiýalar',
+      'Söwda resminamalary, şol sanda söwda şertnamalary, kompaniýany esaslandyryş resminamalary, salgyt resminamalary, söwda registrinden güwänamalar we hasap-fakturalar',
+      'Wiza we immigrasiýa boýunça ýüz tutmalara zerur ähli resminamalar',
+      'Dilden terjime hyzmatlary (notariusyň öňünde, nikah dabaralarynda, duşuşyklarda we resmi gepleşiklerde)',
+      'Tehniki we lukmançylyk resminamalary (ulanyş gollanmalary, hasabatlar, lukmançylyk şahadatnamalary we ş.m.)'
+    ]
+  },
+  kirgizca: {
+    name: 'Kırgızca',
+    flagComponent: KG,
+    turkish: 'Kırgızca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Кыргыз тилиндеги документтериңиз биздин ант берген котормочулар тарабынан которулуп, нотариалдык күбөлөндүрүү аркылуу расмий күчүнө ээ болот.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Жеке документтер: жеке күбөлүк, паспорт, туулгандыгы тууралуу күбөлүк, нике тууралуу күбөлүк жана окшош жеке документтер',
+      'Юридикалык документтер: ажырашуу чечими, сот токтомдору, ишеним каттар, менчикке укук берүүчү документтер жана ижара келишимдери',
+      'Академиялык документтер: дипломдор, транскрипттер, студенттик маалымкаттар, сертификаттар, илимий макалалар жана диссертациялар',
+      'Коммерциялык документтер: коммерциялык келишимдер, компанияны каттоо документтери, салык боюнча маалымкаттар, соода реестринен көчүрмөлөр жана эсеп-фактуралар',
+      'Виза жана миграциялык арыздар үчүн талап кылынган бардык документтер',
+      'Оозеки котормо кызматтары (нотариус алдында, нике аземдеринде, жолугушууларда жана расмий сүйлөшүүлөрдө)',
+      'Техникалык жана медициналык документтер (колдонмо көрсөтмөлөрү, отчеттор, медициналык маалымкаттар ж.б.)'
+    ]
+  },
+  azerice: {
+    name: 'Azerice',
+    flagComponent: AZ,
+    turkish: 'Azerice belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Azərbaycan dilindəki sənədləriniz andlı tərcüməçilərimiz tərəfindən tərcümə olunur və notariat təsdiqi ilə rəsmi qüvvə qazanır.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Şəxsi sənədlər, o cümlədən şəxsiyyət vəsiqəsi, pasport, doğum haqqında şəhadətnamə, nikah haqqında şəhadətnamə və digər şəxsi sənədlər',
+      'Hüquqi sənədlər, məsələn, boşanma qərarları, məhkəmə qərarları, etibarnamələr, mülkiyyətə dair sənədlər və icarə müqavilələri',
+      'Təhsil və akademik sənədlər, o cümlədən diplomlar, transkriptlər, tələbə arayışları, sertifikatlar, elmi məqalələr və dissertasiyalar',
+      'Kommersiya sənədləri, o cümlədən kommersiya müqavilələri, şirkətin qeydiyyat sənədləri, vergi arayışları, ticarət reyestrindən çıxarışlar və hesab-fakturalar',
+      'Viza və immiqrasiya müraciətləri üçün tələb olunan bütün sənədlər',
+      'Şifahi tərcümə xidmətləri (notarius yanında, nikah mərasimlərində, görüşlərdə və rəsmi danışıqlarda)',
+      'Texniki və tibbi sənədlər (istifadə təlimatları, hesabatlar, tibbi arayışlar və s.)'
+    ]
+  },
+  endonezce: {
+    name: 'Endonezce',
+    flagComponent: ID,
+    turkish: 'Endonezce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Dokumen Anda dalam bahasa Indonesia diterjemahkan oleh penerjemah tersumpah kami dan memperoleh kekuatan hukum resmi melalui pengesahan notaris.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Dokumen pribadi seperti kartu identitas, paspor, akta kelahiran, akta nikah dan dokumen pribadi lainnya',
+      'Dokumen hukum seperti putusan perceraian, keputusan pengadilan, surat kuasa, sertifikat kepemilikan dan perjanjian sewa',
+      'Dokumen akademik seperti ijazah, transkrip nilai, surat keterangan mahasiswa, sertifikat, artikel ilmiah dan tesis',
+      'Dokumen komersial seperti kontrak dagang, dokumen pendirian perusahaan, surat keterangan pajak, dokumen registrasi dagang dan faktur',
+      'Semua dokumen yang diperlukan untuk pengajuan visa dan permohonan imigrasi',
+      'Layanan penerjemahan lisan (di hadapan notaris, dalam proses pernikahan, pertemuan dan pertemuan resmi)',
+      'Dokumen teknis dan medis (manual penggunaan, laporan, sertifikat medis dan lain-lain)'
+    ]
+  },
+  gurcuce: {
+    name: 'Gürcüce',
+    flagComponent: GE,
+    turkish: 'Gürcüce belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'თქვენი ქართული დოკუმენტები ითარგმნება ჩვენი ფიცგადამცემი მთარგმნელების მიერ და ნოტარიული დამოწმებით იძენს ოფიციალურ იურიდიულ ძალას.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'პირადი დოკუმენტები, როგორიცაა პირადობის მოწმობა, პასპორტი, დაბადების მოწმობა, ქორწინების მოწმობა და სხვა პირადი დოკუმენტები',
+      'იურიდიული დოკუმენტები, როგორიცაა განქორწინების გადაწყვეტილებები, სასამართლო განჩინებები, მინდობილობები, საკუთრების დამადასტურებელი სერთიფიკატები და ქირაობის ხელშეკრულებები',
+      'აკადემიური დოკუმენტები, როგორიცაა დიპლომები, ქულების ამონაწერები, სტუდენტობის დამადასტურებელი ცნობები, სერტიფიკატები, აკადემიური სტატია და თეზისები',
+      'კომერციული დოკუმენტები, როგორიცაა სავაჭრო კონტრაქტები, კომპანიების რეგისტრაციის დოკუმენტები, საგადასახადო ცნობები, სავაჭრო რეესტრის ამონაწერები და ინვოისები',
+      'ყველა საჭირო დოკუმენტი ვიზისა და მიგრაციის განაცხადებისთვის',
+      'ზეპირი თარგმნის მომსახურება (ნოტარიუსთან, ქორწინების ცერემონიებზე, შეხვედრებზე და ოფიციალურ მოლაპარაკებებზე)',
+      'ტექნიკური და სამედიცინო დოკუმენტები (გამოყენების ინსტრუქციები, ანგარიშები, სამედიცინო სერტიფიკატები და სხვ.)'
+    ]
+  },
+  makedonca: {
+    name: 'Makedonca',
+    flagComponent: MK,
+    turkish: 'Makedonca belgeleriniz yeminli tercümanlarımız tarafından çevrilmekte ve noter onayıyla resmiyet kazanmaktadır.',
+    foreign: 'Вашите документи на македонски јазик се преведуваат од наши судски преведувачи и добиваат официјална важност со нотарска заверка.',
+    turkishServices: turkishServices,
+    foreignServices: [
+      'Лични документи како лична карта, пасош, извод од матична книга на родени, венчаница и други лични документи',
+      'Правни документи како одлуки за развод, судски пресуди, полномошни, имотни листови и договори за наем',
+      'Академски документи како дипломи, транскрипти, студентски потврди, сертификати, академски трудови и тези',
+      'Трговски документи како трговски договори, документи за основање фирма, даночни потврди, изводи од трговскиот регистар и фактури',
+      'Сите потребни документи за апликации за виза и имиграција',
+      'Услуги на усно преведување (пред нотар, при склучување брак, на состаноци и официјални разговори)',
+      'Технички и медицински документи (упатства за користење, извештаи, медицински сертификати итн.)'
     ]
   },
   diger: {
