@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import GB from 'country-flag-icons/react/3x2/GB';
 import TR from 'country-flag-icons/react/3x2/TR';
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({
         {
           name: t('header.nav.items.immigration.name'),
           id: 'immigration-services',
-          icon: '🧭',
+          icon: '🧳',
           description: t('header.nav.items.immigration.desc')
         },
         {
@@ -94,31 +94,32 @@ const Header: React.FC<HeaderProps> = ({
       id: 'languages',
       hasDropdown: true,
       subItems: [
-        { name: 'İngilizce', id: 'language-ingilizce', flagComponent: GB },
-        { name: 'Almanca', id: 'language-almanca', flagComponent: DE },
-        { name: 'Fransızca', id: 'language-fransizca', flagComponent: FR },
-        { name: 'İtalyanca', id: 'language-italyanca', flagComponent: IT },
-        { name: 'Rusça', id: 'language-rusca', flagComponent: RU },
-        { name: 'Arapça', id: 'language-arapca', flagComponent: SA },
-        { name: 'Farsça', id: 'language-farsca', flagComponent: IR },
-        { name: 'Çince', id: 'language-cince', flagComponent: CN },
-        { name: 'Japonca', id: 'language-japonca', flagComponent: JP },
-        { name: 'Yunanca', id: 'language-yunanca', flagComponent: GR },
-        { name: 'Felemenkçe', id: 'language-felemenkce', flagComponent: NL },
-        { name: 'Bulgarca', id: 'language-bulgarca', flagComponent: BG },
-        { name: 'Romence', id: 'language-romence', flagComponent: RO },
-        { name: 'Ukraynaca', id: 'language-ukraynaca', flagComponent: UA },
+        { name: t('languageOptions.english'), id: 'language-ingilizce', flagComponent: GB },
+        { name: t('languageOptions.german'), id: 'language-almanca', flagComponent: DE },
+        { name: t('languageOptions.french'), id: 'language-fransizca', flagComponent: FR },
+        { name: t('languageOptions.italian'), id: 'language-italyanca', flagComponent: IT },
+        { name: t('languageOptions.russian'), id: 'language-rusca', flagComponent: RU },
+        { name: t('languageOptions.arabic'), id: 'language-arapca', flagComponent: SA },
+        { name: t('languageOptions.persian'), id: 'language-farsca', flagComponent: IR },
+        { name: t('languageOptions.chinese'), id: 'language-cince', flagComponent: CN },
+        { name: t('languageOptions.japanese'), id: 'language-japonca', flagComponent: JP },
+        { name: t('languageOptions.greek'), id: 'language-yunanca', flagComponent: GR },
+        { name: t('languageOptions.dutch'), id: 'language-felemenkce', flagComponent: NL },
+        { name: t('languageOptions.bulgarian'), id: 'language-bulgarca', flagComponent: BG },
+        { name: t('languageOptions.romanian'), id: 'language-romence', flagComponent: RO },
+        { name: t('languageOptions.ukrainian'), id: 'language-ukraynaca', flagComponent: UA },
+        // Albanian & Macedonian do not exist in languageOptions yet; keep Turkish labels
         { name: 'Arnavutça', id: 'language-arnavutca', flagComponent: AL },
-        { name: 'İspanyolca', id: 'language-ispanyolca', flagComponent: ES },
-        { name: 'Lehçe', id: 'language-lehce', flagComponent: PL },
-        { name: 'Portekizce', id: 'language-portekizce', flagComponent: PT },
-        { name: 'Çekçe', id: 'language-cekce', flagComponent: CZ },
-        { name: 'Özbekçe', id: 'language-ozbekce', flagComponent: UZ },
-        { name: 'Türkmence', id: 'language-turkmence', flagComponent: TM },
-        { name: 'Kırgızca', id: 'language-kirgizca', flagComponent: KG },
-        { name: 'Azerice', id: 'language-azerice', flagComponent: AZ },
-        { name: 'Endonezce', id: 'language-endonezce', flagComponent: ID },
-        { name: 'Gürcüce', id: 'language-gurcuce', flagComponent: GE },
+        { name: t('languageOptions.spanish'), id: 'language-ispanyolca', flagComponent: ES },
+        { name: t('languageOptions.polish'), id: 'language-lehce', flagComponent: PL },
+        { name: t('languageOptions.portuguese'), id: 'language-portekizce', flagComponent: PT },
+        { name: t('languageOptions.czech'), id: 'language-cekce', flagComponent: CZ },
+        { name: t('languageOptions.uzbek'), id: 'language-ozbekce', flagComponent: UZ },
+        { name: t('languageOptions.turkmen'), id: 'language-turkmence', flagComponent: TM },
+        { name: t('languageOptions.kyrgyz'), id: 'language-kirgizca', flagComponent: KG },
+        { name: t('languageOptions.azerbaijani'), id: 'language-azerice', flagComponent: AZ },
+        { name: t('languageOptions.malay'), id: 'language-endonezce', flagComponent: ID },
+        { name: t('languageOptions.georgian'), id: 'language-gurcuce', flagComponent: GE },
         { name: 'Makedonca', id: 'language-makedonca', flagComponent: MK },
         { name: t('header.nav.items.otherLangs'), id: 'language-diger', flag: '🌐' }
       ]

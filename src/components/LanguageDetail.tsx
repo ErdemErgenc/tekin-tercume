@@ -9,7 +9,7 @@ interface LanguageDetailProps {
 }
 
 const LanguageDetail: React.FC<LanguageDetailProps> = ({ languageId, onNavigate }) => {
-  const { t } = useI18n();
+  const { t, get } = useI18n();
   const langKey = languageId.replace('language-', '');
   const currentLanguage = languagesData[langKey];
 
@@ -28,6 +28,8 @@ const LanguageDetail: React.FC<LanguageDetailProps> = ({ languageId, onNavigate 
       </section>
     );
   }
+
+  const services = (get('languages.modal.services') as string[]) || [];
 
   const getServicesTitleInForeignLanguage = () => {
     const titles: Record<string, string> = {
@@ -90,7 +92,7 @@ const LanguageDetail: React.FC<LanguageDetailProps> = ({ languageId, onNavigate 
           <div className="services-section">
             <h2 className="services-title">{t('languages.modal.servicesTitle')}</h2>
             <ul className="services-list">
-              {currentLanguage.turkishServices.map((service, index) => (
+              {services.map((service, index) => (
                 <li key={index} className="service-item">
                   <span className="service-bullet">•</span>
                   <span className="service-text">{service}</span>
@@ -149,4 +151,3 @@ const LanguageDetail: React.FC<LanguageDetailProps> = ({ languageId, onNavigate 
 };
 
 export default LanguageDetail;
-
