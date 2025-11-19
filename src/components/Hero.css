@@ -314,8 +314,15 @@
     font-size: 1.2rem;
   }
 
+  .hero-text {
+    margin-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
   .hero-feature-card {
     justify-content: center;
+    padding-left: 0;
   }
 
   .feature-card {

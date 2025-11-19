@@ -155,6 +155,7 @@ const Header: React.FC<HeaderProps> = ({
                         setOpenDropdown((prev) => (prev === item.id ? null : item.id));
                       } else {
                         onNavigate(item.id);
+                        setIsMobileMenuOpen(false);
                       }
                     }}
                   >
@@ -189,6 +190,7 @@ const Header: React.FC<HeaderProps> = ({
                               onClick={() => {
                                 onNavigate(subItem.id);
                                 setOpenDropdown(null);
+                                setIsMobileMenuOpen(false);
                               }}
                             >
                               <div className="service-card-icon">{subItem.icon}</div>
@@ -211,6 +213,7 @@ const Header: React.FC<HeaderProps> = ({
                             onClick={() => {
                               onNavigate(subItem.id);
                               setOpenDropdown(null);
+                              setIsMobileMenuOpen(false);
                             }}
                           >
                             {FlagComponent ? (
