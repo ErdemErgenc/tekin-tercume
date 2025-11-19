@@ -77,7 +77,7 @@ Web sitesinde quote/iletişim formunu kullan ve Gmail'i kontrol et.
 1. **Environment variables missing**: Vercel Dashboard'da kontrol et
 2. **Gmail authentication error**: App password doğru mu? 2FA açık mı?
 3. **Rate limit**: 429/503 hata kodlarında bir süre bekleyin
-4. **File upload limits**: Vercel body limit ~10MB (ayarlanmıştır)
+4. **File upload limits**: Vercel body limit ~20MB (ayarlanmıştır)
 
 ### Debug Logs:
 Vercel Dashboard > Functions > Logs

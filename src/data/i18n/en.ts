@@ -83,6 +83,7 @@ export const en = {
     uyghur: 'Uyghur',
     armenian: 'Armenian',
     georgian: 'Georgian',
+    macedonian: 'Macedonian',
     mongolian: 'Mongolian',
     icelandic: 'Icelandic',
     luxembourgish: 'Luxembourgish',
@@ -372,7 +373,7 @@ export const en = {
       copies: { one: '1 copy', two: '2 copies', three: '3 copies', more: 'More' },
       urgency: { normal: 'Normal', urgent: 'Urgent (24h)', very: 'Very Urgent (12h)' }
     },
-    file: { limitError: 'File size cannot exceed 10 MB.' },
+    file: { limitError: 'File size cannot exceed 20 MB.' },
     placeholders: { name: 'Enter your full name', phone: '+90 5XX XXX XX XX', email: 'example@email.com' },
     errors: { serverResponse: 'Server response error. Is the backend running?', emailFailed: 'Email sending failed.' }
   },

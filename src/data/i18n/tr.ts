@@ -83,6 +83,7 @@ export const tr = {
     uyghur: 'Uygurca',
     armenian: 'Ermenice',
     georgian: 'Gürcüce',
+    macedonian: 'Makedonca',
     mongolian: 'Moğolca',
     icelandic: 'İzlandaca',
     luxembourgish: 'Lüksemburgca',
@@ -372,7 +373,7 @@ export const tr = {
       copies: { one: '1 kopya', two: '2 kopya', three: '3 kopya', more: 'Daha fazla' },
       urgency: { normal: 'Normal', urgent: 'Acil (24 saat)', very: 'Çok Acil (12 saat)' }
     },
-    file: { limitError: "Dosya boyutu 10 MB'ı aşamaz." },
+    file: { limitError: "Dosya boyutu 20 MB'ı aşamaz." },
     placeholders: { name: 'Adınızı ve soyadınızı girin', phone: '+90 5XX XXX XX XX', email: 'ornek@email.com' },
     errors: { serverResponse: 'Server yanıt hatası. Backend çalışıyor mu?', emailFailed: 'Email gönderimi başarısız.' }
   },

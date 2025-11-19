@@ -48,7 +48,7 @@ const QuickQuote: React.FC<QuickQuoteProps> = ({
     const file = e.target.files?.[0] || null;
     setFileError(null); // Reset error on new file selection
 
-    if (file && file.size > 10 * 1024 * 1024) { // 10 MB limit
+    if (file && file.size > 20 * 1024 * 1024) { // 20 MB limit
       setFileError(t('quickQuote.file.limitError'));
       setFormData(prev => ({ ...prev, document: null }));
       e.target.value = ''; // Clear the file input

@@ -119,7 +119,7 @@ const Header: React.FC<HeaderProps> = ({
         { name: t('languageOptions.azerbaijani'), id: 'language-azerice', flagComponent: AZ },
         { name: t('languageOptions.malay'), id: 'language-endonezce', flagComponent: ID },
         { name: t('languageOptions.georgian'), id: 'language-gurcuce', flagComponent: GE },
-        { name: 'Makedonca', id: 'language-makedonca', flagComponent: MK },
+        { name: t('languageOptions.macedonian'), id: 'language-makedonca', flagComponent: MK },
         { name: t('header.nav.items.otherLangs'), id: 'language-diger', flag: '🌐' }
       ]
     },
